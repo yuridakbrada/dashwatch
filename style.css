@@ -269,6 +269,14 @@ a {
   color: var(--accent);
 }
 
+.article p,
+.article li,
+.article a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
 /* =========================
    FOOTER
 ========================= */
