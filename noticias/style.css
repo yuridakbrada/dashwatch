@@ -133,3 +133,71 @@ body {
     font-size: 22px;
   }
 }
+
+/* CONTEÚDO PERTUBADOR */
+.cw-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 16, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(6px);
+}
+
+.cw-box {
+  background: #151520;
+  border: 1px solid #2a2a3a;
+  border-radius: 12px;
+  padding: 28px;
+  max-width: 520px;
+  width: 90%;
+  text-align: center;
+  color: #eaeaea;
+}
+
+.cw-box h1 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.cw-box p {
+  color: #bdbdd3;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cw-sub {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.cw-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.cw-btn {
+  padding: 10px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid #2a2a3a;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.cw-btn.confirm {
+  background: #4da3ff;
+  color: #0f0f14;
+  border: none;
+}
+
+.cw-btn.back {
+  background: transparent;
+  color: #bdbdd3;
+}
