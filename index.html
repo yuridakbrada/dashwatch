@@ -4,44 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DashWatch - Primeiro portal de notícias de Geometry Dash no Brasil</title>
+<link rel="stylesheet" href="style.css">
 <link rel="shortcut icon" href="assets/dashwatch_favicon.png" type="image/x-icon">
-<style>
-*{box-sizing:border-box}
-body{margin:0;background:#fff;color:#171717;font-family:Arial,Helvetica,sans-serif}
-a{color:inherit;text-decoration:none}
-header{border-bottom:1px solid #222}
-.top{max-width:1100px;margin:auto;padding:22px 20px 16px;text-align:center}
-.logo{font-family:Georgia,serif;font-size:38px;font-weight:bold;letter-spacing:-1px}
-.logo span{color:#d71920}
-nav{border-top:1px solid #ddd;padding:11px 20px;text-align:center;font-size:13px;font-weight:bold}
-nav a{margin:0 14px}
-nav a:hover{color:#d71920}
-main{max-width:1100px;margin:30px auto;padding:0 20px}
-.breaking{border-bottom:3px solid #222;padding-bottom:9px;margin-bottom:22px;font-size:12px;font-weight:bold;text-transform:uppercase}
-.breaking span{color:#d71920;margin-right:8px}
-.layout{display:grid;grid-template-columns:2fr 1fr;gap:28px}
-.main-news{border-bottom:1px solid #bbb;padding-bottom:20px}
-.main-news img,.news img{width:100%;height:220px;object-fit:cover;background:#ddd}
-.main-news h1{font: bold 38px/1.05 Georgia,serif;margin:14px 0 8px}
-.main-news p,.news p{color:#555;line-height:1.45;margin:0}
-.side{display:flex;flex-direction:column;gap:18px}
-.news{border-bottom:1px solid #bbb;padding-bottom:18px}
-.news img{height:120px}
-.news h2{font: bold 22px/1.15 Georgia,serif;margin:9px 0 6px}
-.category{font-size:11px;color:#d71920;font-weight:bold;text-transform:uppercase}
-.section{border-bottom:3px solid #222;margin-top:35px;padding-bottom:8px;font: bold 24px Georgia,serif}
-.latest{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}
-.latest article{padding:17px 0;border-bottom:1px solid #ccc}
-.latest h2{font: bold 20px/1.2 Georgia,serif;margin:5px 0}
-.date{font-size:11px;color:#777;margin-top:8px}
-footer{margin-top:45px;border-top:1px solid #222;padding:25px 20px;text-align:center;color:#666;font-size:12px}
-@media(max-width:700px){
- nav a{display:inline-block;margin:5px 8px}
- .layout,.latest{grid-template-columns:1fr}
- .main-news h1{font-size:30px}
- .side{margin-top:5px}
-}
-</style>
+
 </head>
 <body>
 
@@ -56,10 +21,23 @@ footer{margin-top:45px;border-top:1px solid #222;padding:25px 20px;text-align:ce
     <a href="#community">COMUNIDADE</a>
     <a href="#updates">ATUALIZAÇÕES</a>
   </nav>
+
+<button id="theme-toggle" aria-label="Alternar tema">🌙</button>
 </header>
 
 <main>
-  <div class="breaking" id="general"><span>ÚLTIMAS</span>Notícias da comunidade de Geometry Dash</div>
+
+<div class="breaking" id="general">
+    <div class="breaking-track">
+        <span class="breaking-item">
+            <b>ÚLTIMAS</b> Notícias da comunidade de Geometry Dash
+        </span>
+
+        <span class="breaking-item">
+            <b>ÚLTIMAS</b> Notícias da comunidade de Geometry Dash
+        </span>
+    </div>
+</div>
 
   <section class="layout">
     <article class="main-news">
@@ -99,7 +77,7 @@ footer{margin-top:45px;border-top:1px solid #222;padding:25px 20px;text-align:ce
 
     <article>
       <div class="category">Competição</div>
-      <h2>breakcore11 fluka Silent Clubstep a partir dos 40%</h2>
+      <a href="notícias/breakcore11-fluka-silent-clubstep-a-partir-dos-40.html"><h2>breakcore11 fluka Silent Clubstep a partir dos 40%</h2></a>
       <p>Jogador estoniano completa Silent Clubstep após alcançar 40%, registrando um dos maiores flukes recentes no nível.</p>
       <div class="date">29 de agosto · 11:07</div>
     </article>
@@ -169,6 +147,8 @@ footer{margin-top:45px;border-top:1px solid #222;padding:25px 20px;text-align:ce
   <strong>DashWatch</strong><br>
   Notícias de Geometry Dash · 2026
 </footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
