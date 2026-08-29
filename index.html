@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DashWatch - Primeiro portal de notícias de Geometry Dash no Brasil</title>
+<link rel="shortcut icon" href="assets/dashwatch_favicon.png" type="image/x-icon">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:#171717;font-family:Arial,Helvetica,sans-serif}
+a{color:inherit;text-decoration:none}
+header{border-bottom:1px solid #222}
+.top{max-width:1100px;margin:auto;padding:22px 20px 16px;text-align:center}
+.logo{font-family:Georgia,serif;font-size:38px;font-weight:bold;letter-spacing:-1px}
+.logo span{color:#d71920}
+nav{border-top:1px solid #ddd;padding:11px 20px;text-align:center;font-size:13px;font-weight:bold}
+nav a{margin:0 14px}
+nav a:hover{color:#d71920}
+main{max-width:1100px;margin:30px auto;padding:0 20px}
+.breaking{border-bottom:3px solid #222;padding-bottom:9px;margin-bottom:22px;font-size:12px;font-weight:bold;text-transform:uppercase}
+.breaking span{color:#d71920;margin-right:8px}
+.layout{display:grid;grid-template-columns:2fr 1fr;gap:28px}
+.main-news{border-bottom:1px solid #bbb;padding-bottom:20px}
+.main-news img,.news img{width:100%;height:220px;object-fit:cover;background:#ddd}
+.main-news h1{font: bold 38px/1.05 Georgia,serif;margin:14px 0 8px}
+.main-news p,.news p{color:#555;line-height:1.45;margin:0}
+.side{display:flex;flex-direction:column;gap:18px}
+.news{border-bottom:1px solid #bbb;padding-bottom:18px}
+.news img{height:120px}
+.news h2{font: bold 22px/1.15 Georgia,serif;margin:9px 0 6px}
+.category{font-size:11px;color:#d71920;font-weight:bold;text-transform:uppercase}
+.section{border-bottom:3px solid #222;margin-top:35px;padding-bottom:8px;font: bold 24px Georgia,serif}
+.latest{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}
+.latest article{padding:17px 0;border-bottom:1px solid #ccc}
+.latest h2{font: bold 20px/1.2 Georgia,serif;margin:5px 0}
+.date{font-size:11px;color:#777;margin-top:8px}
+footer{margin-top:45px;border-top:1px solid #222;padding:25px 20px;text-align:center;color:#666;font-size:12px}
+@media(max-width:700px){
+ nav a{display:inline-block;margin:5px 8px}
+ .layout,.latest{grid-template-columns:1fr}
+ .main-news h1{font-size:30px}
+ .side{margin-top:5px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="top">
+    <div class="logo">DASH<span>WATCH</span></div>
+  </div>
+  <nav>
+    <a href="#general">GERAL</a>
+    <a href="#competition">COMPETIÇÃO</a>
+    <a href="#levels">NÍVEIS</a>
+    <a href="#community">COMUNIDADE</a>
+    <a href="#updates">ATUALIZAÇÕES</a>
+  </nav>
+</header>
+
+<main>
+  <div class="breaking" id="general"><span>ÚLTIMAS</span>Notícias da comunidade de Geometry Dash</div>
+
+  <section class="layout">
+    <article class="main-news">
+      <div style="height:220px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#888">
+        <img src="https://img.youtube.com/vi/C2ELZa-VeMc/maxresdefault.jpg" alt="">
+      </div>
+      <div class="category" style="margin-top:14px">Competição</div>
+      <h1>cc478 consegue 72% em Eternal Silence</h1>
+      <p>cc478 estabelece uma nova marca em uma versão decorada de Unnerfed Silent Clubstep, chamando atenção da comunidade..</p>
+      <div class="date">26 de agosto de 2026 · 15:48</div>
+    </article>
+
+    <aside class="side">
+      <article class="news">
+        <div style="height:120px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#888">
+          <img src="https://preview.redd.it/zenthicalpha-is-getting-married-v0-7def001wnmlh1.jpeg?width=1080&crop=smart&auto=webp&s=1a0d3e069d86cff8db58aee6e74eab857bd7544c" alt="">
+        </div>
+        <div class="category" style="margin-top:10px">Comunidade</div>
+        <h2>ZenthicAlpha está prestes a se casar</h2>
+        <p>Mulpan confirma que o casamento de um dos criadores mais conhecidos da história de Geometry Dash está próximo.</p>
+      </article>
+
+      <article class="news">
+        <div style="height:120px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#888">
+          <img src="https://img.youtube.com/vi/pJXWFuY_xSk/maxresdefault.jpg" alt="">
+        </div>
+        <div class="category" style="margin-top:10px">Competição</div>
+        <h2>Bacon completa Tidal Wave após cerca de 30 mil tentativas</h2>
+        <p>Jogador profissional conclui o Top 5 Tidal Wave após aproximadamente 30.000 tentativas e 79 horas de jogo, estabelecendo um novo hardest.</p>
+      </article>
+    </aside>
+  </section>
+
+  <div class="section" id="competition">Competição</div>
+
+  <section class="latest">
+
+    <article>
+      <div class="category">Competição</div>
+      <h2>breakcore11 fluka Silent Clubstep a partir dos 40%</h2>
+      <p>Jogador estoniano completa Silent Clubstep após alcançar 40%, registrando um dos maiores flukes recentes no nível.</p>
+      <div class="date">29 de agosto · 11:07</div>
+    </article>
+
+    <article>
+      <div class="category">Competição</div>
+      <h2>dezstr0 alcança 32–100% em Silent Oppenheimer</h2>
+      <p>Jogador profissional consegue uma nova melhor run no nível que está previsto para entrar no Top 10 da Demonlist.</p>
+      <div class="date">24 de agosto · 14:26</div>
+    </article>
+  </section>
+
+  <div class="section" id="levels">Níveis</div>
+
+  <section class="latest">
+
+    <article>
+      <div class="category">Níveis</div>
+      <h2>HOLLA OUT, de Destriv, é destaque como Daily Level</h2>
+      <p>Level criado por Destriv ganha destaque como o Daily Level de Geometry Dash.</p>
+      <div class="date">28 de agosto · 20:25</div>
+    </article>
+
+    <article>
+      <div class="category">Níveis</div>
+      <h2>Mk2, de dolphe, é selecionado como Event Level</h2>
+      <p>O nível criado por dolphe foi escolhido para integrar os Event Levels de Geometry Dash.</p>
+      <div class="date">23 de agosto · 21:28</div>
+    </article>
+  </section>
+
+  <div class="section" id="community">Comunidade</div>
+
+  <section class="latest">
+
+    <article>
+      <div class="category">Comunidade</div>
+      <a href="404.html"><h2>yuridakbrada, proprietário do portal de notícias DashWatch, não encontra notícia recente sobre o tema</h2></a>
+      <p>“Eu ainda tenho esperança de que tenha algum tópico sobre isso”, diz yuridakbrada.</p>
+      <div class="date">31 de dezembro de 1969 · 23:59</div>
+    </article>
+  </section>
+
+  <div class="section" id="updates">Atualizações</div>
+
+  <section class="latest">
+
+    <article>
+      <div class="category">Níveis</div>
+      <a href="404.html"><h2>yuridakbrada, proprietário do portal de notícias DashWatch, não encontra notícia recente sobre o tema</h2></a>
+      <p>“Eu ainda tenho esperança de que tenha algum tópico sobre isso”, diz yuridakbrada.</p>
+      <div class="date">31 de dezembro de 1969 · 23:59</div>
+    </article>
+  </section>
+
+</main>
+
+<footer>
+  <strong>DashWatch</strong><br>
+  Notícias de Geometry Dash · 2026
+</footer>
+
+</body>
+</html>
