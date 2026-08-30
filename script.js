@@ -33,18 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const breaking = document.querySelector(".breaking");
 const track = document.querySelector(".breaking-track");
-const items = document.querySelectorAll(".breaking-item");
+const item = document.querySelector(".breaking-item");
 
-if (breaking && track && items.length === 2) {
-    const first = items[0];
-    const phraseWidth = first.offsetWidth;
-    const screenWidth = breaking.offsetWidth;
+if (breaking && track && item && window.innerWidth > 700) {
 
-    const gap = screenWidth - phraseWidth;
-
-    items[1].style.marginLeft = `${gap}px`;
-
-    let x = screenWidth;
+    let x = breaking.offsetWidth;
     let lastTime = performance.now();
 
     function ticker(time) {
@@ -53,11 +46,11 @@ if (breaking && track && items.length === 2) {
 
         x -= delta * 0.04;
 
-        if (x <= -(phraseWidth + gap)) {
-            x += phraseWidth + gap;
+        if (x < -item.offsetWidth) {
+            x = breaking.offsetWidth;
         }
 
-        track.style.transform = `translateX(${x}px)`;
+        track.style.transform = `translateX(${x}px`;
 
         requestAnimationFrame(ticker);
     }
