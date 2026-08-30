@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>cc478 alcança 14-100% em Eternal Silence após mais de 400 mil tentativas | DashWatch</title>
+<link rel="shortcut icon" href="../../../assets/dashwatch_favicon.png" type="image/x-icon">
+<style>
+body {
+    margin: 0;
+    color: #171717;
+    background: #fff;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    border-bottom: 1px solid #222;
+    text-align: center;
+}
+
+.logo {
+    font: bold 38px Georgia, serif;
+    padding: 22px;
+}
+
+.logo span {
+    color: #c71920;
+}
+
+nav {
+    border-top: 1px solid #ddd;
+    padding: 12px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+nav a {
+    margin: 0 12px;
+    color: #171717;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #c71920;
+}
+
+article {
+    max-width: 820px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+.back,
+.category {
+    color: #c71920;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.category {
+    text-transform: uppercase;
+    margin-top: 25px;
+}
+
+h1 {
+    font: bold 48px/1.08 Georgia, serif;
+    margin: 10px 0;
+}
+
+.subtitle {
+    font: 22px/1.4 Georgia, serif;
+    color: #555;
+}
+
+.info {
+    font-size: 12px;
+    color: #666;
+    border-bottom: 1px solid #ddd;
+    padding: 12px 0 18px;
+}
+
+.image {
+    height: 390px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    margin: 25px 0 8px;
+    overflow: hidden;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.image.video {
+    background: #000;
+}
+
+.image.video iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.caption {
+    font-size: 11px;
+    color: #777;
+    margin-bottom: 28px;
+}
+
+.body {
+    font: 18px/1.75 Georgia, serif;
+}
+
+.body p {
+    margin-bottom: 22px;
+}
+
+.body h2 {
+    font: bold 28px Georgia, serif;
+    margin-top: 32px;
+}
+
+.source {
+    border-top: 1px solid #ccc;
+    margin-top: 35px;
+    padding-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.related {
+    border-top: 3px solid #222;
+    margin-top: 40px;
+    padding-top: 10px;
+}
+
+.related h2 {
+    font: bold 22px Georgia, serif;
+}
+
+.related a {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+    color: #171717;
+    text-decoration: none;
+    font: bold 17px Georgia, serif;
+}
+
+.related a:hover {
+    color: #c71920;
+}
+
+footer {
+    margin-top: 50px;
+    border-top: 1px solid #222;
+    padding: 25px;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+}
+
+.source a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.source a:hover {
+    color: #c71920;
+}
+
+/* DARK MODE */
+
+body.dark-mode {
+    background: #111;
+    color: #eee;
+}
+
+body.dark-mode header {
+    border-color: #333;
+}
+
+body.dark-mode nav {
+    border-color: #333;
+}
+
+body.dark-mode nav a {
+    color: #eee;
+}
+
+body.dark-mode nav a:hover {
+    color: #c71920;
+}
+
+body.dark-mode .subtitle {
+    color: #bbb;
+}
+
+body.dark-mode .info {
+    color: #aaa;
+    border-color: #333;
+}
+
+body.dark-mode .image {
+    background: #222;
+    color: #999;
+}
+
+body.dark-mode .caption {
+    color: #999;
+}
+
+body.dark-mode .body {
+    color: #eee;
+}
+
+body.dark-mode .source {
+    border-color: #444;
+    color: #aaa;
+}
+
+body.dark-mode .related {
+    border-color: #333;
+}
+
+body.dark-mode .related h2 {
+    color: #eee;
+}
+
+body.dark-mode .related a {
+    color: #eee;
+    border-color: #333;
+}
+
+body.dark-mode .related a:hover {
+    color: #c71920;
+}
+
+body.dark-mode footer {
+    border-color: #333;
+    color: #999;
+}
+
+body.dark-mode blockquote {
+    color: #bbb;
+    border-color: #c71920;
+}
+
+
+/* BOTÃO DO TEMA */
+
+#theme-toggle {
+    position: fixed;
+    top: 18px;
+    right: 20px;
+    border: 1px solid #aaa;
+    background: #fff;
+    color: #111;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#theme-toggle:active {
+    transform: scale(0.9);
+}
+
+body.dark-mode #theme-toggle {
+    background: #222;
+    color: #fff;
+    border-color: #555;
+}
+
+
+/* CITAÇÕES */
+
+blockquote {
+    border-left: 4px solid #c71920;
+    margin: 25px 0;
+    padding: 10px 20px;
+    font: italic 20px/1.5 Georgia, serif;
+    color: #444;
+}
+
+
+/* TRANSIÇÃO DO TEMA */
+
+body.theme-ready,
+body.theme-ready header,
+body.theme-ready nav,
+body.theme-ready nav a,
+body.theme-ready .subtitle,
+body.theme-ready .info,
+body.theme-ready .image,
+body.theme-ready .caption,
+body.theme-ready .body,
+body.theme-ready .source,
+body.theme-ready .related,
+body.theme-ready .related h2,
+body.theme-ready .related a,
+body.theme-ready footer,
+body.theme-ready blockquote,
+body.theme-ready #theme-toggle {
+    transition:
+        background-color 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    h1 {
+        font-size: 34px;
+    }
+
+    .subtitle {
+        font-size: 19px;
+    }
+
+    .image {
+        height: 230px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
+
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="top">
+    <div class="logo">DASH<span>WATCH</span></div>
+  </div>
+  <nav>
+    <a href="../../../index.html#general">GERAL</a>
+    <a href="../../../index.html#competition">COMPETIÇÃO</a>
+    <a href="../../../index.html#levels">NÍVEIS</a>
+    <a href="../../../index.html#community">COMUNIDADE</a>
+    <a href="../../../index.html#updates">ATUALIZAÇÕES</a>
+  </nav>
+
+<button id="theme-toggle" aria-label="Alternar tema">🌙</button>
+</header>
+
+<article>
+<a class="back" href="../../../index.html">← VOLTAR PARA O PORTAL</a>
+<div class="category">Competição</div>
+<h1>cc478 alcança 14-100% em Eternal Silence após mais de 400 mil tentativas</h1>
+<p class="subtitle">Novo grande progresso marca uma das runs mais extensas já registradas pelo jogador no nível, que agora mira 9-100% e a conclusão de Eternal Silence.</p>
+<div class="info">Publicado em 29 de agosto de 2026 às 18:16 · Por <strong>yuridakbrada</strong></div>
+<div class="image video">
+    <iframe
+        src="https://www.youtube.com/embed/M4KXN1ARMaU"
+        title="Vídeo da notícia"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+</div>
+<div class="caption">cc478 registra 14-100% em Eternal Silence após centenas de milhares de tentativas. Vídeo: YouTube.</div>
+
+<div class="body">
+<p>O jogador cc478 avançou ainda mais em sua jornada para completar Eternal Silence, alcançando uma run de 14-100% no nível. O progresso veio após aproximadamente 281 mil tentativas, além de outras 135 mil tentativas realizadas na versão rated de Silent Clubstep, totalizando mais de 416 mil tentativas relacionadas ao nível.</p>
+<p>A nova run representa uma recuperação depois de um 14-78% que havia acontecido anteriormente. Segundo o próprio jogador, a tentativa anterior foi particularmente frustrante, mas o novo 14-100% compensou o resultado.</p>
+<p>Durante a descrição do progresso, cc478 destacou que não teve muito azar depois do 14-78%, tendo morrido em 74% ou mais apenas três vezes. Além do 14-100%, também foram registrados progressos como 24-100%, 47-100% e 62-100% ×36.</p>
+<p>O jogador agora espera conseguir novas runs de 9-100% e 73%+, além de finalmente concluir o que descreve como um dos níveis mais difíceis de sua jornada.</p>
+<blockquote>
+    “Porra, é isso, cara!” — cc478, após conseguir a run de 14-100%.
+</blockquote>
+<p>Segundo o próprio jogador, a run de 14-100% é aproximadamente tão difícil quanto alcançar 30% partindo de 0%, sendo considerada também um pouco mais difícil do que Silent Clubstep em sua opinião.</p>
+<p>Com o progresso cada vez mais próximo de uma conclusão, a expectativa agora fica para as próximas runs e para uma possível tentativa final em Eternal Silence.</p>
+</div>
+
+<div class="source"><strong>Fonte:</strong><a href="https://www.youtube.com/watch?v=M4KXN1ARMaU" target="_blank" rel="noopener noreferrer"> YouTube — cc478</a>
+</div>
+<section class="related">
+<h2>Leia também</h2>
+<a href="comunidade-discute-quais-niveis-de-geometry-dash-tem-as-melhores-musicas.html">Comunidade discute quais níveis de Geometry Dash têm as melhores músicas</a>
+<a href="breakcore11-fluka-silent-clubstep-a-partir-dos-40.html">breakcore11 fluka Silent Clubstep a partir dos 40%</a>
+<a href="taiago-alcanca-21-94-em-sweeping-demon-2.html">Taiago alcança 21–94% em Sweeping Demon 2</a>
+</section>
+</article>
+
+<footer><strong>DashWatch</strong><br>Notícias de Geometry Dash · 2026</footer>
+
+<script src="../../../script.js"></script>
+</body>
+</html>
