@@ -57,3 +57,5 @@ if (breaking && track && item && window.innerWidth > 700) {
 
     requestAnimationFrame(ticker);
 }
+
+document.getElementById("year").textContent = new Date().getFullYear();

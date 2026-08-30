@@ -93,12 +93,30 @@ main {
 .main-news {
     border-bottom: 1px solid #bbb;
     padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 500px;
 }
 
-.main-news img,
-.news img {
+.main-image {
     width: 100%;
-    height: 220px;
+    height: 350px;
+    overflow: hidden;
+    background: #ddd;
+}
+
+.main-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news img {
+    display: block;
+    width: 100%;
+    height: 120px;
     object-fit: cover;
     background: #ddd;
 }
@@ -113,6 +131,18 @@ main {
     color: #555;
     line-height: 1.45;
     margin: 0;
+}
+
+.main-news h1,
+.latest h2,
+.news h2 {
+    transition: color 0.2s ease;
+}
+
+.main-news h1:hover,
+.latest h2:hover,
+.news h2:hover {
+    color: #d71920;
 }
 
 .side {
@@ -196,6 +226,18 @@ body.dark-mode .caption {
     margin-top: 8px;
 }
 
+.newsletter {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.newsletter-form {
+    width: 100%;
+    height: 220px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
 footer {
     margin-top: 45px;
     border-top: 1px solid #222;
@@ -203,6 +245,54 @@ footer {
     text-align: center;
     color: #666;
     font-size: 12px;
+}
+
+.thanks {
+    margin-top: 20px;
+}
+
+.thanks-title {
+    font-size: 11px;
+    color: #777;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.thanks-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.thanks-logos img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    opacity: 0.65;
+    transition: opacity 0.25s ease;
+}
+
+.thanks-logos img.youtube-logo {
+    width: 42px;
+    height: 42px;
+}
+
+.x-logo {
+    filter: invert(1);
+}
+
+body.dark-mode .x-logo {
+    filter: none;
+}
+
+.thanks-logos img:hover {
+    opacity: 1;
+}
+
+body.dark-mode .thanks-title {
+    color: #999;
 }
 
 /* DARK MODE */
@@ -398,9 +488,24 @@ body.theme-ready #theme-toggle {
         padding-bottom: 12px;
     }
 
-    .news img {
-        height: 100px;
+
+    .main-image {
+        height: 220px;
     }
+
+    .main-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .news img {
+        width: 100%;
+        height: 120px;
+        display: block;
+        object-fit: cover;
+    }
+
 
     .news h2 {
         font-size: 18px;
