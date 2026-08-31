@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zoink resumes verification of Artemis 13 after host change and nerf | DashWatch</title>
+<link rel="shortcut icon" href="../../../assets/dashwatch_favicon.png" type="image/x-icon">
+
+<style>
+body {
+    margin: 0;
+    color: #171717;
+    background: #fff;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    border-bottom: 1px solid #222;
+    text-align: center;
+}
+
+.logo {
+    font: bold 38px Georgia, serif;
+    padding: 22px;
+}
+
+.logo span {
+    color: #c71920;
+}
+
+nav {
+    border-top: 1px solid #ddd;
+    padding: 12px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+nav a {
+    margin: 0 12px;
+    color: #171717;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #c71920;
+}
+
+article {
+    max-width: 820px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+.back,
+.category {
+    color: #c71920;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.category {
+    text-transform: uppercase;
+    margin-top: 25px;
+}
+
+h1 {
+    font: bold 48px/1.08 Georgia, serif;
+    margin: 10px 0;
+}
+
+.subtitle {
+    font: 22px/1.4 Georgia, serif;
+    color: #555;
+}
+
+.info {
+    font-size: 12px;
+    color: #666;
+    border-bottom: 1px solid #ddd;
+    padding: 12px 0 18px;
+}
+
+.image {
+    height: 390px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    margin: 25px 0 8px;
+    overflow: hidden;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.image.video {
+    background: #000;
+}
+
+.image.video iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.caption {
+    font-size: 11px;
+    color: #777;
+    margin-bottom: 28px;
+}
+
+.body {
+    font: 18px/1.75 Georgia, serif;
+}
+
+.body p {
+    margin-bottom: 22px;
+}
+
+.body h2 {
+    font: bold 28px Georgia, serif;
+    margin-top: 32px;
+}
+
+.source {
+    border-top: 1px solid #ccc;
+    margin-top: 35px;
+    padding-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.related {
+    border-top: 3px solid #222;
+    margin-top: 40px;
+    padding-top: 10px;
+}
+
+.related h2 {
+    font: bold 22px Georgia, serif;
+}
+
+.related a {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+    color: #171717;
+    text-decoration: none;
+    font: bold 17px Georgia, serif;
+}
+
+.related a:hover {
+    color: #c71920;
+}
+
+footer {
+    margin-top: 50px;
+    border-top: 1px solid #222;
+    padding: 25px;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+}
+
+
+
+/* DARK MODE */
+
+body.dark-mode {
+    background: #111;
+    color: #eee;
+}
+
+body.dark-mode header {
+    border-color: #333;
+}
+
+body.dark-mode nav {
+    border-color: #333;
+}
+
+body.dark-mode nav a {
+    color: #eee;
+}
+
+body.dark-mode nav a:hover {
+    color: #c71920;
+}
+
+body.dark-mode .subtitle {
+    color: #bbb;
+}
+
+body.dark-mode .info {
+    color: #aaa;
+    border-color: #333;
+}
+
+body.dark-mode .image {
+    background: #222;
+    color: #999;
+}
+
+body.dark-mode .caption {
+    color: #999;
+}
+
+body.dark-mode .body {
+    color: #eee;
+}
+
+body.dark-mode .source {
+    border-color: #444;
+    color: #aaa;
+}
+
+body.dark-mode .related {
+    border-color: #333;
+}
+
+body.dark-mode .related h2 {
+    color: #eee;
+}
+
+body.dark-mode .related a {
+    color: #eee;
+    border-color: #333;
+}
+
+body.dark-mode .related a:hover {
+    color: #c71920;
+}
+
+body.dark-mode footer {
+    border-color: #333;
+    color: #999;
+}
+
+body.dark-mode blockquote {
+    color: #bbb;
+    border-color: #c71920;
+}
+
+
+
+/* THEME TOGGLE BUTTON */
+
+#theme-toggle {
+    position: fixed;
+    top: 18px;
+    right: 20px;
+    border: 1px solid #aaa;
+    background: #fff;
+    color: #111;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#theme-toggle:active {
+    transform: scale(0.9);
+}
+
+body.dark-mode #theme-toggle {
+    background: #222;
+    color: #fff;
+    border-color: #555;
+}
+
+
+
+/* QUOTES */
+
+blockquote {
+    border-left: 4px solid #c71920;
+    margin: 25px 0;
+    padding: 10px 20px;
+    font: italic 20px/1.5 Georgia, serif;
+    color: #444;
+}
+
+
+
+/* THEME TRANSITION */
+
+body.theme-ready,
+body.theme-ready header,
+body.theme-ready nav,
+body.theme-ready nav a,
+body.theme-ready .subtitle,
+body.theme-ready .info,
+body.theme-ready .image,
+body.theme-ready .caption,
+body.theme-ready .body,
+body.theme-ready .source,
+body.theme-ready .related,
+body.theme-ready .related h2,
+body.theme-ready .related a,
+body.theme-ready footer,
+body.theme-ready blockquote,
+body.theme-ready #theme-toggle {
+    transition:
+        background-color 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    h1 {
+        font-size: 34px;
+    }
+
+    .subtitle {
+        font-size: 19px;
+    }
+
+    .image {
+        height: 230px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="top">
+    <div class="logo">DASH<span>WATCH</span></div>
+  </div>
+
+  <nav>
+    <a href="../../../index.html#general">GENERAL</a>
+    <a href="../../../index.html#competition">COMPETITION</a>
+    <a href="../../../index.html#levels">LEVELS</a>
+    <a href="../../../index.html#community">COMMUNITY</a>
+    <a href="../../../index.html#updates">UPDATES</a>
+  </nav>
+
+  <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+</header>
+
+<article>
+
+<a class="back" href="../../../index.html">← BACK TO PORTAL</a>
+
+<div class="category">Community</div>
+
+<h1>Zoink resumes verification of Artemis 13 after host change and nerf</h1>
+
+<p class="subtitle">After the previous host left the project amid controversy, Artemis 13 gets a new host and returns to verification by Zoink, now aiming for a difficulty near the Top 10.</p>
+
+<div class="info">Published on August 30, 2026 at 17:27 · By <strong>yuridakbrada</strong></div>
+
+<div class="image">
+    <img src="https://pbs.twimg.com/media/HRAWhXuWoAAUi6E?format=jpg&name=small">
+</div>
+
+<div class="caption">Zoink resumes work on Artemis 13 after the level was rehosted and nerfed toward a Top 10 difficulty.</div>
+
+<div class="body">
+
+<p>The verification of Artemis 13, which had been halted just hours earlier following controversy surrounding its former host, has resumed with Zoink. The level has also undergone a difficulty change and is now being nerfed to target a placement around the Top 10.</p>
+
+<p>The situation began after Nxhtrise, the former host of Artemis 13, was accused of scamming in an exposé published by content creator draggeye. The controversy led to the verification being halted and the project being announced as cancelled.</p>
+
+<p>Zoink had spent approximately a month working on the level's verification and had already made significant progress before the interruption. Records from his streams show that he had reached 82%, along with several advanced runs on the level.</p>
+
+<p>Shortly after the cancellation, however, the project received a new host, identified in community discussions as Mango/Mxngo. With the change in responsibility, Artemis 13 was no longer considered cancelled, and Zoink returned to working on the level.</p>
+
+<p>The main change announced alongside the project's revival is its difficulty. Artemis 13, which was originally designed to compete for an extremely high placement, is now being nerfed to approximately Top 10 difficulty. Zoink has already begun making changes to the level during his stream.</p>
+
+<p>After returning to verification, Zoink also progressed rapidly through the new version of Artemis 13. The player reached 86% on the nerfed version, surpassing the 82% he had previously achieved on the original version, which was expected to rank somewhere between Top 1 and Top 3.</p>
+
+<p>The new progress further increases expectations that verification could move quickly following the changes. According to community discussions, some of the sections considered to be the biggest difficulty spikes in the previous version have been nerfed, making it easier for Zoink to maintain consistency on the new version.</p>
+
+<p>With 86% already secured, Zoink is now just a few steps away from completing the new version of Artemis 13. The level, which appeared to have been definitively cancelled just hours earlier, is moving forward once again and is now targeting a potential placement near the Top 10.</p>
+
+<p>The decision marks one of the community's fastest turnarounds involving a major level: within just a few hours, Artemis 13 went from being on track for verification to being cancelled, received a new host, and returned to development with Zoink on a significantly easier version.</p>
+
+<p>Despite these changes, the situation involving the former host remains a separate matter. The allegations against Nxhtrise were publicly presented by draggeye, and DashWatch treats them as allegations rather than established judicial facts.</p>
+
+<p>With the new version now in development, Artemis 13 is back on the community's radar. The next question is how far the new level will go and where it will ultimately rank if it is successfully verified and later rated.</p>
+
+</div>
+
+<div class="source">
+<strong>Source:</strong> Reddit / r/geometrydash; Zoink's streams.
+</div>
+
+<section class="related">
+
+<h2>Read also</h2>
+
+<a href="player-completes-jumper-in-a-version-of-geometry-dash-for-nintendo-3ds.html">Player completes Jumper in a version of Geometry Dash for Nintendo 3DS</a>
+
+<a href="geometry-dash-community-discusses-which-levels-have-the-best-songs.html">Geometry Dash community discusses which levels have the best songs</a>
+
+<a href="teraa-reaches-52-on-escalator-after-more-than-100000-attempts.html">teraa reaches 52% on Escalator after more than 100,000 attempts</a>
+
+</section>
+
+</article>
+
+<footer><strong>DashWatch</strong><br>Geometry Dash News · 2026</footer>
+
+<script src="../../../../script.js"></script>
+
+</body>
+</html>
+

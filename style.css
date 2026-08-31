@@ -373,6 +373,41 @@ body.dark-mode #theme-toggle {
     border-color: #555;
 }
 
+/* LINGUAGEM */
+#language-toggle {
+    position: fixed;
+    top: 18px;
+    right: 68px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #aaa;
+    background: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#language-toggle img {
+    width: 24px;
+    height: 18px;
+    max-width: 24px;
+    max-height: 18px;
+    object-fit: cover;
+    display: block;
+}
+
+#language-toggle:active {
+    transform: scale(0.9);
+}
+
+body.dark-mode #language-toggle {
+    background: #222;
+    border-color: #555;
+}
 
 /* TRANSIÇÃO DO TEMA */
 
