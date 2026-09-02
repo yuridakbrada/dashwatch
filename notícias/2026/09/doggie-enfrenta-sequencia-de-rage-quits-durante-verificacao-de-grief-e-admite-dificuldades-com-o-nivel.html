@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Doggie enfrenta sequência de rage quits durante verificação de GRIEF e admite dificuldades com o nível | DashWatch</title>
+<link rel="shortcut icon" href="../../../assets/dashwatch_favicon.png" type="image/x-icon">
+<style>
+body {
+    margin: 0;
+    color: #171717;
+    background: #fff;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    border-bottom: 1px solid #222;
+    text-align: center;
+}
+
+.logo {
+    font: bold 38px Georgia, serif;
+    padding: 22px;
+}
+
+.logo span {
+    color: #c71920;
+}
+
+nav {
+    border-top: 1px solid #ddd;
+    padding: 12px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+nav a {
+    margin: 0 12px;
+    color: #171717;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #c71920;
+}
+
+article {
+    max-width: 820px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+.back,
+.category {
+    color: #c71920;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.category {
+    text-transform: uppercase;
+    margin-top: 25px;
+}
+
+h1 {
+    font: bold 48px/1.08 Georgia, serif;
+    margin: 10px 0;
+}
+
+.subtitle {
+    font: 22px/1.4 Georgia, serif;
+    color: #555;
+}
+
+.info {
+    font-size: 12px;
+    color: #666;
+    border-bottom: 1px solid #ddd;
+    padding: 12px 0 18px;
+}
+
+.image {
+    height: 390px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    margin: 25px 0 8px;
+    overflow: hidden;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.image.video {
+    background: #000;
+}
+
+.image.video iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+.caption {
+    font-size: 11px;
+    color: #777;
+    margin-bottom: 28px;
+}
+
+.body {
+    font: 18px/1.75 Georgia, serif;
+}
+
+.body p {
+    margin-bottom: 22px;
+}
+
+.body h2 {
+    font: bold 28px Georgia, serif;
+    margin-top: 32px;
+}
+
+.source {
+    border-top: 1px solid #ccc;
+    margin-top: 35px;
+    padding-top: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.related {
+    border-top: 3px solid #222;
+    margin-top: 40px;
+    padding-top: 10px;
+}
+
+.related h2 {
+    font: bold 22px Georgia, serif;
+}
+
+.related a {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+    color: #171717;
+    text-decoration: none;
+    font: bold 17px Georgia, serif;
+}
+
+.related a:hover {
+    color: #c71920;
+}
+
+footer {
+    margin-top: 50px;
+    border-top: 1px solid #222;
+    padding: 25px;
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+}
+
+
+/* DARK MODE */
+
+body.dark-mode {
+    background: #111;
+    color: #eee;
+}
+
+body.dark-mode header {
+    border-color: #333;
+}
+
+body.dark-mode nav {
+    border-color: #333;
+}
+
+body.dark-mode nav a {
+    color: #eee;
+}
+
+body.dark-mode nav a:hover {
+    color: #c71920;
+}
+
+body.dark-mode .subtitle {
+    color: #bbb;
+}
+
+body.dark-mode .info {
+    color: #aaa;
+    border-color: #333;
+}
+
+body.dark-mode .image {
+    background: #222;
+    color: #999;
+}
+
+body.dark-mode .caption {
+    color: #999;
+}
+
+body.dark-mode .body {
+    color: #eee;
+}
+
+body.dark-mode .source {
+    border-color: #444;
+    color: #aaa;
+}
+
+body.dark-mode .related {
+    border-color: #333;
+}
+
+body.dark-mode .related h2 {
+    color: #eee;
+}
+
+body.dark-mode .related a {
+    color: #eee;
+    border-color: #333;
+}
+
+body.dark-mode .related a:hover {
+    color: #c71920;
+}
+
+body.dark-mode footer {
+    border-color: #333;
+    color: #999;
+}
+
+body.dark-mode blockquote {
+    color: #bbb;
+    border-color: #c71920;
+}
+
+
+/* BOTÃO DO TEMA */
+
+#theme-toggle {
+    position: fixed;
+    top: 18px;
+    right: 20px;
+    border: 1px solid #aaa;
+    background: #fff;
+    color: #111;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#theme-toggle:active {
+    transform: scale(0.9);
+}
+
+body.dark-mode #theme-toggle {
+    background: #222;
+    color: #fff;
+    border-color: #555;
+}
+
+
+/* CITAÇÕES */
+
+blockquote {
+    border-left: 4px solid #c71920;
+    margin: 25px 0;
+    padding: 10px 20px;
+    font: italic 20px/1.5 Georgia, serif;
+    color: #444;
+}
+
+
+/* TRANSIÇÃO DO TEMA */
+
+body.theme-ready,
+body.theme-ready header,
+body.theme-ready nav,
+body.theme-ready nav a,
+body.theme-ready .subtitle,
+body.theme-ready .info,
+body.theme-ready .image,
+body.theme-ready .caption,
+body.theme-ready .body,
+body.theme-ready .source,
+body.theme-ready .related,
+body.theme-ready .related h2,
+body.theme-ready .related a,
+body.theme-ready footer,
+body.theme-ready blockquote,
+body.theme-ready #theme-toggle {
+    transition:
+        background-color 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    h1 {
+        font-size: 34px;
+    }
+
+    .subtitle {
+        font-size: 19px;
+    }
+
+    .image {
+        height: 230px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
+
+}
+</style>
+</head>
+</head>
+<body>
+
+<header>
+  <div class="top">
+    <div class="logo">DASH<span>WATCH</span></div>
+  </div>
+  <nav>
+    <a href="../../../index.html#general">GERAL</a>
+    <a href="../../../index.html#competition">COMPETIÇÃO</a>
+    <a href="../../../index.html#levels">NÍVEIS</a>
+    <a href="../../../index.html#community">COMUNIDADE</a>
+    <a href="../../../index.html#updates">ATUALIZAÇÕES</a>
+  </nav>
+
+<button id="theme-toggle" aria-label="Alternar tema">🌙</button>
+</header>
+
+<article>
+<a class="back" href="../../../index.html">← VOLTAR PARA O PORTAL</a>
+<div class="category">Competição</div>
+<h1>Doggie enfrenta sequência de rage quits durante verificação de GRIEF e admite dificuldades com o nível</h1>
+<p class="subtitle">Após meses de progresso no possível Top 1, jogador volta a demonstrar forte frustração durante a grind e revela que pode buscar um novo hardest antes de continuar a verificação.</p>
+<div class="info">Publicado em 2 de setembro de 2026 às 15:03 · Por <strong>yuridakbrada</strong></div>
+<div class="image"><img src="https://media.discordapp.net/attachments/1172616289802539019/1544763730376658944/image.png?ex=6a99b0d5&is=6a985f55&hm=b21427f07449ae6d2c229b72ad747ba09e4b648468650136ddc2f1e3eebd41ac&=&format=webp&quality=lossless&width=320&height=179"></div>
+<div class="caption">Doggie enfrenta sequência de rage quits durante a verificação de GRIEF e recebe mensagens de apoio da comunidade.</div>
+
+<div class="body">
+<p>A verificação de GRIEF, nível criado por icedcave e atualmente sendo verificado por Doggie, voltou a chamar atenção na comunidade de Geometry Dash nos últimos dias. Desta vez, porém, o destaque não ficou apenas nos progressos obtidos pelo jogador, mas também em uma sequência de momentos de intensa frustração durante suas tentativas.</p>
+<p>Doggie protagonizou diversos rage quits recentes enquanto trabalhava no nível, situação que acabou sendo registrada em vídeos e transmissões. Os momentos rapidamente chamaram a atenção dos espectadores, especialmente por acontecerem durante uma verificação que já se estende por um longo período e que exige um nível extremamente alto de consistência.</p>
+<p>Entre os conteúdos que repercutiram está uma compilação de momentos em que Doggie perde a paciência durante suas tentativas de GRIEF, reunindo diferentes episódios de frustração ao longo da grind. Outro vídeo também discutiu a frequência dos rage quits e a situação vivida pelo jogador, chegando a classificar os acontecimentos recentes como preocupantes.</p>
+<p>Apesar da repercussão, é importante diferenciar o que pode ser observado nas transmissões de qualquer especulação sobre o estado psicológico de Doggie. Os vídeos mostram claramente momentos de raiva e frustração, mas não permitem concluir, por si só, que o jogador esteja enfrentando algum problema específico. A própria comunidade pode interpretar as reações de maneiras diferentes, mas afirmações sobre sua saúde mental exigiriam informações diretamente fornecidas por ele.</p>
+<p>O próprio Doggie, entretanto, reconheceu publicamente que sua última transmissão não representou a maneira como normalmente gostaria de se comportar. Em uma publicação no X, o jogador pediu desculpas aos espectadores e explicou que a dificuldade recente de uma determinada seção de GRIEF tem contribuído para sua frustração.</p>
+<blockquote>
+    “Desculpas a todos que assistiram à minha última transmissão. Eu geralmente não gosto de me comportar assim, mas esse nível tem sido extremamente frustrante ultimamente. Vou tentar o meu melhor para controlar isso.
+<br><br>
+    Estou mais consistente do que nunca, exceto na seção 44–65 — a seção gratuita —, que é o que tem me afetado. O que deveria ser uma taxa de clareza de 70% acabou se tornando algo em torno de 10%. Neste ponto, estou acostumado a enfrentar dificuldades, mas isso tem sido excepcionalmente difícil de lidar. Se eu conseguir consertar isso, devo voltar a uma consistência de 97%, se não melhor.
+<br><br>
+    Se eu não conseguir verificar GRIEF antes de 2027, eu realmente vou conseguir um novo hardest, provavelmente algo no Top 5, antes de voltar para GRIEF. Meu maior erro foi tentar pular do Acheron em primeiro lugar.”
+</blockquote>
+<p>— Doggie, em publicação no X.</p>
+<p>A declaração ajuda a explicar um dos principais problemas enfrentados pelo jogador atualmente. Segundo ele, sua consistência geral está melhor do que nunca, mas a seção entre 44% e 65% se tornou uma exceção extremamente problemática. O jogador descreveu essa parte como “a seção gratuita” e afirmou que sua taxa de clareza, que deveria estar próxima de 70%, caiu para aproximadamente 10%.</p>
+<p>A diferença é significativa. Em um nível da dificuldade de GRIEF, uma seção que deveria ser relativamente consistente, mas passa a apresentar uma taxa de sucesso muito menor, pode comprometer runs inteiras. Mesmo que o jogador esteja executando bem todas as outras partes, uma única região problemática pode impedir que uma tentativa avance para as porcentagens finais.</p>
+<p>O problema também se torna maior quando considerado o estágio atual da verificação. Doggie já chegou a porcentagens extremamente altas no nível, incluindo um 97%, colocando-o a apenas uma morte da conclusão. Alcançar uma porcentagem tão próxima do final aumenta naturalmente a expectativa em torno de cada nova tentativa, mas também torna as mortes posteriores potencialmente ainda mais frustrantes.</p>
+<p>GRIEF se tornou uma das grandes histórias da cena competitiva de Geometry Dash justamente por causa de sua dificuldade e da expectativa em torno de sua colocação na Demonlist. Desde que Doggie assumiu a tarefa de verificar o nível, cada novo progresso passou a ser acompanhado de perto pela comunidade.</p>
+<p>A verificação também representa um desafio diferente de simplesmente jogar um nível extremamente difícil. Para concluir GRIEF, Doggie precisa repetir as partes iniciais inúmeras vezes enquanto mantém consistência suficiente para alcançar as seções mais avançadas. Uma morte em uma porcentagem alta significa não apenas perder a tentativa atual, mas voltar ao início e repetir todo o processo.</p>
+<p>Esse ciclo ajuda a explicar por que a grind pode se tornar desgastante mesmo para um jogador de elite. Doggie já demonstrou possuir habilidade suficiente para alcançar partes extremamente avançadas de GRIEF, mas transformar esses progressos em uma conclusão exige que o desempenho seja mantido durante uma tentativa completa.</p>
+<p>O histórico recente também inclui uma pausa relacionada ao desgaste provocado pela verificação. Doggie chegou a interromper as transmissões de GRIEF anteriormente, antes de retornar ao nível e continuar trabalhando em sua conclusão. A nova sequência de rage quits, portanto, acontece dentro de um contexto maior de uma grind que já consumiu uma quantidade considerável de tempo e energia.</p>
+<p>Ao mesmo tempo, Doggie não parece ter desistido definitivamente do projeto. Sua declaração indica que a intenção continua sendo verificar GRIEF, mas também apresenta uma alternativa caso isso não aconteça até o fim de 2026. O jogador afirmou que pretende buscar um novo hardest, possivelmente Top 5, antes de retornar ao nível.</p>
+<p>Essa possibilidade adiciona uma nova variável à história. Caso Doggie realmente consiga um nível desse calibre antes de voltar a GRIEF, a verificação poderia ser adiada ainda mais. Por outro lado, um novo hardest também poderia servir como uma mudança de ritmo depois de anos concentrado no mesmo projeto.</p>
+<p>A escolha de GRIEF também está ligada à própria trajetória de dificuldade de Doggie. Na publicação, ele classificou como seu “maior erro” ter tentado pular diretamente de Acheron para GRIEF. O comentário sugere que, olhando para trás, o jogador acredita que uma progressão mais gradual poderia ter sido uma escolha melhor antes de assumir um desafio dessa magnitude.</p>
+<p>Mesmo assim, os resultados obtidos até agora mostram que a decisão não impediu Doggie de alcançar níveis impressionantes de progresso. O jogador conseguiu chegar a partes extremamente avançadas do nível e demonstrou repetidamente que possui a capacidade mecânica necessária para completar a fase.</p>
+<p>O problema parece estar menos relacionado à possibilidade de completar GRIEF e mais à consistência necessária para transformar essa capacidade em uma vitória. A própria declaração de Doggie reforça essa ideia: ele afirma estar mais consistente do que nunca no restante do nível, mas continua sendo prejudicado por uma seção específica.</p>
+<p>Apesar dos momentos de frustração, Doggie também recebeu diversas mensagens de apoio de outros jogadores. Muitos reconheceram que a situação não é simples e destacaram o tempo que ele vem dedicando à verificação de GRIEF.</p>
+<p>Um dos jogadores afirmou conseguir se identificar com o momento vivido por Doggie, relacionando a situação às próprias experiências após morrer em partes avançadas de outros níveis.</p>
+<blockquote>
+    “Eu meio que me identifico com você agora mesmo. Desde que morri no último clique de Nullscapes, fico mais inclinado a me irritar e morro em partes em que ‘não se supõe que eu morra’. 
+<br><br>
+    Espero que seu bloqueio mental desapareça logo e desejo boa sorte.”
+</blockquote>
+<p>— @_Ninde</p>
+<p>Outra mensagem destacou especificamente os mais de dois anos de trabalho envolvidos na verificação e afirmou que, apesar das dificuldades, Doggie continua demonstrando força para chegar até o fim.</p>
+<blockquote>
+    “Todos nós entendemos você e te apoiamos, Doggie. É normal que você tenha esse tipo de raiva depois de jogar o mesmo nível por 2 anos. 
+<br><br>
+    Qualquer um teria simplesmente desistido e abandonado o nível. Você é forte, cara. Você consegue lidar com isso. 
+<br><br>
+    W Doggie 💛💜”
+</blockquote>
+<p>— @Zeth_90</p>
+<p>Também houve quem defendesse que Doggie sequer deveria se desculpar por demonstrar frustração, considerando o tempo que passou trabalhando no nível e a diferença de dificuldade entre GRIEF e seu antigo hardest.</p>
+<blockquote>
+    “Nunca peça desculpas por ter um momento de raiva. Você tem jogado nesse nível há mais de 2 anos com o seu mais difícil sendo Acheron. 
+<br><br>
+    Qualquer outra pessoa ficaria completamente louca, mas você ainda está aqui perto da linha de chegada. Você consegue, cara.”
+</blockquote>
+<p>— @avernuslucario</p>
+<p>As mensagens mostram um outro lado da repercussão recente. Embora os rage quits tenham gerado discussões e preocupação entre espectadores, uma parcela da comunidade também entende a frustração como consequência de uma grind extremamente longa. Para esses jogadores, os momentos de raiva não anulam o esforço que Doggie vem colocando na verificação de GRIEF há anos.</p>
+<p>A diferença entre as reações também mostra como a comunidade acompanha de perto a trajetória do jogador. Enquanto alguns espectadores transformam os momentos de rage em memes e compilações, outros preferem destacar a dificuldade envolvida e lembrar que existe um jogador por trás de cada tentativa, morte e progresso.</p>
+<p>No caso de GRIEF, essa discussão ganha ainda mais força porque a verificação deixou de ser apenas um projeto pessoal. O nível se tornou uma das grandes histórias da comunidade competitiva, e cada transmissão atrai espectadores interessados tanto na possibilidade de uma nova porcentagem quanto na eventual conclusão.</p>
+<p>Esse nível de atenção também pode aumentar a pressão. Cada morte em uma porcentagem alta pode virar um clipe, cada reação pode ser compartilhada e cada novo progresso pode gerar expectativas ainda maiores. Quanto mais perto Doggie chega dos 100%, maior se torna a sensação de que a conclusão pode acontecer a qualquer momento.</p>
+<p>Por outro lado, a declaração do jogador mostra que ele ainda possui objetivos claros para o projeto. Se conseguir resolver o problema na seção 44–65, Doggie acredita que pode recuperar sua consistência e voltar ao nível de desempenho necessário para buscar a conclusão.</p>
+<p>Ainda não está claro se essa recuperação acontecerá rapidamente ou se GRIEF continuará sendo um obstáculo durante as próximas sessões. Caso Doggie consiga retomar o ritmo, ele já provou que possui capacidade para chegar às partes finais do nível. Caso contrário, a possibilidade de buscar outro hardest antes de retornar a GRIEF pode se tornar cada vez mais concreta.</p>
+<p>O próximo capítulo da história, portanto, pode seguir caminhos diferentes. Doggie pode continuar insistindo em GRIEF até finalmente conseguir a verificação, pode fazer uma pausa para trabalhar em outro nível ou pode encontrar uma maneira de resolver justamente a seção que atualmente está prejudicando sua consistência.</p>
+<p>Independentemente do caminho escolhido, a jornada já representa uma das verificações mais longas e acompanhadas da cena recente de Geometry Dash. GRIEF exigiu anos de dedicação, e Doggie continua chegando cada vez mais perto da conclusão apesar das dificuldades encontradas pelo caminho.</p>
+<p>Por enquanto, o nível permanece sem verificação, enquanto Doggie tenta recuperar a consistência necessária para transformar seus grandes progressos em uma run completa. Entre os rage quits, as mensagens de apoio, as mortes em porcentagens altas e a possibilidade de um novo hardest, a comunidade continua acompanhando cada passo.</p>
+<p>A única certeza é que a história ainda não acabou. Seja com uma nova grande porcentagem, uma pausa ou finalmente o tão esperado 100%, os próximos capítulos da verificação de GRIEF prometem continuar entre os acontecimentos mais acompanhados da comunidade de Geometry Dash.</p>
+<p>O DashWatch continuará acompanhando a verificação de GRIEF e os próximos progressos de Doggie.</p>
+</div>
+
+<div class="source"><strong>Fonte:</strong> X / YouTube — Doggie e comunidade de Geometry Dash.</div>
+<section class="related">
+<h2>Leia também</h2>
+<a href="../08/breakcore11-fluka-silent-clubstep-a-partir-dos-40.html">breakcore11 fluka Silent Clubstep a partir dos 40%</a>
+<a href="../08/xtra8nuggies-alcanca-41-em-angelicide-e-registra-novo-recorde-de-progresso.html">Xtra8nuggies alcança 41% em Angelicide e registra novo recorde de progresso</a>
+<a href="../08/teraa-alcanca-52-em-escalator-apos-mais-de-100-mil-tentativas.html">teraa alcança 52% em Escalator após mais de 100 mil tentativas</a>
+</section>
+</article>
+
+<footer><strong>DashWatch</strong><br>Notícias de Geometry Dash · 2026</footer>
+
+<script src="../../../script.js"></script>
+</body>
+</html>
