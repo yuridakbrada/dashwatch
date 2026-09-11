@@ -226,73 +226,163 @@ body.dark-mode .caption {
     margin-top: 8px;
 }
 
-.newsletter {
-    margin: 40px 0;
+/* FOOTER */
+
+footer {    
+    margin-top: 35px;
+    padding: 22px 18px 14px;
+    background: #111;
+    color: #fff;
     text-align: center;
 }
 
-.newsletter-form {
-    width: 100%;
-    height: 220px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+footer > strong {
+    font-family: Georgia, serif;
+    display: block;
+    font-size: 20px;
+    margin-bottom: 3px;
 }
 
-footer {
-    margin-top: 45px;
-    border-top: 1px solid #222;
-    padding: 25px 20px;
-    text-align: center;
-    color: #666;
-    font-size: 12px;
+footer > br + span {
+    font-size: 13px;
+    opacity: 0.65;
 }
 
-.thanks {
-    margin-top: 20px;
-}
-
-.thanks-title {
-    font-size: 11px;
-    color: #777;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-}
-
-.thanks-logos {
+.footer-content {
+    max-width: 700px;
+    margin: 18px auto 14px;
+    padding: 15px 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 55px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 
-.thanks-logos img {
-    width: 36px;
-    height: 36px;
+.footer-section {
+    min-width: 140px;
+}
+
+.footer-title {
+    margin-bottom: 9px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.6;
+}
+
+.thanks-logos,
+.social-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.thanks-logos img,
+.social-logos img {
+    width: 26px;
+    height: 26px;
     object-fit: contain;
+}
+
+body.theme-ready footer {
+    transition: background 0.3s, color 0.3s;
+}
+
+/* YouTube maior */
+.social-logos .youtube-logo {
+    width: 34px;
+    height: 34px;
+}
+
+/* X */
+.social-logos .x-logo {
+    width: 27px;
+    height: 27px;
+}
+
+/* NEWSLETTER */
+
+.newsletter-footer form {
+    display: flex;
+    justify-content: center;
+}
+
+.newsletter-footer input {
+    width: 135px;
+    padding: 7px 9px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    font-size: 12px;
+}
+
+.newsletter-footer button {
+    padding: 7px 10px;
+    border: 0;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.footer-copy {
+    font-size: 11px;
+    opacity: 0.45;
+}
+
+body:not(.dark-mode) footer {
+    background: #fff;
+    color: #111;
+}
+
+body:not(.dark-mode) .footer-content {
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+body:not(.dark-mode) .footer-title {
     opacity: 0.65;
-    transition: opacity 0.25s ease;
 }
 
-.thanks-logos img.youtube-logo {
-    width: 42px;
-    height: 42px;
+body:not(.dark-mode) .footer-copy {
+    opacity: 0.5;
 }
 
-.x-logo {
-    filter: invert(1);
+/* X preto no light mode */
+body:not(.dark-mode) .x-logo {
+    filter: brightness(0);
+}
+
+body.dark-mode footer {
+    background: #111;
+    color: #fff;
+}
+
+body.dark-mode .footer-content {
+    border-color: rgba(255,255,255,0.12);
 }
 
 body.dark-mode .x-logo {
     filter: none;
 }
 
-.thanks-logos img:hover {
-    opacity: 1;
-}
+@media (max-width: 650px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 18px;
+        padding: 15px 0;
+    }
 
-body.dark-mode .thanks-title {
-    color: #999;
+    .footer-section {
+        min-width: 0;
+    }
+
+    .newsletter-footer form {
+        width: auto;
+    }
 }
 
 /* DARK MODE */
