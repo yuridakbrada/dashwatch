@@ -160,6 +160,18 @@ main {
     height: 120px;
 }
 
+.main-image img,
+.news img,
+.latest img {
+    transition: transform 0.3s ease;
+}
+
+.main-image:hover img,
+.news:hover img,
+.latest article:hover img {
+    transform: scale(1.04);
+}
+
 .news h2 {
     font: bold 22px/1.15 Georgia, serif;
     margin: 9px 0 6px;
@@ -226,38 +238,36 @@ body.dark-mode .caption {
     margin-top: 8px;
 }
 
-/* FOOTER */
-
-footer {    
-    margin-top: 35px;
-    padding: 22px 18px 14px;
+footer {
+    margin-top: 55px;
+    padding: 27px 18px 16px;
     background: #111;
     color: #fff;
     text-align: center;
 }
 
 footer > strong {
-    font-family: Georgia, serif;
     display: block;
-    font-size: 20px;
     margin-bottom: 3px;
+    font-family: Georgia, serif;
+    font-size: 22px;
 }
 
 footer > br + span {
     font-size: 13px;
-    opacity: 0.65;
+    opacity: .65;
 }
 
 .footer-content {
-    max-width: 700px;
-    margin: 18px auto 14px;
-    padding: 15px 0;
+    max-width: 800px;
+    margin: 22px auto 16px;
+    padding: 18px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 55px;
-    border-top: 1px solid rgba(255,255,255,0.12);
-    border-bottom: 1px solid rgba(255,255,255,0.12);
+    border-top: 1px solid rgba(255,255,255,.12);
+    border-bottom: 1px solid rgba(255,255,255,.12);
 }
 
 .footer-section {
@@ -266,11 +276,20 @@ footer > br + span {
 
 .footer-title {
     margin-bottom: 9px;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    opacity: 0.6;
+    letter-spacing: .7px;
+    opacity: .6;
+}
+
+.footer-team {
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.footer-team strong {
+    font-weight: bold;
 }
 
 .thanks-logos,
@@ -278,33 +297,35 @@ footer > br + span {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: 13px;
 }
 
-.thanks-logos img,
-.social-logos img {
-    width: 26px;
-    height: 26px;
+.thanks-logos img {
+    width: 28px;
+    height: 28px;
     object-fit: contain;
 }
 
-body.theme-ready footer {
-    transition: background 0.3s, color 0.3s;
+body:not(.dark-mode) .thanks-logos .reddit-logo {
+    filter: brightness(0);
 }
 
-/* YouTube maior */
-.social-logos .youtube-logo {
-    width: 34px;
-    height: 34px;
+body.dark-mode .thanks-logos .reddit-logo {
+    filter: brightness(0) invert(1);
 }
 
-/* X */
-.social-logos .x-logo {
-    width: 27px;
-    height: 27px;
+
+/* Social */
+
+.social-logos img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
 }
 
-/* NEWSLETTER */
+body.dark-mode .social-logos img {
+    filter: brightness(0) invert(1);
+}
 
 .newsletter-footer form {
     display: flex;
@@ -312,26 +333,34 @@ body.theme-ready footer {
 }
 
 .newsletter-footer input {
-    width: 135px;
-    padding: 7px 9px;
+    width: 140px;
+    padding: 8px 9px;
     border: 1px solid #ccc;
-    border-radius: 4px 0 0 4px;
+    border-radius: 3px 0 0 3px;
     outline: none;
     font-size: 12px;
+    background: #fff;
+    color: #111;
 }
 
 .newsletter-footer button {
-    padding: 7px 10px;
+    padding: 8px 11px;
     border: 0;
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 3px 3px 0;
     cursor: pointer;
     font-size: 12px;
     font-weight: bold;
+    background: #d71920;
+    color: #fff;
+}
+
+.newsletter-footer button:hover {
+    background: #b9151b;
 }
 
 .footer-copy {
     font-size: 11px;
-    opacity: 0.45;
+    opacity: .45;
 }
 
 body:not(.dark-mode) footer {
@@ -340,18 +369,17 @@ body:not(.dark-mode) footer {
 }
 
 body:not(.dark-mode) .footer-content {
-    border-color: rgba(0, 0, 0, 0.12);
+    border-color: rgba(0,0,0,.12);
 }
 
 body:not(.dark-mode) .footer-title {
-    opacity: 0.65;
+    opacity: .65;
 }
 
 body:not(.dark-mode) .footer-copy {
-    opacity: 0.5;
+    opacity: .5;
 }
 
-/* X preto no light mode */
 body:not(.dark-mode) .x-logo {
     filter: brightness(0);
 }
@@ -384,8 +412,6 @@ body.dark-mode .x-logo {
         width: auto;
     }
 }
-
-/* DARK MODE */
 
 body.dark-mode {
     background: #111;
@@ -435,9 +461,6 @@ body.dark-mode footer {
     border-color: #333;
     color: #999;
 }
-
-
-/* BOTÃO DO TEMA */
 
 #theme-toggle,
 #language-toggle {
@@ -493,8 +516,6 @@ body.dark-mode #theme-toggle {
     color: #fff;
 }
 
-/* TRANSIÇÃO DO TEMA */
-
 body.theme-ready,
 body.theme-ready header,
 body.theme-ready nav,
@@ -515,8 +536,6 @@ body.theme-ready #theme-toggle {
         border-color 0.35s ease;
 }
 
-
-/* MOBILE */
 @media (max-width: 700px) {
 
     html,
