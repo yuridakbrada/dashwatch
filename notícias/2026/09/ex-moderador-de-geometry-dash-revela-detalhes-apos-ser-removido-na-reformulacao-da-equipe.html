@@ -1,0 +1,617 @@
+<!doctype html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Ex-moderador de Geometry Dash revela detalhes após ser removido na reformulação da equipe | DashWatch</title>
+
+<link rel="shortcut icon" href="../../../assets/dashwatch_favicon.png" type="image/x-icon">
+
+<style>
+
+body {
+
+    margin: 0;
+
+    color: #171717;
+
+    background: #fff;
+
+    font-family: Arial, sans-serif;
+
+}
+
+header {
+
+    border-bottom: 1px solid #222;
+
+    text-align: center;
+
+}
+
+.logo {
+
+    font: bold 38px Georgia, serif;
+
+    padding: 22px;
+
+}
+
+.logo span {
+
+    color: #c71920;
+
+}
+
+nav {
+
+    border-top: 1px solid #ddd;
+
+    padding: 12px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+}
+
+nav a {
+
+    margin: 0 12px;
+
+    color: #171717;
+
+    text-decoration: none;
+
+}
+
+nav a:hover {
+
+    color: #c71920;
+
+}
+
+article {
+
+    max-width: 820px;
+
+    margin: 35px auto;
+
+    padding: 0 20px;
+
+}
+
+.back,
+
+.category {
+
+    color: #c71920;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+}
+
+.category {
+
+    text-transform: uppercase;
+
+    margin-top: 25px;
+
+}
+
+h1 {
+
+    font: bold 48px/1.08 Georgia, serif;
+
+    margin: 10px 0;
+
+}
+
+.subtitle {
+
+    font: 22px/1.4 Georgia, serif;
+
+    color: #555;
+
+}
+
+.info {
+
+    font-size: 12px;
+
+    color: #666;
+
+    border-bottom: 1px solid #ddd;
+
+    padding: 12px 0 18px;
+
+}
+
+.image {
+
+    height: 390px;
+
+    background: #ddd;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #888;
+
+    margin: 25px 0 8px;
+
+    overflow: hidden;
+
+}
+
+.image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+.caption {
+
+    font-size: 11px;
+
+    color: #777;
+
+    margin-bottom: 28px;
+
+}
+
+.body {
+
+    font: 18px/1.75 Georgia, serif;
+
+}
+
+.body p {
+
+    margin-bottom: 22px;
+
+}
+
+.body h2 {
+
+    font: bold 28px Georgia, serif;
+
+    margin-top: 32px;
+
+}
+
+.source {
+
+    border-top: 1px solid #ccc;
+
+    margin-top: 35px;
+
+    padding-top: 15px;
+
+    font-size: 14px;
+
+    color: #555;
+
+}
+
+footer {
+    margin-top: 50px;
+
+    border-top: 1px solid #222;
+
+    padding: 25px;
+
+    text-align: center;
+
+    color: #666;
+    
+    font-size: 12px;
+}
+
+/* DARK MODE */
+
+body.dark-mode {
+
+    background: #111;
+
+    color: #eee;
+
+}
+
+body.dark-mode header {
+
+    border-color: #333;
+
+}
+
+body.dark-mode nav {
+
+    border-color: #333;
+
+}
+
+body.dark-mode nav a {
+
+    color: #eee;
+
+}
+
+body.dark-mode nav a:hover {
+
+    color: #c71920;
+
+}
+
+body.dark-mode .subtitle {
+
+    color: #bbb;
+
+}
+
+body.dark-mode .info {
+
+    color: #aaa;
+
+    border-color: #333;
+
+}
+
+body.dark-mode .image {
+
+    background: #222;
+
+    color: #999;
+
+}
+
+body.dark-mode .caption {
+
+    color: #999;
+
+}
+
+body.dark-mode .body {
+
+    color: #eee;
+
+}
+
+body.dark-mode .source {
+
+    border-color: #444;
+
+    color: #aaa;
+
+}
+
+/* BOTÃO DO TEMA */
+
+#theme-toggle {
+
+    position: fixed;
+
+    top: 18px;
+
+    right: 20px;
+
+    border: 1px solid #aaa;
+
+    background: #fff;
+
+    color: #111;
+
+    border-radius: 50%;
+
+    width: 40px;
+
+    height: 40px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+}
+
+#theme-toggle:active {
+
+    transform: scale(0.9);
+
+}
+
+body.dark-mode #theme-toggle {
+
+    background: #222;
+
+    color: #fff;
+
+    border-color: #555;
+
+}
+
+/* CITAÇÕES */
+
+blockquote {
+
+    border-left: 4px solid #c71920;
+
+    margin: 25px 0;
+
+    padding: 10px 20px;
+
+    font: italic 20px/1.5 Georgia, serif;
+
+    color: #444;
+
+}
+
+body.dark-mode blockquote {
+
+    color: #bbb;
+
+    border-color: #c71920;
+
+}
+
+/* TRANSIÇÃO DO TEMA */
+
+body.theme-ready,
+
+body.theme-ready header,
+
+body.theme-ready nav,
+
+body.theme-ready nav a,
+
+body.theme-ready .subtitle,
+
+body.theme-ready .info,
+
+body.theme-ready .image,
+
+body.theme-ready .caption,
+
+body.theme-ready .body,
+
+body.theme-ready .source,
+
+body.theme-ready footer,
+
+body.theme-ready blockquote,
+
+body.theme-ready #theme-toggle {
+
+    transition:
+
+        background-color 0.35s ease,
+
+        color 0.35s ease,
+
+        border-color 0.35s ease;
+
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    h1 {
+
+        font-size: 34px;
+
+    }
+
+    .subtitle {
+
+        font-size: 19px;
+
+    }
+
+    .image {
+
+        height: 230px;
+
+    }
+
+    nav a {
+
+        display: inline-block;
+
+        margin: 5px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="top">
+
+        <div class="logo">DASH<span>WATCH</span></div>
+
+    </div>
+
+    <nav>
+
+        <a href="../../../index.html#general">GERAL</a>
+
+        <a href="../../../index.html#competition">COMPETIÇÃO</a>
+
+        <a href="../../../index.html#levels">NÍVEIS</a>
+
+        <a href="../../../index.html#community">COMUNIDADE</a>
+
+        <a href="../../../index.html#updates">ATUALIZAÇÕES</a>
+
+    </nav>
+
+    <button id="theme-toggle" aria-label="Alternar tema">🌙</button>
+
+</header>
+
+<article>
+
+<a class="back" href="../../../index.html">← VOLTAR PARA O PORTAL</a>
+
+<div class="category">Atualizações</div>
+
+<h1>Ex-moderador de Geometry Dash revela detalhes após ser removido na reformulação da equipe</h1>
+
+<p class="subtitle">
+    Após mais de seis anos como moderador, IncidiusGD responde a dezenas de perguntas da comunidade sobre sua saída, o funcionamento da equipe e o sistema de Rate.
+</p>
+
+<div class="info">
+
+Publicado em 19 de setembro de 2026 às 14:53 · Por <strong>yuridakbrada</strong>
+
+</div>
+
+<br>
+
+<div class="image">
+    <img src="https://preview.redd.it/i-was-demoted-from-gd-mod-in-the-recent-purge-ask-me-v0-9flt40bf4gqh1.png?width=1080&crop=smart&auto=webp&s=a89be749c70d55c0b8ff9b1aa79ea4c4bc8da47c">
+</div>
+
+<div class="caption">
+    Ex-moderador de Geometry Dash responde a dezenas de perguntas após ser removido da equipe.
+</div>
+
+<div class="body">
+
+<p>O ex-moderador de Geometry Dash IncidiusGD publicou nesta sexta-feira um AMA no subreddit r/geometrydash após ser removido da equipe de moderadores durante a recente reformulação anunciada por RobTop.</p>
+<p>Segundo o próprio IncidiusGD, ele foi promovido a moderador em 28 de fevereiro de 2020 e auxiliou RobTop durante mais de seis anos. De acordo com seu relato, em 15 de setembro de 2026, RobTop decidiu remover 43 moderadores da equipe, sem informar individualmente os motivos das decisões. IncidiusGD afirma ter sido um dos moderadores removidos.</p>
+<p>A publicação rapidamente ganhou repercussão na comunidade e passou a receber centenas de votos e dezenas de perguntas. IncidiusGD afirmou estar disposto a responder questões sobre RobTop, a equipe de moderadores e o funcionamento do sistema de avaliação de níveis.</p>
+<h2>Seis anos na equipe</h2>
+<p>Ao ser questionado sobre sua experiência como moderador, IncidiusGD afirmou que sua parte favorita do trabalho era ajudar criadores.</p>
+<p>Segundo ele, uma das atividades que mais gostava era ajudar jogadores a conseguir seus primeiros Rates, além de sugerir melhorias para que os criadores pudessem evoluir.</p>
+<blockquote>
+    “Minha parte favorita era ajudar criadores.”
+</blockquote>
+<p>IncidiusGD também afirmou sentir orgulho quando um criador conseguia seu primeiro Rate após um de seus sends.</p>
+<p>Para ele, entretanto, a administração da equipe e sua imagem pública estavam entre os aspectos mais negativos da função.</p>
+<p>O ex-moderador afirmou que a equipe enfrentava problemas de transparência com a comunidade e que, em sua visão, essas questões não foram solucionadas. Ele também criticou a gestão interna da equipe e fez críticas pessoais a antigos integrantes. Essas avaliações representam a visão de IncidiusGD sobre o período em que esteve na equipe.</p>
+<h2>A reação à reformulação</h2>
+<p>Uma das principais perguntas do AMA foi sobre a opinião de IncidiusGD em relação às decisões de RobTop.</p>
+<p>O ex-moderador afirmou que inicialmente recebeu de forma positiva a mudança do nome de Moderator para Advisor, acreditando que a alteração poderia ajudar a melhorar a imagem da equipe perante a comunidade.</p>
+<p>Segundo ele, os moderadores basicamente tinham a função de enviar níveis para receber Rate e não possuíam poderes para resolver outros problemas relacionados ao jogo.</p>
+<p>A situação mudou quando IncidiusGD soube que aproximadamente metade da equipe seria removida.</p>
+<p>Ele afirma que inicialmente acreditava que a redução poderia atingir principalmente moderadores inativos ou considerados problemáticos. Entretanto, segundo sua avaliação, diversos moderadores ativos também foram removidos.</p>
+<p>Entre os nomes citados por IncidiusGD estão Destriv e Danolex, cuja remoção ele classificou como difícil de entender. Ele também afirmou que alguns integrantes que permaneceram na equipe, em sua opinião, não eram tão bons quanto outros que foram removidos.</p>
+<p>IncidiusGD deixou claro que não conhece os critérios oficiais utilizados por RobTop para decidir quem permaneceria ou deixaria a equipe.</p>
+<h2>Como a remoção aconteceu</h2>
+<p>Outro dos principais pontos do AMA foi a maneira como IncidiusGD afirma ter recebido a notícia.</p>
+<p>Segundo ele, RobTop publicou uma mensagem no canal de anúncios da equipe informando que aproximadamente metade dos moderadores seria removida em cerca de 12 horas.</p>
+<p>O ex-moderador afirma que não houve uma conversa individual com os integrantes que seriam removidos e que também não houve uma explicação específica sobre os motivos de cada decisão.</p>
+<p>IncidiusGD classificou a comunicação como fria e desrespeitosa.</p>
+<p>Ele também afirmou que os moderadores removidos não receberam uma espécie de despedida ou consolação e que um pedido para que pudessem enviar uma última sugestão de Rate antes da saída foi ignorado.</p>
+<blockquote>
+    “Eu estava bem bravo.”
+</blockquote>
+<p>— IncidiusGD, ao responder se ficou irritado com a decisão.</p>
+<p>Segundo seu relato, a forma como o processo aconteceu foi uma das principais razões para sua insatisfação com a reformulação.</p>
+<h2>O problema dos níveis aguardando Rate</h2>
+<p>O AMA também trouxe informações sobre uma das questões mais discutidas pela comunidade: o grande número de níveis enviados para avaliação que permanece sem resposta.</p>
+<p>IncidiusGD afirmou que tinha 15 níveis Legendary ou Mythic ainda aguardando Rate quando foi removido da equipe.</p>
+<p>Em outra atualização relacionada ao assunto, ele afirmou que 14 dos 16 níveis de sua lista continuavam sem Rate.</p>
+<p>A situação mostra uma das dificuldades enfrentadas pelos próprios moderadores antes da reformulação: mesmo integrantes da equipe podiam acumular uma quantidade considerável de níveis esperando avaliação.</p>
+<p>IncidiusGD chegou a sugerir mudanças no funcionamento do sistema, incluindo uma espécie de fila de prioridade que levasse em consideração o tipo de send e a quantidade de níveis enviados.</p>
+<p>A discussão também chamou atenção para níveis que permanecem durante meses aguardando avaliação, algo que IncidiusGD considera um problema no sistema atual.</p>
+<h2>O que ele procurava em um nível</h2>
+<p>Ao ser questionado sobre os critérios utilizados para escolher níveis para enviar, IncidiusGD destacou principalmente a criatividade.</p>
+<p>Segundo ele, níveis que apresentavam conceitos diferentes, histórias interessantes ou elementos de humor chamavam sua atenção.</p>
+<p>Ele também afirmou estar cansado de níveis considerados genéricos ou excessivamente focados em gameplay repetitivo.</p>
+<p>A resposta ajuda a mostrar que, pelo menos em sua experiência, o trabalho de um moderador não consistia apenas em procurar níveis tecnicamente bonitos.</p>
+<p>A originalidade e a identidade própria do projeto também poderiam influenciar a decisão de enviar uma criação para avaliação.</p>
+<h2>O nível favorito de IncidiusGD</h2>
+<p>Em meio às perguntas sobre a equipe e a reformulação, a comunidade também aproveitou o AMA para fazer perguntas mais descontraídas.</p>
+<p>Quando questionado sobre seu nível favorito, IncidiusGD respondeu CITYFADE, de MaxxoRMeN.</p>
+<p>A escolha também acabou levando a discussões sobre os critérios que ele utilizava para avaliar níveis e sobre suas preferências pessoais como jogador.</p>
+<p>O AMA, dessa forma, não ficou limitado às questões relacionadas à saída da equipe.</p>
+<h2>A visão sobre o sistema de Rate</h2>
+<p>IncidiusGD também foi questionado sobre como o sistema de Rate poderia ser melhorado.</p>
+<p>Além de mencionar o problema dos níveis aguardando avaliação, ele defendeu mudanças que poderiam organizar melhor os sends recebidos pelos moderadores.</p>
+<p>Sua sugestão envolve uma fila de prioridade baseada em fatores como o tipo de send e a quantidade de níveis enviados.</p>
+<p>O objetivo seria evitar que determinados níveis permanecessem esquecidos durante longos períodos enquanto outros fossem avaliados primeiro.</p>
+<p>As propostas apresentadas no AMA são sugestões pessoais de IncidiusGD e não representam mudanças anunciadas oficialmente para o sistema.</p>
+<h2>Discussões internas entre moderadores</h2>
+<p>Outra pergunta abordou possíveis conflitos dentro da equipe.</p>
+<p>IncidiusGD afirmou que discussões e dramas entre moderadores aconteciam ocasionalmente, mas que normalmente eram resolvidos rapidamente.</p>
+<p>Segundo ele, quando um moderador apresentava um comportamento considerado inadequado, a situação poderia terminar com sua remoção da equipe.</p>
+<p>O ex-moderador também afirmou ter tido problemas com integrantes específicos da equipe, mas essas declarações representam sua experiência pessoal e não uma descrição oficial do funcionamento interno do grupo.</p>
+<h2>Questões de segurança</h2>
+<p>Uma das partes mais sérias do AMA envolve discussões internas relacionadas à segurança de usuários.</p>
+<p>IncidiusGD afirmou que diversos moderadores discutiram maneiras de melhorar a segurança infantil dentro do Geometry Dash.</p>
+<p>Entre as ideias mencionadas por ele estavam limitar comentários em níveis para impedir que se transformassem em salas de conversa, remover mensagens diretas dos perfis e impedir comentários em níveis não listados.</p>
+<p>Segundo IncidiusGD, grande parte dos moderadores que participaram dessas discussões acabou sendo removida durante a reformulação.</p>
+<p>Essa relação entre as discussões e as demissões é uma alegação feita pelo próprio IncidiusGD. O AMA não apresenta uma confirmação independente de que essas conversas tenham sido utilizadas como critério para as remoções.</p>
+<p>O ex-moderador também afirmou que alguns aspectos da segurança do jogo já eram conhecidos internamente. Essas declarações devem ser entendidas como seu relato e sua interpretação dos acontecimentos, e não como uma confirmação oficial da posição de RobTop.</p>
+<h2>IncidiusGD pretende voltar à equipe?</h2>
+<p>Quando questionado sobre uma possível volta à equipe, IncidiusGD afirmou que atualmente não deseja ser promovido novamente.</p>
+<p>Segundo ele, a experiência da remoção e a forma como o processo foi conduzido mudaram sua disposição em continuar como moderador.</p>
+<p>Ele também afirmou não saber se seria promovido novamente no futuro.</p>
+<p>A resposta contrasta com sua trajetória anterior: IncidiusGD permaneceu na equipe por mais de seis anos e chegou a descrever a ajuda aos criadores como sua parte favorita do trabalho.</p>
+<h2>E depois da moderação?</h2>
+<p>O AMA também ganhou algumas perguntas completamente fora do assunto principal.</p>
+<p>IncidiusGD revelou que trabalha em um escritório corporativo em Londres, gosta de ler livros clássicos e assistir a filmes.</p>
+<p>Seu livro favorito é Dom Quixote.</p>
+<p>Ele também contou que gosta de peixes e possui peixes de estimação, incluindo carpas koi.</p>
+<p>As perguntas mais aleatórias acabaram criando um contraste com a parte mais séria da publicação, que discutia diretamente a reformulação da equipe de moderadores.</p>
+<p>Em determinado momento, um usuário simplesmente perguntou qual era a capital da França.</p>
+<p>A resposta foi, naturalmente:</p>
+<blockquote>
+    “Paris.”
+</blockquote>
+<h2>Mais do que uma despedida</h2>
+<p>O AMA de IncidiusGD acabou se tornando um dos relatos mais extensos de um ex-moderador sobre sua experiência dentro da equipe.</p>
+<p>Além de explicar sua saída, o ex-integrante falou sobre o funcionamento dos sends, problemas com níveis aguardando Rate, critérios utilizados para escolher criações, relações entre moderadores e sua percepção sobre a reformulação promovida por RobTop.</p>
+<p>Por se tratar do relato pessoal de um ex-moderador, algumas das declarações feitas na publicação não podem ser tratadas como explicações oficiais para as decisões da equipe.</p>
+<p>Ainda assim, a publicação oferece à comunidade uma visão interna de alguém que permaneceu mais de seis anos auxiliando RobTop e que participou diretamente do sistema de envio e avaliação de níveis.</p>
+<p>A reformulação da equipe continua sendo um dos assuntos mais discutidos pela comunidade após as mudanças anunciadas em setembro.</p>
+
+</div>
+
+<div class="source">
+
+<strong>Fontes:</strong> Reddit — r/geometrydash.
+
+</div>
+
+</article>
+
+<footer>
+
+<strong>DashWatch</strong><br>
+
+Notícias de Geometry Dash · 2026
+
+</footer>
+
+<script src="../../../script.js"></script>
+
+</body>
+
+</html>
