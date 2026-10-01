@@ -1,343 +1,1190 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DashWatch - Primeiro portal de notícias de Geometry Dash no Brasil</title>
-<link rel="stylesheet" href="style.css">
-<link rel="shortcut icon" href="assets/dashwatch_favicon.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>DashWatch — Notícias de Geometry Dash</title>
+
+    <meta
+        name="description"
+        content="DashWatch — notícias, novidades, competições e acontecimentos da comunidade de Geometry Dash."
+    >
+
+    <link rel="stylesheet" href="style.css">
+    <link
+        rel="shortcut icon"
+        href="assets/dashwatch_favicon.png"
+        type="image/x-icon"
+    >
 </head>
+
 <body>
 
-<header>
-  <div class="top">
-    <div class="logo">DASH<span>WATCH</span></div> 
-  </div>
-  <nav>
-    <a href="#general">GERAL</a>
-    <a href="#competition">COMPETIÇÃO</a>
-    <a href="#levels">NÍVEIS</a>
-    <a href="#community">COMUNIDADE</a>
-    <a href="#updates">ATUALIZAÇÕES</a>
-  </nav>
+<header class="site-header">
 
-<a id="language-toggle" href="en/index.html" aria-label="Switch to English">
-    <img src="https://flagcdn.io/flags/4x3/us.svg" alt="English">
-</a>
+    <div class="header-top">
 
-<button id="theme-toggle" aria-label="Alternar tema">🌙</button>
-</header>
+        <div class="header-inner">
 
-<main>
+            <a href="/" class="logo" aria-label="DashWatch">
+                DASH<span>WATCH</span>
+            </a>
 
-<div class="breaking" id="general">
-    <div class="breaking-track">
-        <span class="breaking-item">
-            <b>ÚLTIMAS</b> Notícias da comunidade de Geometry Dash
-        </span>
+    <div class="header-actions">
+        <button id="search-toggle" aria-label="Pesquisar" title="Pesquisar">🔍</button>
+        <button id="theme-toggle" aria-label="Alternar tema" title="Alternar tema">🌙</button>
+    </div>
+
+    <div class="search-panel" id="search-panel">
+    <div class="search-inner">
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+
+            <input
+                type="search"
+                id="search-input"
+                placeholder="Pesquisar notícias..."
+                autocomplete="off"
+            >
+
+            <button id="search-close" aria-label="Fechar pesquisa">×</button>
+        </div>
+
+        <div class="search-results" id="search-results"></div>
     </div>
 </div>
 
-  <section class="layout">
-    <article class="main-news">
-      <div class="main-image">
-        <img src="https://i.ytimg.com/vi/wC5GWWZTEpE/maxresdefault.jpg" alt="">
-      </div>
-      <div class="category" style="margin-top:14px">Competição</div>
-      <a href="notícias/2026/09/trick-completa-flamewall-e-se-torna-o-quarto-victor-do-nivel.html"><h1>Trick completa Flamewall e se torna o quarto victor do nível</h1></a>
-      <p>Jogador conclui um dos níveis mais difíceis de Geometry Dash após alcançar 98% poucas horas antes da completion.</p>
-      <div class="date">18 de setembro de 2026 · 14:35</div>
-    </article>
-
-    <aside class="side">
-      <article class="news">
-        <div style="height:120px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#888">
-        <img src="https://i.ytimg.com/vi/V2S5zka7nvQ/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBGAnE5XBR1khj1sP98cTppKlbu3w" alt="">
-      </div>
-      <div class="category" style="margin-top:14px">Competição</div>
-      <a href="notícias/2026/09/mosk1712-completa-blade-of-justice-11-vezes-seguidas.html"><h2>mosk1712 completa Blade of Justice 11 vezes seguidas</h2></a>
-      <p>Jogador supera a própria marca anterior e amplia para onze o número de completions consecutivas de Blade of Justice.</p>
-      </article>
-
-    <aside class="side">
-      <article class="news">
-        <div style="height:120px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#888">
-      <img src="https://i.ytimg.com/vi/GiykgnJa6JQ/maxresdefault.jpg" alt="">
-      </div>
-      <div class="category" style="margin-top:14px">Competição</div>
-      <a href="notícias/2026/09/waltty-alcanca-14-100-em-it-means-everything-apos-623-mil-tentativas.html"><h2>Waltty alcança 14-100% em IT MEANS EVERYTHING após 623 mil tentativas</h2></a>
-      <p>Jogador registra um dos maiores progressos no nível, incluindo duas runs de 14-100% e uma sequência de 55-100 ×142.</p>
-      </article>
-
-    </aside>
-  </section>
-
-  <div class="section" id="competition">Competição</div>
-
-  <section class="latest">
-
-      <article class="news">
-        <div style="height:120px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#888">
-        <img src="https://i.ytimg.com/vi/iBW4wpq9On0/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAA2Bj91RId9obuDLQPLcSFxzLzsA " alt="">
-      </div>
-      <div class="category" style="margin-top:14px">Competição</div>
-      <a href="notícias/2026/09/paperguy-alcanca-42-em-silent-circles-pela-segunda-vez.html"><h2>PaperGuy alcança 42% em Silent Circles pela segunda vez</h2></a>
-      <p>Novo progresso iguala a marca de Seels e estabelece um feito inédito no nível.</p>
-      <div class="date">17 de setembro · 14:15</div>
-      </article>
-
-      <article class="news">
-        <div style="height:120px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#888">
-      <img src="https://preview.redd.it/sunix-beat-acheron-v0-fls80rpc1fph1.jpeg?width=1080&crop=smart&auto=webp&s=5e66d94de8154919b761b0a6f206b3711c525883" alt="">
-      </div>
-      <div class="category" style="margin-top:14px">Competição</div>
-      <a href="notícias/2026/09/sunix-esta-de-volta-jogador veterano-vence-acheron-apos-anos-longe-do-topo.html"><h2>Sunix está de volta: jogador veterano vence Acheron após anos longe do topo</h2></a>
-      <p>Após seu retorno ao jogo em 2026, jogador veterano conquista mais um novo hardest e completa um dos grandes níveis da Demonlist.</p>
-      <div class="date">14 de setembro · 15:55</div>
-    </article>
-
-    <article class="news">
-        <div style="height:120px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#888">
-          <img src="https://pbs.twimg.com/media/HQ6I_3FWUAADqWQ?format=jpg&name=small" alt="">
         </div>
-        <br>
-      <div class="category">Competição</div>
-      <a href="notícias/2026/08/taiago-alcanca-21-94-em-sweeping-demon-2.html"><h2>Taiago alcança 21–94% em Sweeping Demon 2</h2></a>
-      <p>Jogador registra uma nova grande progressão no nível</p>
-      <div class="date">29 de agosto · 15:03</div>
-    </article>
 
-    <aside class="side">
-      <article class="news">
-        <div style="height:120px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#888">
-          <img src="https://img.youtube.com/vi/Thf3zFHVxvc/maxresdefault.jpg" alt="">
-        </div>
-        <div class="category" style="margin-top:10px">Competição</div>
-        <a href="notícias/2026/08/teraa-alcanca-52-em-escalator-apos-mais-de-100-mil-tentativas.html"><h2>teraa alcança 52% em Escalator após mais de 100 mil tentativas</h2></a>
-        <p>Jogador registra novo grande progresso no nível, que está cotado para o Top 10.</p>
-      <div class="date">30 de agosto · 10:47</div>
-      </article>
-
-  </section>
-
-  <div class="section" id="levels">Níveis</div>
-
-  <section class="latest">
-
-    <article class="news">
-        <div style="height:120px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#888">
-          <img src="https://img.youtube.com/vi/-3unpStDBVA/maxresdefault.jpg" alt="">
-        </div>
-        <br>
-      <div class="category">Níveis</div>
-      <a href="notícias/2026/08/eternal-blue-e-escolhido-como-daily-607-e-recebe-classificacao-legendary.html"><h2>Eternal Blue é escolhido como Daily #607 e recebe classificação Legendary</h2></a>
-      <p>Nível criado por TheCubedGuy entra na rotação diária do Geometry Dash e recebe a classificação Legendary.</p>
-      <div class="date">30 de agosto · 19:00</div>
-    </article>
-
-    <article class="news">
-        <div style="height:120px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#888">
-          <img src="https://img.youtube.com/vi/l1w-MOYb3jE/maxresdefault.jpg" alt="">
-        </div>
-        <br>
-      <div class="category">Níveis</div>
-      <h2>Mk2, de dolphe, é selecionado como Event Level</h2>
-      <p>O nível criado por dolphe foi escolhido para integrar os Event Levels de Geometry Dash.</p>
-      <div class="date">23 de agosto · 21:28</div>
-    </article>
-
-    <article class="news">
-        <div style="height:120px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#888">
-          <img src="assets/noticias/progenitor-impressiona-comunidade-com-animacao-totalmente-feita-no-geometry-dash.png" alt="">
-        </div>
-        <br>
-      <div class="category">Níveis</div>
-      <a href="notícias/2026/09/progenitor-impressiona-comunidade-com-animacao-totalmente-feita-no-geometry-dash.html"><h2>Progenitor impressiona comunidade com animação totalmente feita no Geometry Dash</h2></a>
-      <p>Projeto de Pb207_GD mostra a morte caótica de um sistema solar em uma animação criada dentro do próprio editor do jogo.</p>
-      <div class="date">13 de setembro · 13:13</div>
-    </article>
-
-    <article class="news">
-        <div style="height:120px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#888">
-          <img src="assets/noticias/criador-mostra-transicao-em-desenvolvimento-e-revela-que-projeto-esta-dois-tercos-concluido.png" alt="">
-        </div>
-        <br>
-      <div class="category">Níveis</div>
-      <a href="notícias/2026/09/criador-mostra-transicao-em-desenvolvimento-e-revela-que-projeto-esta-dois-tercos-concluido.html"><h2>Criador mostra transição em desenvolvimento e revela que projeto está dois terços concluído</h2></a>
-      <p>N0no_G apresenta novo trabalho à comunidade e revela os próximos elementos que ainda pretende adicionar.</p>
-      <div class="date">19 de setembro · 14:53</div>
-    </article>
-  </section>
-
-  <div class="section" id="community">Comunidade</div>
-
-  <section class="latest">
-
-    <article class="news">
-      <div class="image-placeholder">
-          IMAGEM NÃO ENCONTRADA
-      </div>
-        <br>
-      <div class="category">Comunidade</div>
-      <a href="notícias/2026/08/jogador-completa-jumper-em-uma-versão-de-geometry-dash-para-nintendo-3ds.html"><h2>Jogador completa Jumper em uma versão de Geometry Dash para Nintendo 3DS</h2></a>
-      <p>Jadix120 chama atenção da comunidade ao jogar um dos níveis clássicos de Geometry Dash diretamente em um Nintendo 3DS.</p>
-      <div class="date">30 de agosto de 2026 · 00:34</div>
-    </article>
-
-    <article class="news">
-      <div class="image-placeholder">
-          IMAGEM NÃO ENCONTRADA
-      </div>
-        <br>
-      <div class="category">Comunidade</div>
-      <a href="notícias/2026/09/jogador-recria-tomb-of-the-mask-dentro-do-geometry-dash.html"><h2>Jogador recria Tomb of the Mask dentro do Geometry Dash</h2></a>
-      <p>Naxos_fs chama atenção da comunidade ao recriar a jogabilidade de Tomb of the Mask dentro do Geometry Dash.</p>
-      <div class="date">3 de setembro de 2026 · 16:30</div>
-    </article>
-
-    <article class="news">
-        <div style="height:120px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#888">
-          <img src="https://preview.redd.it/a-frog-jumped-from-bloodbath-to-bloodlust-in-8-days-v0-633ytlttu6qh1.png?width=1080&crop=smart&auto=webp&s=46ff99bcf5bc23039a7d205e6ae107ec4b7c477b" alt="">
-        </div>
-        <br>
-      <div class="category">Comunidade</div>
-      <a href="notícias/2026/09/sapo-faz-jump-de-bloodbath-para-bloodlust-em-apenas-8-dias.html"><h2>Sapo faz jump de Bloodbath para Bloodlust em apenas 8 dias</h2></a>
-      <p>Animal surpreende a comunidade ao superar Bloodlust no mobile após sair de Bloodbath em apenas oito dias.</p>
-      <div class="date">18 de setembro de 2026 · 15:29</div>
-    </article>
-
-    <article class="news">
-        <div style="height:120px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#888">
-          <img src="assets/noticias/jogador-cria-mod-que-permite-salvar-niveis-e-dados-do-geometry-dash-no-google-drive.png" alt="">
-        </div>
-      <div class="category" style="margin-top:14px">Comunidade</div>
-      <a href="notícias/2026/09/jogador-cria-mod-que-permite-salvar-niveis-e-dados-do-geometry-dash-no-google-drive.html"><h2>Jogador cria mod que permite salvar níveis e dados do Geometry Dash no Google Drive</h2></a>
-      <p>GDrive Backup permite salvar e carregar níveis e dados do jogo na nuvem, com suporte a salvamento em segundo plano.</p>
-      <div class="date">18 de setembro de 2026 · 14:35</div>
-    </article>
-  </section>
-
-  <div class="section" id="updates">Atualizações</div>
-
-  <section class="latest">
-
-    <article class="news">
-        <div style="height:120px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#888">
-          <img src="https://preview.redd.it/robtops-announcement-regarding-todays-moderator-system-v0-jd6bewtdpkph1.png?width=1080&crop=smart&auto=webp&s=947ede9e260960e07432927537fcf5fcc58384dc" alt="">
-      </div>
-      <br>
-      <div class="category">Atualizações</div>
-      <a href="notícias/2026/09/robtop-anuncia-reformulacao-da-equipe-de-moderadores-na-atualizacao-2-209.html">
-      <h2>RobTop anuncia reformulação da equipe de moderadores na atualização 2.209</h2>
-      </a>
-      <p>Mudanças na equipe alteram funções dos moderadores, reduzem o número de integrantes e encerram novas candidaturas para Rating Advisor.</p>
-      <div class="date">15 de setembro de 2026 · 18:23</div>
-    </article>
-
-    <article class="news">
-        <div style="height:120px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#888">
-            <img src="https://i.ytimg.com/vi/ubCzpg3P2IU/maxresdefault.jpg" alt="">
-      </div>
-      <div class="category" style="margin-top:14px">Atualizações</div>
-      <a href="notícias/2026/09/trailer-da-2-209-revela-dezenas-de-novidades-e-robtop-responde-a-mais-de-20-perguntas-da-comunidade.html"><h2>Trailer da 2.209 revela dezenas de novidades e RobTop responde a mais de 20 perguntas da comunidade</h2></a>
-      <p>Nova atualização de Geometry Dash ganha trailer repleto de recursos, enquanto RobTop revela detalhes sobre segurança, Platformer, sistema de Ratings, ferramentas do editor e planos para a 2.21.</p>
-      <div class="date">16 de setembro de 2026 · 21:42</div>
-    </article>
-
-    <article class="news">
-        <div style="height:120px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#888">
-            <img src="https://preview.redd.it/i-was-demoted-from-gd-mod-in-the-recent-purge-ask-me-v0-9flt40bf4gqh1.png?width=1080&crop=smart&auto=webp&s=a89be749c70d55c0b8ff9b1aa79ea4c4bc8da47c" alt="">
-      </div>
-      <div class="category" style="margin-top:14px">Atualizações</div>
-      <a href="notícias/2026/09/ex-moderador-de-geometry-dash-revela-detalhes-apos-ser-removido-na-reformulacao-da-equipe.html"><h2>Ex-moderador de Geometry Dash revela detalhes após ser removido na reformulação da equipe</h2></a>
-      <p>Após mais de seis anos como moderador, IncidiusGD responde a dezenas de perguntas da comunidade sobre sua saída, o funcionamento da equipe e o sistema de Rate.</p>
-      <div class="date">19 de setembro de 2026 · 14:53</div>
-    </article>
-  </section>
-  
-<footer class="site-footer">
-
-<strong>DashWatch</strong><br>
-
-Notícias de Geometry Dash · <span id="year"></span>
-
-<div class="footer-content">
-
-    <div class="footer-section">
-        <div class="footer-title">Equipe</div>
-        <div class="footer-team">
-            <div><strong>yuridakbrada</strong> — Fundador</div>
-            <div><strong>Icarrierpotatoes</strong> — Réporter</div>
-        </div>
     </div>
 
-    <div class="footer-section">
+    <nav class="main-nav">
 
-        <div class="footer-title">Agradecimentos</div>
+        <div class="nav-inner">
 
-        <div class="thanks-logos">
+            <a href="#geral">GERAL</a>
+            <a href="#competicao">COMPETIÇÃO</a>
+            <a href="#niveis">NÍVEIS</a>
+            <a href="#comunidade">COMUNIDADE</a>
+            <a href="#atualizacoes">ATUALIZAÇÕES</a>
 
-            <a href="https://www.dashword.net/" target="_blank" rel="noopener">
-                <img src="https://www.dashword.net/assets/img/icon.svg" alt="DashWord">
-            </a>
+        </div>
 
-            <a href="https://www.reddit.com/r/geometrydash/" target="_blank" rel="noopener">
-                <img class="reddit-logo" src="assets/reddit-logo.svg" alt="Reddit">
-            </a>
+    </nav>
+
+</header>
+
+
+<main class="site-main">
+
+    <!-- ÚLTIMAS NOTÍCIAS -->
+
+    <div class="breaking-news">
+
+        <div class="breaking-label">
+            ÚLTIMAS
+        </div>
+
+        <div class="breaking-window">
+
+            <div class="breaking-track">
+
+                <a href="notícias/2026/10/paltadashg-completa-tidal-wave-mas-tera-que-refazer-o-nivel.html">
+                    PALTADASHG completa Tidal Wave, mas terá que refazer o nível
+                </a>
+
+                <span>•</span>
+
+                <a href="notícias/2026/09/trick-completa-flamewall-e-se-torna-o-quarto-victor-do-nivel.html">
+                    Trick completa Flamewall e se torna o quarto victor do nível
+                </a>
+
+                <span>•</span>
+
+                <a href="notícias/2026/09/mosk1712-completa-blade-of-justice-11-vezes-seguidas.html">
+                    mosk1712 completa Blade of Justice 11 vezes seguidas
+                </a>
+
+            </div>
 
         </div>
 
     </div>
 
-    <div class="footer-section newsletter-footer">
 
-        <div class="footer-title">Newsletter</div>
+    <!-- CABEÇALHO DA HOME -->
 
-        <form action="https://buttondown.com/dashwatch?as_embed=true" method="post">
+    <section class="home-intro">
 
-            <input
-                type="email"
-                name="email"
-                placeholder="Seu e-mail"
-                required
+        <div>
+
+            <span class="eyebrow">
+                DASHWATCH
+            </span>
+
+            <h1>
+                As principais notícias de Geometry Dash.
+            </h1>
+
+        </div>
+
+        <p>
+            Acompanhe os grandes feitos, níveis, atualizações
+            e acontecimentos da comunidade.
+        </p>
+
+    </section>
+
+
+    <!-- MANCHETES -->
+
+    <section class="headline-grid" id="geral">
+
+        <!-- PRINCIPAL -->
+
+        <article class="hero-story">
+
+            <a
+                href="notícias/2026/10/paltadashg-completa-tidal-wave-mas-tera-que-refazer-o-nivel.html"
+                class="story-image"
+            >
+                <img
+                    src="https://preview.redd.it/lxxjpn2qcrsh1.jpeg?auto=webp&s=b8ed648993acbf1e2d3dc2d9fb0ed9906d7c093d"
+                >
+            </a>
+
+            <div class="story-content">
+
+                <span class="category">
+                    COMPETIÇÃO
+                </span>
+
+                <h2>
+                    <a href="notícias/2026/10/paltadashg-completa-tidal-wave-mas-tera-que-refazer-o-nivel.html">
+                        PALTADASHG completa Tidal Wave, mas terá que refazer o nível
+                    </a>
+                </h2>
+
+                <p>
+                    Jogador chileno alcança 100% e se torna o 
+                    primeiro victor hispânico do nível, mas um problema 
+                    com o MegaHack compromete a conclusão.
+                </p>
+
+                <div class="story-meta">
+                    1 de outubro de 2026
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- SECUNDÁRIAS -->
+
+        <div class="secondary-stories">
+
+            <article class="secondary-story">
+
+            <a
+                href="notícias/2026/09/trick-completa-flamewall-e-se-torna-o-quarto-victor-do-nivel.html"
+                class="story-image"
+            >
+                <img
+                    src="https://i.ytimg.com/vi/wC5GWWZTEpE/maxresdefault.jpg"
+                    "Trick completando Flamewall"
+                >
+            </a>
+
+            <div class="story-content">
+
+                <span class="category">
+                    COMPETIÇÃO
+                </span>
+
+                <h3>
+                    <a href="notícias/2026/09/trick-completa-flamewall-e-se-torna-o-quarto-victor-do-nivel.html">
+                        Trick completa Flamewall e se torna o quarto victor do nível
+                    </a>
+                </h3>
+
+                <p>
+                    Jogador conclui um dos níveis mais difíceis de Geometry Dash
+                    após alcançar 98% poucas horas antes da completion.
+                </p>
+
+                <div class="story-meta">
+                    18 de setembro de 2026 · 14:35
+                </div>
+
+            </div>
+
+            </article>
+
+
+            <article class="secondary-story">
+
+                <a
+                    href="notícias/2026/09/waltty-alcanca-14-100-em-it-means-everything-apos-623-mil-tentativas.html"
+                    class="story-image"
+                >
+                    <img
+                        src="https://i.ytimg.com/vi/GiykgnJa6JQ/maxresdefault.jpg"
+                        "Waltty jogando IT MEANS EVERYTHING"
+                    >
+                </a>
+
+                <div class="story-content">
+
+                    <span class="category">
+                        COMPETIÇÃO
+                    </span>
+
+                    <h3>
+                        <a href="notícias/2026/09/waltty-alcanca-14-100-em-it-means-everything-apos-623-mil-tentativas.html">
+                            Waltty alcança 14-100% em IT MEANS EVERYTHING após 623 mil tentativas
+                        </a>
+                    </h3>
+
+                    <p>
+                        Jogador registra um dos maiores progressos no nível,
+                        incluindo duas runs de 14-100%.
+                    </p>
+
+                    <div class="story-meta">
+                        17 de setembro de 2026
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- CORPO DO PORTAL -->
+
+    <div class="content-layout">
+
+        <div class="main-column">
+
+
+            <!-- ÚLTIMAS -->
+
+<!-- ÚLTIMAS NOTÍCIAS -->
+
+<section class="news-section" id="ultimas">
+
+    <div class="section-heading">
+
+        <h2>
+            Últimas notícias
+        </h2>
+
+        <a href="#">
+            VER TODAS →
+        </a>
+
+    </div>
+
+    <div class="news-list">
+
+        <!-- 1 — MAIS RECENTE -->
+
+        <article class="news-row">
+
+            <a
+                href="notícias/2026/10/paltadashg-completa-tidal-wave-mas-tera-que-refazer-o-nivel.html"
+                class="news-thumb"
+            >
+                <img
+                    src="https://preview.redd.it/lxxjpn2qcrsh1.jpeg?auto=webp&s=b8ed648993acbf1e2d3dc2d9fb0ed9906d7c093d"
+                    "PALTADASHG completando Tidal Wave"
+                >
+            </a>
+
+            <div class="news-row-content">
+
+                <span class="category">
+                    COMPETIÇÃO
+                </span>
+
+                <h3>
+                    <a href="notícias/2026/10/paltadashg-completa-tidal-wave-mas-tera-que-refazer-o-nivel.html">
+                        PALTADASHG completa Tidal Wave, mas terá que refazer o nível
+                    </a>
+                </h3>
+
+                <p>
+                    Jogador chileno alcança 100% e se torna o primeiro victor hispânico
+                    do nível, mas um problema com o MegaHack compromete a conclusão.
+                </p>
+
+                <time>
+                    1 de outubro · 2026
+                </time>
+
+            </div>
+
+        </article>
+
+
+        <!-- 2 -->
+
+        <article class="news-row">
+
+            <a
+                href="notícias/2026/09/ex-moderador-de-geometry-dash-revela-detalhes-apos-ser-removido-na-reformulacao-da-equipe.html"
+                class="news-thumb"
+            >
+                <img
+                    src="https://preview.redd.it/i-was-demoted-from-gd-mod-in-the-recent-purge-ask-me-v0-9flt40bf4gqh1.png?width=1080&crop=smart&auto=webp&s=a89be749c70d55c0b8ff9b1aa79ea4c4bc8da47c"
+                    "Ex-moderador de Geometry Dash"
+                >
+            </a>
+
+            <div class="news-row-content">
+
+                <span class="category">
+                    ATUALIZAÇÕES
+                </span>
+
+                <h3>
+                    <a href="notícias/2026/09/ex-moderador-de-geometry-dash-revela-detalhes-apos-ser-removido-na-reformulacao-da-equipe.html">
+                        Ex-moderador de Geometry Dash revela detalhes após ser removido na reformulação da equipe
+                    </a>
+                </h3>
+
+                <p>
+                    Após mais de seis anos como moderador, IncidiusGD responde a
+                    dezenas de perguntas da comunidade sobre sua saída e o sistema de Rate.
+                </p>
+
+                <time>
+                    19 de setembro · 14:53
+                </time>
+
+            </div>
+
+        </article>
+
+
+        <!-- 3 -->
+
+        <article class="news-row">
+
+            <a
+                href="notícias/2026/09/criador-mostra-transicao-em-desenvolvimento-e-revela-que-projeto-esta-dois-tercos-concluido.html"
+                class="news-thumb"
+            >
+                <img
+                    src="assets/noticias/criador-mostra-transicao-em-desenvolvimento-e-revela-que-projeto-esta-dois-tercos-concluido.png"
+                    "Transição de nível em desenvolvimento"
+                >
+            </a>
+
+            <div class="news-row-content">
+
+                <span class="category">
+                    NÍVEIS
+                </span>
+
+                <h3>
+                    <a href="notícias/2026/09/criador-mostra-transicao-em-desenvolvimento-e-revela-que-projeto-esta-dois-tercos-concluido.html">
+                        Criador mostra transição em desenvolvimento e revela que projeto está dois terços concluído
+                    </a>
+                </h3>
+
+                <p>
+                    N0no_G apresenta novo trabalho à comunidade e revela os próximos
+                    elementos que ainda pretende adicionar.
+                </p>
+
+                <time>
+                    19 de setembro · 14:53
+                </time>
+
+            </div>
+
+        </article>
+
+
+        <!-- 4 -->
+
+        <article class="news-row">
+
+            <a
+                href="notícias/2026/09/waltty-alcanca-14-100-em-it-means-everything-apos-623-mil-tentativas.html"
+                class="news-thumb"
+            >
+                <img
+                    src="https://i.ytimg.com/vi/GiykgnJa6JQ/maxresdefault.jpg"
+                    "Waltty jogando IT MEANS EVERYTHING"
+                >
+            </a>
+
+            <div class="news-row-content">
+
+                <span class="category">
+                    COMPETIÇÃO
+                </span>
+
+                <h3>
+                    <a href="notícias/2026/09/waltty-alcanca-14-100-em-it-means-everything-apos-623-mil-tentativas.html">
+                        Waltty alcança 14-100% em IT MEANS EVERYTHING após 623 mil tentativas
+                    </a>
+                </h3>
+
+                <p>
+                    Jogador registra um dos maiores progressos no nível, incluindo
+                    duas runs de 14-100%.
+                </p>
+
+                <time>
+                    18 de setembro · 20:03
+                </time>
+
+            </div>
+
+        </article>
+
+
+        <!-- 5 -->
+
+        <article class="news-row">
+
+            <a
+                href="notícias/2026/09/trick-completa-flamewall-e-se-torna-o-quarto-victor-do-nivel.html"
+                class="news-thumb"
+            >
+                <img
+                    src="https://i.ytimg.com/vi/wC5GWWZTEpE/maxresdefault.jpg"
+                    "Trick completando Flamewall"
+                >
+            </a>
+
+            <div class="news-row-content">
+
+                <span class="category">
+                    COMPETIÇÃO
+                </span>
+
+                <h3>
+                    <a href="notícias/2026/09/trick-completa-flamewall-e-se-torna-o-quarto-victor-do-nivel.html">
+                        Trick completa Flamewall e se torna o quarto victor do nível
+                    </a>
+                </h3>
+
+                <p>
+                    Jogador conclui um dos níveis mais difíceis de Geometry Dash
+                    após alcançar 98% poucas horas antes da completion.
+                </p>
+
+                <time>
+                    18 de setembro · 14:35
+                </time>
+
+            </div>
+
+        </article>
+
+
+        <!-- 6 -->
+
+        <article class="news-row">
+
+            <a
+                href="notícias/2026/09/mosk1712-completa-blade-of-justice-11-vezes-seguidas.html"
+                class="news-thumb"
+            >
+                <img
+                    src="https://i.ytimg.com/vi/V2S5zka7nvQ/hq720.jpg"
+                    "mosk1712 completando Blade of Justice"
+                >
+            </a>
+
+            <div class="news-row-content">
+
+                <span class="category">
+                    COMPETIÇÃO
+                </span>
+
+                <h3>
+                    <a href="notícias/2026/09/mosk1712-completa-blade-of-justice-11-vezes-seguidas.html">
+                        mosk1712 completa Blade of Justice 11 vezes seguidas
+                    </a>
+                </h3>
+
+                <p>
+                    Jogador supera a própria marca anterior e amplia para onze
+                    o número de completions consecutivas.
+                </p>
+
+                <time>
+                    18 de setembro · 14:35
+                </time>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+<!-- COMPETIÇÃO -->
+
+<section class="news-section" id="competicao">
+
+    <div class="section-heading">
+
+        <h2>
+            Competição
+        </h2>
+
+        <a href="#">
+            VER TODAS →
+        </a>
+
+    </div>
+
+    <div class="card-grid">
+
+        <article class="card-story">
+
+            <a href="notícias/2026/10/paltadashg-completa-tidal-wave-mas-tera-que-refazer-o-nivel.html">
+
+                <img
+                    src="https://preview.redd.it/lxxjpn2qcrsh1.jpeg?auto=webp&s=b8ed648993acbf1e2d3dc2d9fb0ed9906d7c093d"
+                    "PALTADASHG completando Tidal Wave"
                 >
 
-            <button type="submit">Assinar</button>
+                <span class="category">
+                    COMPETIÇÃO
+                </span>
 
-        </form>
+                <h3>
+                    PALTADASHG completa Tidal Wave, mas terá que refazer o nível
+                </h3>
+
+                <p>
+                    Jogador chileno alcança 100%, mas um problema com o MegaHack
+                    compromete a conclusão.
+                </p>
+
+            </a>
+
+        </article>
+
+
+        <article class="card-story">
+
+            <a href="notícias/2026/09/trick-completa-flamewall-e-se-torna-o-quarto-victor-do-nivel.html">
+
+                <img
+                    src="https://i.ytimg.com/vi/wC5GWWZTEpE/maxresdefault.jpg"
+                    "Trick completando Flamewall"
+                >
+
+                <span class="category">
+                    COMPETIÇÃO
+                </span>
+
+                <h3>
+                    Trick completa Flamewall e se torna o quarto victor do nível
+                </h3>
+
+                <p>
+                    Jogador conclui um dos níveis mais difíceis de Geometry Dash
+                    após alcançar 98% poucas horas antes.
+                </p>
+
+            </a>
+
+        </article>
+
+
+        <article class="card-story">
+
+            <a href="notícias/2026/09/waltty-alcanca-14-100-em-it-means-everything-apos-623-mil-tentativas.html">
+
+                <img
+                    src="https://i.ytimg.com/vi/GiykgnJa6JQ/maxresdefault.jpg"
+                    "Waltty jogando IT MEANS EVERYTHING"
+                >
+
+                <span class="category">
+                    COMPETIÇÃO
+                </span>
+
+                <h3>
+                    Waltty alcança 14-100% em IT MEANS EVERYTHING após 623 mil tentativas
+                </h3>
+
+                <p>
+                    Jogador registra um dos maiores progressos no nível,
+                    incluindo duas runs de 14-100%.
+                </p>
+
+            </a>
+
+        </article>
 
     </div>
 
-    <div class="footer-section">
+</section>
 
-        <div class="footer-title">Redes sociais</div>
 
-        <div class="social-logos">
+            <!-- NÍVEIS -->
+
+            <section class="news-section" id="niveis">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Níveis
+                    </h2>
+
+                    <a href="#">
+                        VER TODAS →
+                    </a>
+
+                </div>
+
+
+                <div class="card-grid">
+
+                    <article class="card-story">
+
+                        <a href="notícias/2026/08/eternal-blue-e-escolhido-como-daily-607-e-recebe-classificacao-legendary.html">
+
+                            <img
+                                src="https://img.youtube.com/vi/-3unpStDBVA/maxresdefault.jpg"
+                                "Eternal Blue"
+                            >
+
+                            <span class="category">
+                                NÍVEIS
+                            </span>
+
+                            <h3>
+                                Eternal Blue é escolhido como Daily #607 e recebe classificação Legendary
+                            </h3>
+
+                            <p>
+                                Nível criado por TheCubedGuy entra na rotação
+                                diária do Geometry Dash.
+                            </p>
+
+                        </a>
+
+                    </article>
+
+
+                    <article class="card-story">
+
+                        <a href="notícias/2026/09/progenitor-impressiona-comunidade-com-animacao-totalmente-feita-no-geometry-dash.html">
+
+                            <img
+                                src="assets/noticias/progenitor-impressiona-comunidade-com-animacao-totalmente-feita-no-geometry-dash.png"
+                                "Animação de Progenitor"
+                            >
+
+                            <span class="category">
+                                NÍVEIS
+                            </span>
+
+                            <h3>
+                                Progenitor impressiona comunidade com animação totalmente feita no Geometry Dash
+                            </h3>
+
+                            <p>
+                                Projeto de Pb207_GD mostra a morte caótica de
+                                um sistema solar dentro do editor.
+                            </p>
+
+                        </a>
+
+                    </article>
+
+
+                    <article class="card-story">
+
+                        <a href="notícias/2026/09/criador-mostra-transicao-em-desenvolvimento-e-revela-que-projeto-esta-dois-tercos-concluido.html">
+
+                            <img
+                                src="assets/noticias/criador-mostra-transicao-em-desenvolvimento-e-revela-que-projeto-esta-dois-tercos-concluido.png"
+                                "Transição de nível em desenvolvimento"
+                            >
+
+                            <span class="category">
+                                NÍVEIS
+                            </span>
+
+                            <h3>
+                                Criador mostra transição em desenvolvimento e revela que projeto está dois terços concluído
+                            </h3>
+
+                            <p>
+                                N0no_G apresenta novo trabalho à comunidade.
+                            </p>
+
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- COMUNIDADE -->
+
+            <section class="news-section" id="comunidade">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Comunidade
+                    </h2>
+
+                    <a href="#">
+                        VER TODAS →
+                    </a>
+
+                </div>
+
+
+                <div class="card-grid">
+
+                    <article class="card-story">
+
+                        <a href="notícias/2026/08/jogador-completa-jumper-em-uma-versao-de-geometry-dash-para-nintendo-3ds.html">
+
+                            <div class="card-placeholder">
+                                IMAGEM NÃO ENCONTRADA
+                            </div>
+
+                            <span class="category">
+                                COMUNIDADE
+                            </span>
+
+                            <h3>
+                                Jogador completa Jumper em uma versão de Geometry Dash para Nintendo 3DS
+                            </h3>
+
+                            <p>
+                                Jadix120 chama atenção da comunidade ao jogar
+                                um dos níveis clássicos no portátil.
+                            </p>
+
+                        </a>
+
+                    </article>
+
+
+                    <article class="card-story">
+
+                        <a href="notícias/2026/09/sapo-faz-jump-de-bloodbath-para-bloodlust-em-apenas-8-dias.html">
+
+                            <img
+                                src="https://preview.redd.it/a-frog-jumped-from-bloodbath-to-bloodlust-in-8-days-v0-633ytlttu6qh1.png"
+                                "Sapo jogando Geometry Dash"
+                            >
+
+                            <span class="category">
+                                COMUNIDADE
+                            </span>
+
+                            <h3>
+                                Sapo faz jump de Bloodbath para Bloodlust em apenas 8 dias
+                            </h3>
+
+                            <p>
+                                Animal surpreende a comunidade ao superar
+                                Bloodlust no mobile.
+                            </p>
+
+                        </a>
+
+                    </article>
+
+
+                    <article class="card-story">
+
+                        <a href="notícias/2026/09/jogador-cria-mod-que-permite-salvar-niveis-e-dados-do-geometry-dash-no-google-drive.html">
+
+                            <img
+                                src="assets/noticias/jogador-cria-mod-que-permite-salvar-niveis-e-dados-do-geometry-dash-no-google-drive.png"
+                                "Mod GDrive Backup"
+                            >
+
+                            <span class="category">
+                                COMUNIDADE
+                            </span>
+
+                            <h3>
+                                Jogador cria mod que permite salvar níveis e dados do Geometry Dash no Google Drive
+                            </h3>
+
+                            <p>
+                                GDrive Backup permite salvar e carregar dados
+                                do jogo na nuvem.
+                            </p>
+
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- ATUALIZAÇÕES -->
+
+            <section class="news-section" id="atualizacoes">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Atualizações
+                    </h2>
+
+                    <a href="#">
+                        VER TODAS →
+                    </a>
+
+                </div>
+
+
+                <div class="card-grid">
+
+                    <article class="card-story">
+
+                        <a href="notícias/2026/09/trailer-da-2-209-revela-dezenas-de-novidades-e-robtop-responde-a-mais-de-20-perguntas-da-comunidade.html">
+
+                            <img
+                                src="https://i.ytimg.com/vi/ubCzpg3P2IU/maxresdefault.jpg"
+                                "Trailer da atualização 2.209"
+                            >
+
+                            <span class="category">
+                                ATUALIZAÇÕES
+                            </span>
+
+                            <h3>
+                                Trailer da 2.209 revela dezenas de novidades e RobTop responde a mais de 20 perguntas
+                            </h3>
+
+                            <p>
+                                Nova atualização ganha trailer repleto de recursos
+                                e detalhes sobre o futuro do jogo.
+                            </p>
+
+                        </a>
+
+                    </article>
+
+
+                    <article class="card-story">
+
+                        <a href="notícias/2026/09/robtop-anuncia-reformulacao-da-equipe-de-moderadores-na-atualizacao-2-209.html">
+
+                            <img
+                                src="https://preview.redd.it/robtops-announcement-regarding-todays-moderator-system-v0-jd6bewtdpkph1.png"
+                                "RobTop anunciando mudanças na equipe"
+                            >
+
+                            <span class="category">
+                                ATUALIZAÇÕES
+                            </span>
+
+                            <h3>
+                                RobTop anuncia reformulação da equipe de moderadores na atualização 2.209
+                            </h3>
+
+                            <p>
+                                Mudanças alteram funções dos moderadores e
+                                encerram novas candidaturas para Rating Advisor.
+                            </p>
+
+                        </a>
+
+                    </article>
+
+
+                    <article class="card-story">
+
+                        <a href="notícias/2026/09/ex-moderador-de-geometry-dash-revela-detalhes-apos-ser-removido-na-reformulacao-da-equipe.html">
+
+                            <img
+                                src="https://preview.redd.it/i-was-demoted-from-gd-mod-in-the-recent-purge-ask-me-v0-9flt40bf4gqh1.png"
+                                "Ex-moderador de Geometry Dash"
+                            >
+
+                            <span class="category">
+                                ATUALIZAÇÕES
+                            </span>
+
+                            <h3>
+                                Ex-moderador de Geometry Dash revela detalhes após ser removido na reformulação da equipe
+                            </h3>
+
+                            <p>
+                                IncidiusGD responde a perguntas sobre sua saída
+                                e o funcionamento da equipe.
+                            </p>
+
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+
+            <section class="sidebar-section">
+
+                <div class="sidebar-heading">
+                    MAIS LIDAS
+                </div>
+
+
+                <article class="popular-story">
+
+                    <span class="popular-number">
+                        01
+                    </span>
+
+                    <div>
+
+                        <span class="category">
+                            ???
+                        </span>
+
+                        <h3>
+                            <a href="#">
+                                Sem informações neste momento.
+                            </a>
+                        </h3>
+
+                    </div>
+
+                </article>
+
+
+                <article class="popular-story">
+
+                    <span class="popular-number">
+                        02
+                    </span>
+
+                    <div>
+
+                        <span class="category">
+                            ???
+                        </span>
+
+                        <h3>
+                            <a href="#">
+                                Sem informações neste momento.
+                            </a>
+                        </h3>
+
+                    </div>
+
+                </article>
+
+
+                <article class="popular-story">
+
+                    <span class="popular-number">
+                        03
+                    </span>
+
+                    <div>
+
+                        <span class="category">
+                            ???
+                        </span>
+
+                        <h3>
+                            <a href="#">
+                                Sem informações neste momento.
+                            </a>
+                        </h3>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <section class="sidebar-section about-box">
+
+                <div class="sidebar-heading">
+                    SOBRE O DASHWATCH
+                </div>
+
+                <p>
+                    O DashWatch é um portal independente dedicado
+                    às notícias e acontecimentos da comunidade de
+                    Geometry Dash.
+                </p>
+
+            </section>
+
+
+            <section class="sidebar-section">
+
+                <div class="sidebar-heading">
+                    REDES SOCIAIS
+                </div>
+
+                <div class="sidebar-socials">
+
+                    <a
+                        href="https://youtube.com/@DashWatchGD"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        YouTube
+                    </a>
+
+                    <a
+                        href="https://x.com/@DashWatchGD"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        X
+                    </a>
+
+                    <a
+                        href="https://instagram.com/dashwatch.news"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        Instagram
+                    </a>
+
+                </div>
+
+            </section>
+
+        </aside>
+
+    </div>
+
+</main>
+
+
+<footer class="site-footer">
+
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+                DASH<span>WATCH</span>
+            </div>
+
+            <p>
+                Notícias de Geometry Dash.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                CATEGORIAS
+            </h3>
+
+            <a href="#geral">Geral</a>
+            <a href="#competicao">Competição</a>
+            <a href="#niveis">Níveis</a>
+            <a href="#comunidade">Comunidade</a>
+            <a href="#atualizacoes">Atualizações</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                REDES
+            </h3>
 
             <a href="https://youtube.com/@DashWatchGD" target="_blank" rel="noopener">
-                <img class="youtube-logo" src="assets/youtube-icon.svg" alt="YouTube">
+                YouTube
             </a>
 
             <a href="https://x.com/@DashWatchGD" target="_blank" rel="noopener">
-                <img class="x-logo" src="assets/x-logo.svg" alt="X">
+                X
             </a>
 
             <a href="https://instagram.com/dashwatch.news" target="_blank" rel="noopener">
-                <img class="instagram-logo" src="assets/instagram-icon.svg" alt="Instagram">
+                Instagram
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>
+                AGRADECIMENTOS
+            </h3>
+
+            <a
+                href="https://www.dashword.net/"
+                target="_blank"
+                rel="noopener"
+            >
+                DashWord
+            </a>
+
+            <a
+                href="https://www.reddit.com/r/geometrydash/"
+                target="_blank"
+                rel="noopener"
+            >
+                r/geometrydash
             </a>
 
         </div>
 
     </div>
 
-</div>
 
-<div class="footer-copy">
-    © <span id="year-copy"></span> DashWatch
-</div>
+    <div class="footer-bottom">
+
+        <span>
+            © <span id="year"></span> DashWatch
+        </span>
+
+        <span>
+            Portal independente de notícias de Geometry Dash
+        </span>
+
+    </div>
 
 </footer>
+
 
 <script src="script.js"></script>
 

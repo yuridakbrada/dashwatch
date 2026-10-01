@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>PALTADASHG completa Tidal Wave, mas terá que refazer o nível | DashWatch</title>
+
+    <link rel="shortcut icon"
+        href="../../../assets/dashwatch_favicon.png"
+        type="image/x-icon">
+
+    <style>
+        :root {
+            --accent: #c71920;
+            --accent-dark: #9e1117;
+
+            --bg: #f5f5f5;
+            --surface: #ffffff;
+            --surface-soft: #fafafa;
+
+            --text: #171717;
+            --muted: #6d6d6d;
+            --border: #dedede;
+
+            --shadow:
+                0 12px 35px rgba(0, 0, 0, .07);
+
+            --content: 900px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            max-width: 1120px;
+            margin: auto;
+            padding: 24px 24px 0;
+        }
+
+        .brand-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 38px;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .tagline {
+            color: var(--muted);
+            font-size: 12px;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+            margin-top: 23px;
+            padding: 14px 0;
+            border-top: 1px solid var(--border);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .5px;
+            white-space: nowrap;
+            transition: color .2s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* =========================
+           THEME BUTTON
+        ========================= */
+
+        #theme-toggle {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+
+            width: 46px;
+            height: 46px;
+
+            border: 1px solid var(--border);
+            border-radius: 50%;
+
+            background: var(--surface);
+            color: var(--text);
+
+            box-shadow: 0 8px 25px rgba(0,0,0,.12);
+
+            cursor: pointer;
+            font-size: 18px;
+
+            z-index: 50;
+
+            transition:
+                transform .2s ease,
+                background .25s ease,
+                color .25s ease;
+        }
+
+        #theme-toggle:hover {
+            transform: translateY(-2px);
+        }
+
+        #theme-toggle:active {
+            transform: scale(.92);
+        }
+
+        /* =========================
+           ARTICLE
+        ========================= */
+
+        main {
+            padding: 55px 20px 80px;
+        }
+
+        article {
+            max-width: var(--content);
+            margin: auto;
+        }
+
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            color: var(--accent);
+            text-decoration: none;
+
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .4px;
+
+            margin-bottom: 34px;
+
+            transition: transform .2s ease;
+        }
+
+        .back:hover {
+            transform: translateX(-4px);
+        }
+
+        .category {
+            display: inline-block;
+
+            color: var(--accent);
+
+            font-size: 11px;
+            font-weight: 900;
+
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+
+            margin-bottom: 13px;
+        }
+
+        h1 {
+            max-width: 850px;
+
+            margin: 0;
+
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(38px, 6vw, 67px);
+            line-height: 1.02;
+            letter-spacing: -2px;
+        }
+
+        .subtitle {
+            max-width: 780px;
+
+            margin: 22px 0 20px;
+
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 22px;
+            line-height: 1.55;
+
+            color: var(--muted);
+        }
+
+        .info {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 9px;
+
+            padding: 17px 0;
+
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+
+            color: var(--muted);
+
+            font-size: 12px;
+        }
+
+        .info strong {
+            color: var(--text);
+        }
+
+        .dot {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* =========================
+           HERO IMAGE
+        ========================= */
+
+        .image-wrapper {
+            margin-top: 34px;
+        }
+
+        .image {
+            position: relative;
+
+            width: 100%;
+            aspect-ratio: 16 / 9;
+
+            overflow: hidden;
+
+            background: #ddd;
+            border-radius: 10px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .image::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0) 65%,
+                    rgba(0,0,0,.18)
+                );
+
+            pointer-events: none;
+        }
+
+        .image img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+
+            transition: transform .5s ease;
+        }
+
+        .image:hover img {
+            transform: scale(1.025);
+        }
+
+        .caption {
+            margin-top: 9px;
+
+            color: var(--muted);
+
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           ARTICLE BODY
+        ========================= */
+
+        .body {
+            max-width: 760px;
+
+            margin: 42px auto 0;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 19px;
+            line-height: 1.85;
+        }
+
+        .body p {
+            margin: 0 0 26px;
+        }
+
+        .body p:first-child::first-letter {
+            float: left;
+
+            font-size: 68px;
+            line-height: .78;
+
+            padding: 8px 9px 0 0;
+
+            color: var(--accent);
+
+            font-weight: bold;
+        }
+
+        .body h2 {
+            margin: 45px 0 18px;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 30px;
+            line-height: 1.15;
+
+            letter-spacing: -.5px;
+        }
+
+        /* =========================
+           QUOTE
+        ========================= */
+
+        blockquote {
+            position: relative;
+
+            margin: 38px 0;
+
+            padding: 24px 28px 24px 30px;
+
+            background: var(--surface-soft);
+
+            border-left: 4px solid var(--accent);
+
+            border-radius: 0 8px 8px 0;
+
+            color: var(--text);
+
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 22px;
+            line-height: 1.55;
+            font-style: italic;
+        }
+
+        blockquote::before {
+            content: "“";
+
+            position: absolute;
+
+            top: -18px;
+            left: 18px;
+
+            color: var(--accent);
+
+            font-family: Georgia, serif;
+            font-size: 62px;
+            font-style: normal;
+        }
+
+        /* =========================
+           HIGHLIGHT
+        ========================= */
+
+        .highlight {
+            margin: 35px 0;
+            padding: 20px 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(199,25,32,.09),
+                    rgba(199,25,32,.025)
+                );
+
+            border: 1px solid rgba(199,25,32,.18);
+            border-radius: 8px;
+
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .highlight strong {
+            color: var(--accent);
+        }
+
+        /* =========================
+           SOURCE
+        ========================= */
+
+        .source {
+            max-width: 760px;
+
+            margin: 45px auto 0;
+            padding-top: 18px;
+
+            border-top: 1px solid var(--border);
+
+            color: var(--muted);
+
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .source strong {
+            color: var(--text);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+
+            background: var(--surface);
+
+            padding: 32px 20px;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        footer strong {
+            color: var(--text);
+            font-family: Georgia, serif;
+            font-size: 17px;
+        }
+
+        /* =========================
+           DARK MODE
+        ========================= */
+
+        body.dark-mode {
+            --bg: #0d0d0f;
+            --surface: #151517;
+            --surface-soft: #1b1b1e;
+
+            --text: #f1f1f1;
+            --muted: #a3a3a8;
+            --border: #303034;
+
+            --shadow:
+                0 15px 40px rgba(0,0,0,.35);
+        }
+
+        body.dark-mode .image {
+            background: #202024;
+        }
+
+        body.dark-mode .highlight {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(199,25,32,.16),
+                    rgba(199,25,32,.04)
+                );
+        }
+
+        /* =========================
+           SMOOTH THEME TRANSITION
+        ========================= */
+
+        body.theme-ready,
+        body.theme-ready header,
+        body.theme-ready nav,
+        body.theme-ready nav a,
+        body.theme-ready main,
+        body.theme-ready article,
+        body.theme-ready .subtitle,
+        body.theme-ready .info,
+        body.theme-ready .image,
+        body.theme-ready .caption,
+        body.theme-ready .body,
+        body.theme-ready blockquote,
+        body.theme-ready .highlight,
+        body.theme-ready .source,
+        body.theme-ready footer,
+        body.theme-ready #theme-toggle {
+            transition:
+                background-color .3s ease,
+                color .3s ease,
+                border-color .3s ease,
+                box-shadow .3s ease;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .header-inner {
+                padding: 19px 17px 0;
+            }
+
+            .logo {
+                font-size: 30px;
+            }
+
+            .tagline {
+                display: none;
+            }
+
+            nav {
+                gap: 20px;
+                margin-top: 17px;
+            }
+
+            main {
+                padding: 35px 17px 60px;
+            }
+
+            .back {
+                margin-bottom: 27px;
+            }
+
+            h1 {
+                font-size: 39px;
+                letter-spacing: -1.2px;
+            }
+
+            .subtitle {
+                font-size: 19px;
+                line-height: 1.45;
+            }
+
+            .info {
+                line-height: 1.7;
+            }
+
+            .image-wrapper {
+                margin-top: 25px;
+            }
+
+            .image {
+                border-radius: 7px;
+            }
+
+            .body {
+                margin-top: 32px;
+                font-size: 18px;
+                line-height: 1.78;
+            }
+
+            .body p:first-child::first-letter {
+                font-size: 57px;
+            }
+
+            blockquote {
+                margin: 30px 0;
+                padding: 21px 20px 21px 24px;
+                font-size: 19px;
+            }
+
+            #theme-toggle {
+                right: 15px;
+                bottom: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+
+        <div class="brand-row">
+            <div class="logo">
+                DASH<span>WATCH</span>
+            </div>
+        </div>
+
+        <nav>
+            <a href="../../../index.html#general">GERAL</a>
+            <a href="../../../index.html#competition">COMPETIÇÃO</a>
+            <a href="../../../index.html#levels">NÍVEIS</a>
+            <a href="../../../index.html#community">COMUNIDADE</a>
+            <a href="../../../index.html#updates">ATUALIZAÇÕES</a>
+        </nav>
+
+    </div>
+</header>
+
+<main>
+
+<article>
+
+    <a class="back" href="../../../index.html">
+        ← VOLTAR PARA O PORTAL
+    </a>
+
+    <br>
+
+    <div class="category">
+        Competição
+    </div>
+
+    <h1>
+        PALTADASHG completa Tidal Wave, mas terá que refazer o nível
+    </h1>
+
+    <p class="subtitle">
+        Jogador chileno alcança 100% e se torna o primeiro victor hispânico
+        do nível, mas um problema com o MegaHack compromete a conclusão.
+    </p>
+
+    <div class="info">
+        <span>Publicado em 1 de outubro de 2026</span>
+        <span class="dot">•</span>
+        <span>Por <strong>yuridakbrada</strong></span>
+    </div>
+
+    <div class="image-wrapper">
+
+        <div class="image">
+            <img
+                src="https://preview.redd.it/lxxjpn2qcrsh1.jpeg?auto=webp&s=b8ed648993acbf1e2d3dc2d9fb0ed9906d7c093d"
+                alt="Paltadashg completando Tidal Wave">
+        </div>
+
+        <div class="caption">
+            Paltadashg alcança 100% em Tidal Wave.
+        </div>
+
+    </div>
+
+    <div class="body">
+
+        <p>
+            O jogador chileno <strong>paltadashg</strong> alcançou 100% em
+            Tidal Wave, registrando uma nova conclusão do conhecido Extreme
+            Demon e se tornando, segundo a discussão publicada no Reddit,
+            o primeiro victor hispânico do nível.
+        </p>
+
+        <p>
+            O feito rapidamente chamou a atenção da comunidade. A publicação
+            no r/geometrydash recebeu mais de 120 votos e diversos comentários
+            celebrando a nova conclusão.
+        </p>
+
+        <div class="highlight">
+            <strong>Porém, há um problema:</strong> paltadashg revelou que
+            seus cliques não foram registrados corretamente e que o
+            autoclicker do MegaHack foi ativado acidentalmente durante o final
+            da tentativa.
+        </div>
+
+        <p>
+            O problema pode ser percebido pela presença de um indicador
+            vermelho na gravação. Segundo o próprio jogador, o autoclicker
+            acabou sendo ativado sem intenção durante a parte final da run.
+        </p>
+
+        <blockquote>
+            TIDAL WAVE 100% // first hispanic // 93k attempts<br><br>
+            AL FIN ME LO PASE, ACTIVE EL AUTOCLICKER DEL MEGAHACK EN EL FINAL
+            POR ESO ESTA EL PUNTO ROJO PERO ME DA IGUAL ME LO PASE
+        </blockquote>
+
+        <p>
+            Apesar de ter alcançado a porcentagem máxima, paltadashg afirmou
+            que pretende refazer Tidal Wave para conseguir uma conclusão sem
+            esse problema técnico.
+        </p>
+
+        <p>
+            A situação gerou uma reação curiosa entre os jogadores. Enquanto
+            alguns comemoraram a conquista, outros destacaram justamente o
+            fato de que a gravação não registrou os cliques e que o
+            autoclicker apareceu ativo no final da tentativa.
+        </p>
+
+        <p>
+            Um dos comentários resumiu a situação dizendo que era
+            particularmente frustrante porque, além dos cliques não terem
+            sido registrados, o autoclicker havia sido ativado acidentalmente.
+            O mesmo comentário observou que o jogador pretende completar o
+            nível novamente.
+        </p>
+
+        <p>
+            O progresso também acontece depois de uma longa grind. De acordo
+            com a publicação do próprio jogador, a tentativa foi realizada
+            após aproximadamente <strong>93 mil tentativas</strong>.
+        </p>
+
+        <p>
+            Com uma nova tentativa planejada, a história de paltadashg em
+            Tidal Wave ainda não terminou. O jogador agora terá que repetir
+            todo o nível para registrar uma conclusão sem o problema ocorrido
+            na primeira tentativa.
+        </p>
+
+        <p>
+            Até lá, a comunidade continua acompanhando a nova sequência de
+            tentativas e o possível novo vídeo de conclusão.
+        </p>
+
+    </div>
+
+    <div class="source">
+        <strong>Fontes:</strong>
+        Reddit — r/geometrydash /
+        X — @paltadashg.
+    </div>
+
+</article>
+
+</main>
+
+<footer>
+    <strong>DashWatch</strong><br>
+    Notícias de Geometry Dash · 2026
+</footer>
+
+<button id="theme-toggle" aria-label="Alternar tema">🌙</button>
+
+<script src="../../../scripts.js"></script>
+
+</body>
+</html>
