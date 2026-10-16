@@ -34,9 +34,7 @@ jobs:
             exit 0
           fi
 
-          if git show "$BEFORE:noticias.json" > /tmp/anterior.json 2>/dev/null; then
-            :
-          else
+          if ! git show "$BEFORE:noticias.json" > /tmp/anterior.json 2>/dev/null; then
             echo "ERRO: não consegui ler o arquivo anterior. Abortando para evitar spam."
             exit 1
           fi
@@ -61,53 +59,55 @@ jobs:
 
           async function enviar() {
             if (novas.length === 0) {
-              console.log("Nenhuma notícia nova.");
+              console.log("Nenhuma notícia nova. Nenhuma notificação enviada.");
               return;
             }
 
-            for (const noticia of novas) {
-              const link = new URL(
-                noticia.url,
-                "https://dashwatch.news/"
-              ).href;
+            const titulo = novas.length === 1
+              ? novas[0].titulo
+              : "📰 Novas notícias no DashWatch!";
 
-              const resposta = await fetch(
-                "https://api.onesignal.com/notifications",
-                {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                    "Authorization":
-                      `Key ${process.env.ONESIGNAL_REST_API_KEY}`
-                  },
-                  body: JSON.stringify({
-                    app_id: process.env.ONESIGNAL_APP_ID,
-                    target_channel: "push",
-                    included_segments: ["Subscribed Users"],
-                    headings: {
-                      "pt-BR": noticia.titulo
-                    },
-                    contents: {
-                      "pt-BR": noticia.descricao ||
-                        "Confira a nova notícia no DashWatch."
-                    },
-                    url: link
-                  })
-                }
-              );
+            const descricao = novas.length === 1
+              ? (novas[0].descricao ||
+                 "Confira a nova notícia no DashWatch.")
+              : `${novas.length} novas notícias publicadas. Confira as últimas no DashWatch!`;
 
-              const resultado = await resposta.text();
-
-              if (!resposta.ok) {
-                throw new Error(
-                  `Erro do OneSignal (${resposta.status}): ${resultado}`
-                );
+            const resposta = await fetch(
+              "https://api.onesignal.com/notifications",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  "Authorization":
+                    `Key ${process.env.ONESIGNAL_REST_API_KEY}`
+                },
+                body: JSON.stringify({
+                  app_id: process.env.ONESIGNAL_APP_ID,
+                  target_channel: "push",
+                  included_segments: ["Subscribed Users"],
+                  headings: { "pt-BR": titulo },
+                  contents: { "pt-BR": descricao },
+                  url: novas.length === 1
+                    ? new URL(
+                        novas[0].url,
+                        "https://dashwatch.news/"
+                      ).href
+                    : "https://dashwatch.news/"
+                })
               }
+            );
 
-              console.log(`OneSignal HTTP: ${resposta.status}`);
-              console.log(`Resposta do OneSignal: ${resultado}`);
-              console.log(`Solicitação aceita: ${noticia.titulo}`);
+            const resultado = await resposta.text();
+
+            if (!resposta.ok) {
+              throw new Error(
+                `Erro do OneSignal (${resposta.status}): ${resultado}`
+              );
             }
+
+            console.log(`OneSignal HTTP: ${resposta.status}`);
+            console.log(`Resposta do OneSignal: ${resultado}`);
+            console.log(`Solicitação aceita. Notícias novas: ${novas.length}`);
           }
 
           enviar().catch(erro => {
