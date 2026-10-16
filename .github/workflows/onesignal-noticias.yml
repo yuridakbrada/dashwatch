@@ -24,6 +24,7 @@ jobs:
           fetch-depth: 0
 
       - name: Detectar notícias novas e notificar
+              if: github.event_name == 'push'
         env:
           BEFORE: ${{ github.event.before }}
           ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
