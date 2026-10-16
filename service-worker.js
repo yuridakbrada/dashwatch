@@ -4,6 +4,9 @@ const CACHE_NAME = "dashwatch-v1";
 const FILES_TO_CACHE = [
   "/",
   "/index.html",
+  "/style.css",
+  "/script.js",
+  "/noticias.json",
   "/manifest.json"
 ];
 
