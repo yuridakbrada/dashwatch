@@ -1,0 +1,114 @@
+
+name: Notificar novas notícias
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - noticias.json
+
+permissions:
+  contents: read
+
+jobs:
+  enviar-notificacoes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Detectar notícias novas e notificar
+        env:
+          BEFORE: ${{ github.event.before }}
+          ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
+          ONESIGNAL_APP_ID: c0e9507b-bb6b-410f-84c3-4b2d24dc207e
+        run: |
+          set -e
+
+          if [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            echo "Primeiro commit: nenhuma notificação enviada."
+            exit 0
+          fi
+
+          if git show "$BEFORE:noticias.json" > /tmp/anterior.json 2>/dev/null; then
+            :
+          else
+            printf '[]' > /tmp/anterior.json
+          fi
+
+          node <<'NODE'
+          const fs = require("node:fs");
+
+          const anterior = JSON.parse(
+            fs.readFileSync("/tmp/anterior.json", "utf8")
+          );
+          const atual = JSON.parse(
+            fs.readFileSync("noticias.json", "utf8")
+          );
+
+          const urlsAntigas = new Set(
+            anterior.map(n => n.url).filter(Boolean)
+          );
+
+          const novas = atual.filter(
+            n => n.url && !urlsAntigas.has(n.url)
+          );
+
+          async function enviar() {
+            if (novas.length === 0) {
+              console.log("Nenhuma notícia nova.");
+              return;
+            }
+
+            for (const noticia of novas) {
+              const link = new URL(
+                noticia.url,
+                "https://dashwatch.news/"
+              ).href;
+
+              const resposta = await fetch(
+                "https://api.onesignal.com/notifications",
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "Authorization":
+                      `Key ${process.env.ONESIGNAL_REST_API_KEY}`
+                  },
+                  body: JSON.stringify({
+                    app_id: process.env.ONESIGNAL_APP_ID,
+                    target_channel: "push",
+                    included_segments: ["Subscribed Users"],
+                    headings: {
+                      "pt-BR": noticia.titulo
+                    },
+                    contents: {
+                      "pt-BR": noticia.descricao ||
+                        "Confira a nova notícia no DashWatch."
+                    },
+                    url: link
+                  })
+                }
+              );
+
+              const resultado = await resposta.text();
+
+              if (!resposta.ok) {
+                throw new Error(
+                  `Erro do OneSignal (${resposta.status}): ${resultado}`
+                );
+              }
+
+              console.log(
+                `Notificação enviada: ${noticia.titulo}`
+              );
+            }
+          }
+
+          enviar().catch(erro => {
+            console.error(erro);
+            process.exitCode = 1;
+          });
+          NODE
