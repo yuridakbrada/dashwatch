@@ -28,6 +28,25 @@
         href="manifest.json"
     >
 
+
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+
+    OneSignalDeferred.push(async function(OneSignal) {
+        await OneSignal.init({
+          appId: "c0e9507b-bb6b-410f-84c3-4b2d24dc207e",
+          serviceWorkerPath: "push/onesignal/OneSignalSDKWorker.js",
+          serviceWorkerParam: {
+            scope: "/push/onesignal/"
+        },
+          notifyButton: {
+            enable: true
+        }
+        });
+    });
+    </script>
+
 </head>
 
 <body>
