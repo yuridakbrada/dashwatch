@@ -2,6 +2,8 @@
 name: Notificar novas notícias
 
 on:
+  workflow_dispatch:
+
   push:
     branches:
       - main
