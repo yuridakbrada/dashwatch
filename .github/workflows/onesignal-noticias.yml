@@ -37,7 +37,8 @@ jobs:
           if git show "$BEFORE:noticias.json" > /tmp/anterior.json 2>/dev/null; then
             :
           else
-            printf '[]' > /tmp/anterior.json
+            echo "ERRO: não consegui ler o arquivo anterior. Abortando para evitar spam."
+            exit 1
           fi
 
           node <<'NODE'
