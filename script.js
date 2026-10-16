@@ -368,3 +368,17 @@ if (year) {
         new Date().getFullYear();
 
 }
+
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/service-worker.js")
+      .then(() => {
+        console.log("DashWatch: Service Worker registrado!");
+      })
+      .catch((error) => {
+        console.error("Erro ao registrar Service Worker:", error);
+      });
+  });
+}
