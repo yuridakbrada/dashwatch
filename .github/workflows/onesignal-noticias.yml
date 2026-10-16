@@ -104,9 +104,9 @@ jobs:
                 );
               }
 
-              console.log(
-                `Notificação enviada: ${noticia.titulo}`
-              );
+              console.log(`OneSignal HTTP: ${resposta.status}`);
+              console.log(`Resposta do OneSignal: ${resultado}`);
+              console.log(`Solicitação aceita: ${noticia.titulo}`);
             }
           }
 
