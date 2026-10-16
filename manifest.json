@@ -1,0 +1,25 @@
+
+{
+  "id": "/",
+  "name": "DashWatch",
+  "short_name": "DashWatch",
+  "description": "Projeto independente de notícias de Geometry Dash.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#101114",
+  "theme_color": "#101114",
+  "icons": [
+    {
+      "src": "/assets/dashwatch_favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/dashwatch_favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
