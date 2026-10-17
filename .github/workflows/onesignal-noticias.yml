@@ -87,7 +87,7 @@ jobs:
                 body: JSON.stringify({
                   app_id: process.env.ONESIGNAL_APP_ID,
                   target_channel: "push",
-                  included_segments: ["Subscribed Users"],
+                  included_segments: ["Total Subscriptions"],
                   headings: { "pt-BR": titulo },
                   contents: { "pt-BR": descricao },
                   url: novas.length === 1
