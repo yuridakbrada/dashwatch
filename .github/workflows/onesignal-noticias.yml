@@ -23,7 +23,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Testar notificação no meu Brave
+      - name: Testar notificação para todos
         if: github.event_name == 'workflow_dispatch'
         env:
           ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
@@ -41,9 +41,7 @@ jobs:
                 },
                 body: JSON.stringify({
                   app_id: process.env.ONESIGNAL_APP_ID,
-                  include_subscription_ids: [
-                    "cb56ad46-0c73-48bf-b9a0-c04c35308d1e"
-                  ],
+                  included_segments: ["Total Subscriptions"],
                   headings: {
                     "en": "DashWatch Test",
                     "pt-BR": "Teste do DashWatch"
