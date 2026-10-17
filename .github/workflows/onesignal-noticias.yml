@@ -45,12 +45,12 @@ jobs:
                     "cb56ad46-0c73-48bf-b9a0-c04c35308d1e"
                   ],
                   headings: {
-                    "en": titulo,
-                    "pt-BR": titulo
+                    "en": "DashWatch Test",
+                    "pt-BR": "Teste do DashWatch"
                   },
                   contents: {
-                    "en": descricao,
-                    "pt-BR": descricao
+                    "en": "If you received this, the notification is working!",
+                    "pt-BR": "Se você recebeu isto, a notificação está funcionando!"
                   },
                   url: "https://dashwatch.news/"
                 })
