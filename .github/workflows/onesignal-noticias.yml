@@ -19,6 +19,46 @@ jobs:
 
     steps:
       - name: Baixar repositório
+      - name: Testar notificação no meu Brave
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
+          ONESIGNAL_APP_ID: c0e9507b-bb6b-410f-84c3-4b2d24dc207e
+        run: |
+          node <<'NODE'
+          async function main() {
+            const resposta = await fetch(
+              "https://api.onesignal.com/notifications",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  "Authorization": `Key ${process.env.ONESIGNAL_REST_API_KEY}`
+                },
+                body: JSON.stringify({
+                  app_id: process.env.ONESIGNAL_APP_ID,
+                  include_subscription_ids: [
+                    "cb56ad46-0c73-48bf-b9a0-c04c35308d1e"
+                  ],
+                  headings: { "pt-BR": "Teste do DashWatch" },
+                  contents: { "pt-BR": "Se você recebeu isto, o envio automático funcionou!" },
+                  url: "https://dashwatch.news/"
+                })
+              }
+            );
+
+            const resultado = await resposta.text();
+            console.log(`HTTP: ${resposta.status}`);
+            console.log(`Resposta: ${resultado}`);
+
+            if (!resposta.ok) process.exitCode = 1;
+          }
+
+          main().catch(erro => {
+            console.error(erro);
+            process.exitCode = 1;
+          });
+          NODE
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
