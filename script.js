@@ -354,25 +354,6 @@ startBreakingTicker();
 
 
 // =========================================
-// RESIZE
-// =========================================
-
-let resizeTimer;
-
-window.addEventListener("resize", () => {
-
-    clearTimeout(resizeTimer);
-
-    resizeTimer = setTimeout(() => {
-
-        location.reload();
-
-    }, 250);
-
-});
-
-
-// =========================================
 // ANO DO FOOTER
 // =========================================
 
