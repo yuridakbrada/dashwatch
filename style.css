@@ -189,6 +189,10 @@ img {
     transition: transform .15s ease, background-color .3s ease;
 }
 
+#search-toggle.hidden {
+    display: none;
+}
+
 #search-toggle:hover {
     transform: scale(1.06);
 }
@@ -1282,4 +1286,213 @@ body.dark-mode .main-nav a:hover {
         animation-duration: .01ms !important;
     }
 
+}
+
+
+
+/* =========================================
+   PESQUISA FLUTUANTE
+========================================= */
+
+.search-panel {
+  display: none;
+  position: fixed;
+  top: 105px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(760px, calc(100% - 32px));
+  max-height: calc(100dvh - 125px);
+  overflow-y: auto;
+  box-sizing: border-box;
+  z-index: 1000;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--background);
+  box-shadow: 0 12px 40px rgb(0 0 0 / 18%);
+}
+
+.search-panel.active {
+  display: block;
+}
+
+.search-panel .search-inner {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.search-panel .search-box {
+  width: 100%;
+  min-width: 0;
+}
+
+.search-panel #search-input {
+  width: 100%;
+  min-width: 0;
+}
+
+.search-panel .search-results {
+  display: none;
+  margin-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.search-panel .search-results.active {
+  display: block;
+}
+
+#search-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+
+/* =========================================
+   CORREÇÕES PARA MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .header-inner {
+    width: 100%;
+    min-width: 0;
+    min-height: 70px;
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .logo {
+    min-width: 0;
+    font-size: clamp(22px, 6vw, 28px);
+    letter-spacing: -1.5px;
+    white-space: nowrap;
+  }
+
+  .header-actions {
+    flex-shrink: 0;
+    gap: 5px;
+  }
+
+  #search-toggle,
+  #theme-toggle {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+  }
+
+  /* Categorias ocupam linhas, sem barra horizontal */
+  .nav-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: visible;
+    padding: 0 6px;
+  }
+
+  .main-nav a {
+    flex: 0 1 auto;
+    padding: 10px 8px;
+    font-size: 9px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .site-main {
+    width: 100%;
+    min-width: 0;
+    padding: 0 14px 45px;
+  }
+
+  .headline-grid,
+  .content-layout,
+  .main-column,
+  .secondary-stories,
+  .news-section,
+  .news-list,
+  .card-grid,
+  .sidebar {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .headline-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .content-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .news-row {
+    grid-template-columns: minmax(0, 115px) minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .news-row-content,
+  .news-row-content h3,
+  .card-story,
+  .section-heading {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .card-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .footer-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 16px;
+  }
+
+  .footer-bottom {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  /* Pesquisa sobre o conteúdo, sem alargar o ecrã */
+  .search-panel {
+    top: 82px;
+    left: 12px;
+    right: 12px;
+    transform: none;
+    width: auto;
+    max-width: none;
+    max-height: calc(100dvh - 96px);
+    padding: 10px;
+  }
+
+  .search-result {
+    grid-template-columns: 65px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .search-result img {
+    width: 65px;
+    height: 48px;
+  }
+
+  .search-result-content {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .search-result h3 {
+    font-size: 14px;
+  }
+
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+  }
 }

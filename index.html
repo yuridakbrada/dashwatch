@@ -29,23 +29,32 @@
     >
 
 
-    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-    <script>
-    window.OneSignalDeferred = window.OneSignalDeferred || [];
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+window.OneSignalDeferred = window.OneSignalDeferred || [];
 
-    OneSignalDeferred.push(async function(OneSignal) {
-        await OneSignal.init({
-          appId: "c0e9507b-bb6b-410f-84c3-4b2d24dc207e",
-          serviceWorkerPath: "push/onesignal/OneSignalSDKWorker.js",
-          serviceWorkerParam: {
+OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+        appId: "c0e9507b-bb6b-410f-84c3-4b2d24dc207e",
+        serviceWorkerPath: "push/onesignal/OneSignalSDKWorker.js",
+        serviceWorkerParam: {
             scope: "/push/onesignal/"
         },
-          notifyButton: {
-            enable: true
+        notifyButton: {
+            enable: false
         }
-        });
     });
-    </script>
+
+    const botao = document.getElementById("ativar-notificacoes");
+
+    if (botao) {
+        botao.addEventListener("click", async () => {
+            await OneSignal.Notifications.requestPermission();
+            await OneSignal.User.PushSubscription.optIn();
+        });
+    }
+});
+</script>
 
 </head>
 
@@ -61,29 +70,45 @@
                 DASH<span>WATCH</span>
             </a>
 
-    <div class="header-actions">
-        <button id="search-toggle" aria-label="Pesquisar" title="Pesquisar">🔍</button>
-        <button id="theme-toggle" aria-label="Alternar tema" title="Alternar tema">🌙</button>
+
+<div class="header-actions">
+
+    <div class="search-control">
+        <button
+            id="search-toggle"
+            aria-label="Pesquisar"
+            title="Pesquisar"
+            type="button"
+        >🔍</button>
+
+<div class="search-panel" id="search-panel">
+  <div class="search-inner">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input
+        type="search"
+        id="search-input"
+        placeholder="Pesquisar notícias..."
+        autocomplete="off"
+      >
+      <button id="search-close" aria-label="Fechar pesquisa">×</button>
     </div>
 
-    <div class="search-panel" id="search-panel">
-    <div class="search-inner">
-        <div class="search-box">
-            <span class="search-icon">🔍</span>
-
-            <input
-                type="search"
-                id="search-input"
-                placeholder="Pesquisar notícias..."
-                autocomplete="off"
-            >
-
-            <button id="search-close" aria-label="Fechar pesquisa">×</button>
-        </div>
-
-        <div class="search-results" id="search-results"></div>
-    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
 </div>
+
+    <button
+        id="theme-toggle"
+        aria-label="Alternar tema"
+        title="Alternar tema"
+        type="button"
+    >🌙</button>
+
+</div>
+
+<div class="search-results" id="search-results"></div>
+
 
         </div>
 
@@ -120,6 +145,12 @@
 
             <div class="breaking-track">
 
+                <a href="notícias/2026/10/theobliviongd-completa-unnerfed-oblivion-apos-150-mil-tentativas.html">
+                    TheOblivionGD completa Unnerfed Oblivion após 150 mil tentativas
+                </a>
+
+                <span>•</span>
+
                 <a href="notícias/2026/10/hover-completa-vsc-extreme-challenge-criado-por-bo.html">
                     Hover completa VSC, Extreme Challenge criado por BO
                 </a>
@@ -140,12 +171,6 @@
 
                 <a href="notícias/2026/10/liuytz-completa-rerust-apos-meses-de-tentativas-e-desistencias.html">
                     Liuytz completa ReRUST após meses de tentativas e desistências
-                </a>
-
-                <span>•</span>
-
-                <a href="notícias/2026/10/2-209-chega-com-controles-parentais-exportacao-de-niveis-e-dezenas-de-novidades.html">
-                    2.209 chega com controles parentais, exportação de níveis e dezenas de novidades
                 </a>
 
             </div>
@@ -332,6 +357,41 @@
         <article class="news-row">
 
             <a
+                href="notícias/2026/10/theobliviongd-completa-unnerfed-oblivion-apos-150-mil-tentativas.html"
+                class="news-thumb"
+            >
+                <img
+                    src="https://img.youtube.com/vi/SaaOBJ9P71Q/maxresdefault.jpg"
+                >
+            </a>
+
+            <div class="news-row-content">
+
+                <span class="category">
+                    COMPETIÇÃO
+                </span>
+
+                <h3>
+                    <a href="notícias/2026/10/theobliviongd-completa-unnerfed-oblivion-apos-150-mil-tentativas.html">
+                        TheOblivionGD completa Unnerfed Oblivion após 150 mil tentativas
+                    </a>
+                </h3>
+
+                <p>
+                    O jogador conclui a versão sem nerfs de Oblivion, considera o nível mais difícil que já enfrentou e anuncia uma pequena pausa para cuidar da vida pessoal.
+                </p>
+
+                <time>
+                    19 de outubro · 2026
+                </time>
+
+            </div>
+
+        </article>
+
+        <article class="news-row">
+
+            <a
                 href="notícias/2026/10/hover-completa-vsc-extreme-challenge-criado-por-bo.html"
                 class="news-thumb"
             >
@@ -494,41 +554,6 @@
 
                 <p>
                     A atualização adiciona ferramentas ao editor, permite personalizar controles por nível e traz mudanças na classificação etária e na interface do jogo.
-                </p>
-
-                <time>
-                    15 de outubro · 2026
-                </time>
-
-            </div>
-
-        </article>
-
-        <article class="news-row">
-
-            <a
-                href="notícias/2026/10/jogador-completa-sonic-wave-tocando-piano-simultaneamente-durante-transmissao-ao-vivo.html"
-                class="news-thumb"
-            >
-                <img
-                    src="https://img.youtube.com/vi/NwGS_3ZjdYQ/maxresdefault.jpg"
-                >
-            </a>
-
-            <div class="news-row-content">
-
-                <span class="category">
-                    COMPETIÇÃO
-                </span>
-
-                <h3>
-                    <a href="notícias/2026/10/jogador-completa-sonic-wave-tocando-piano-simultaneamente-durante-transmissao-ao-vivo.html">
-                        Jogador completa Sonic Wave tocando piano simultaneamente durante transmissão ao vivo
-                    </a>
-                </h3>
-
-                <p>
-                    Criador levou cerca de 8 mil tentativas no desafio atual e transmitiu a conclusão diante de aproximadamente 300 espectadores simultâneos, segundo seu relato.
                 </p>
 
                 <time>

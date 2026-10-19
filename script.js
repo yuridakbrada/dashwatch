@@ -48,34 +48,51 @@ async function carregarNoticias() {
 
 /* Abre a pesquisa */
 
+
+/* Abre e fecha a pesquisa */
+
+function fecharPesquisa() {
+    searchPanel.classList.remove("active");
+    searchToggle.classList.remove("hidden");
+
+    searchInput.value = "";
+    searchResults.innerHTML = "";
+    searchResults.classList.remove("active");
+}
+
 searchToggle.addEventListener("click", () => {
+    searchPanel.classList.add("active");
+    searchToggle.classList.add("hidden");
 
-    searchPanel.classList.toggle("active");
-
-    if (searchPanel.classList.contains("active")) {
-        searchInput.focus();
-    } else {
-        searchInput.value = "";
-        searchResults.innerHTML = "";
-        searchResults.classList.remove("active");
-    }
-
+    searchInput.focus();
 });
+
+/* Fecha a pesquisa */
+
+searchClose.addEventListener("click", fecharPesquisa);
+
 
 
 /* Fecha a pesquisa */
 
-searchClose.addEventListener("click", () => {
 
+function fecharPesquisa() {
     searchPanel.classList.remove("active");
+    searchToggle.classList.remove("hidden");
 
     searchInput.value = "";
-
     searchResults.innerHTML = "";
-
     searchResults.classList.remove("active");
+}
 
+searchToggle.addEventListener("click", () => {
+    searchPanel.classList.add("active");
+    searchToggle.classList.add("hidden");
+    searchInput.focus();
 });
+
+searchClose.addEventListener("click", fecharPesquisa);
+
 
 
 /* Pesquisa */
