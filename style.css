@@ -1496,3 +1496,35 @@ body.dark-mode .main-nav a:hover {
     max-width: 100%;
   }
 }
+
+
+/* Botão de notificações */
+#ativar-notificacoes {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform .15s ease, background-color .3s ease;
+}
+
+#ativar-notificacoes:hover {
+    transform: scale(1.06);
+}
+
+#ativar-notificacoes:active {
+    transform: scale(.94);
+}
+
+/* Mesmo tamanho dos outros botões no mobile */
+@media (max-width: 650px) {
+    #ativar-notificacoes {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+    }
+}
