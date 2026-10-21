@@ -3,7 +3,7 @@
   "id": "/",
   "name": "DashWatch",
   "short_name": "DashWatch",
-  "description": "Projeto independente de notícias de Geometry Dash.",
+  "description": "Acompanhe os grandes feitos, níveis, atualizações e acontecimentos da comunidade.",
   "lang": "pt-BR",
   "start_url": "/",
   "scope": "/",
