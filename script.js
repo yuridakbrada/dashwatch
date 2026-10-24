@@ -27,6 +27,7 @@ function normalizar(texto) {
 
 /* Carrega o catálogo inteiro */
 
+
 async function carregarNoticias() {
     try {
         const resposta = await fetch("noticias.json");
@@ -37,16 +38,89 @@ async function carregarNoticias() {
 
         noticias = await resposta.json();
 
+        atualizarUltimos(noticias);
+        atualizarUltimasNoticias(noticias);
+
         console.log(`${noticias.length} notícias carregadas.`);
     } catch (erro) {
         console.error("Erro ao carregar noticias.json:", erro);
-
         noticias = [];
     }
 }
 
+/* Atualiza os cartões de "Últimas notícias" */
+function atualizarUltimasNoticias(listaNoticias) {
+    const lista = document.getElementById("news-list");
 
-/* Abre a pesquisa */
+    if (!lista) return;
+
+    const recentes = [...listaNoticias]
+        .sort((a, b) => {
+            const dataA = `${a.data || ""} ${a.hora || ""}`;
+            const dataB = `${b.data || ""} ${b.hora || ""}`;
+            return dataB.localeCompare(dataA);
+        })
+        .slice(0, 10);
+
+    lista.replaceChildren();
+
+    recentes.forEach((noticia) => {
+        const artigo = document.createElement("article");
+        artigo.className = "news-row";
+
+        const linkImagem = document.createElement("a");
+        linkImagem.className = "news-thumb";
+        linkImagem.href = noticia.url;
+
+        const imagem = document.createElement("img");
+        imagem.src = noticia.imagem || "";
+        imagem.alt = noticia.titulo || "Notícia";
+        imagem.loading = "lazy";
+
+        linkImagem.appendChild(imagem);
+        artigo.appendChild(linkImagem);
+
+        const conteudo = document.createElement("div");
+        conteudo.className = "news-row-content";
+
+        const categoria = document.createElement("span");
+        categoria.className = "category";
+        categoria.textContent = noticia.categoria || "GERAL";
+        conteudo.appendChild(categoria);
+
+        const titulo = document.createElement("h3");
+        const linkTitulo = document.createElement("a");
+
+        linkTitulo.href = noticia.url;
+        linkTitulo.textContent = noticia.titulo || "Sem título";
+
+        titulo.appendChild(linkTitulo);
+        conteudo.appendChild(titulo);
+
+        const descricao = document.createElement("p");
+        descricao.textContent = noticia.descricao || "";
+        conteudo.appendChild(descricao);
+
+        const data = document.createElement("time");
+
+        if (noticia.data) {
+            data.dateTime = noticia.data;
+
+            const [ano, mes, dia] = noticia.data.split("-").map(Number);
+            const dataLocal = new Date(ano, mes - 1, dia);
+
+            data.textContent =
+                new Intl.DateTimeFormat("pt-BR", {
+                    day: "numeric",
+                    month: "long"
+                }).format(dataLocal) + ` · ${ano}`;
+        }
+
+        conteudo.appendChild(data);
+        artigo.appendChild(conteudo);
+        lista.appendChild(artigo);
+    });
+}
 
 
 /* Abre e fecha a pesquisa */
@@ -132,7 +206,55 @@ searchInput.addEventListener("input", () => {
 
     renderizarResultados(resultados);
 
+    
+function pesquisarPorCategoria(categoria) {
+    searchPanel.classList.add("active");
+    searchToggle.classList.add("hidden");
+
+    searchInput.value = categoria;
+    searchInput.focus();
+
+    const termo = normalizar(categoria);
+
+    const resultados = noticias.filter(noticia =>
+        normalizar(noticia.categoria || "").includes(termo)
+    );
+
+    renderizarResultados(resultados);
+}
+
+
 });
+
+
+document.querySelectorAll("[data-categoria]").forEach(link => {
+    link.addEventListener("click", evento => {
+        evento.preventDefault();
+
+        pesquisarPorCategoria(link.dataset.categoria);
+    });
+});
+
+
+document.querySelectorAll(".main-nav [data-categoria]").forEach(link => {
+    link.addEventListener("click", evento => {
+        evento.preventDefault();
+
+        searchPanel.classList.add("active");
+        searchToggle.classList.add("hidden");
+        searchInput.value = link.dataset.categoria;
+
+        const termo = normalizar(link.dataset.categoria);
+
+        const resultados = noticias.filter(noticia =>
+            normalizar(noticia.categoria || "").includes(termo)
+        );
+
+        renderizarResultados(resultados);
+    });
+});
+
+
 
 
 /* Mostra os resultados */
@@ -214,6 +336,70 @@ function formatarData(data) {
 /* Carrega o JSON */
 
 carregarNoticias();
+
+
+/* Atualiza o ticker "ÚLTIMAS" com as 3 notícias mais recentes */
+function atualizarUltimos(listaNoticias) {
+    const faixa = document.getElementById("breaking-track");
+
+    if (!faixa) return;
+
+    const recentes = [...listaNoticias]
+        .sort((a, b) => {
+            const dataA = `${a.data || ""} ${a.hora || ""}`;
+            const dataB = `${b.data || ""} ${b.hora || ""}`;
+
+            return dataB.localeCompare(dataA);
+        })
+        .slice(0, 3);
+
+    faixa.replaceChildren();
+
+    recentes.forEach((noticia) => {
+        const link = document.createElement("a");
+
+        link.href = noticia.url;
+        link.textContent = noticia.titulo || "Sem título";
+        link.className = "breaking-item";
+
+        faixa.appendChild(link);
+    });
+}
+
+
+/* Atualiza a faixa "Últimos" com as 3 notícias mais recentes */
+function atualizarUltimos(listaNoticias) {
+    const faixa = document.getElementById("breaking-track");
+
+    if (!faixa) return;
+
+    // Ordena as notícias da mais recente para a mais antiga
+    const recentes = [...listaNoticias]
+.sort((a, b) => {
+    const dataA = `${a.data || ""} ${a.hora || ""}`;
+    const dataB = `${b.data || ""} ${b.hora || ""}`;
+
+    return dataB.localeCompare(dataA);
+})
+
+    // Limpa os links anteriores
+    faixa.replaceChildren();
+
+    // Cria os links automaticamente
+    recentes.forEach((noticia, indice) => {
+        if (indice > 0) {
+            const separador = document.createElement("span");
+            separador.textContent = "•";
+            faixa.appendChild(separador);
+        }
+
+        const link = document.createElement("a");
+        link.href = noticia.url;
+        link.textContent = noticia.titulo;
+
+        faixa.appendChild(link);
+    });
+}
 
 // =========================================
 // TEMA

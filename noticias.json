@@ -125,7 +125,7 @@
   {
     "titulo": "Eternal Blue é escolhido como Daily #607 e recebe classificação Legendary",
     "descricao": "Nível criado por TheCubedGuy entra na rotação diária do Geometry Dash e recebe uma das maiores classificações de dificuldade do jogo.",
-    "categoria": "Nível",
+    "categoria": "Níveis",
     "autor": "yuridakbrada",
     "data": "2026-08-30",
     "hora": "19:00",
@@ -364,7 +364,7 @@
   {
     "titulo": "Criador mostra transição em desenvolvimento e revela que projeto está dois terços concluído",
     "descricao": "N0no_G apresenta novo trabalho à comunidade e revela os próximos elementos que ainda pretende adicionar.",
-    "categoria": "Competição",
+    "categoria": "Níveis",
     "autor": "yuridakbrada",
     "data": "2026-09-19",
     "hora": "14:53",
@@ -517,8 +517,9 @@
     "categoria": "Competição",
     "autor": "yuridakbrada",
     "data": "2026-10-19",
+    "hora": "00:00",
     "url": "notícias/2026/10/hover-completa-vsc-extreme-challenge-criado-por-bo.html",
-    "imagem": "https://i.ytimg.com/vi/KDK6d0MoXo8/hqdefault.jpg",
+    "imagem": "https://i.ytimg.com/vi/9IE6nwW7rq4/maxresdefault.jpg",
     "tags": [
       "Geometry Dash",
       "Hover",
@@ -532,6 +533,7 @@
     "categoria": "Competição",
     "autor": "yuridakbrada",
     "data": "2026-10-19",
+    "hora": "00:01",
     "url": "notícias/2026/10/theobliviongd-completa-unnerfed-oblivion-apos-150-mil-tentativas.html",
     "imagem": "https://img.youtube.com/vi/SaaOBJ9P71Q/maxresdefault.jpg",
     "tags": [
@@ -546,6 +548,7 @@
     "categoria": "Competição",
     "autor": "yuridakbrada",
     "data": "2026-10-19",
+    "hora": "00:02",
     "url": "notícias/2026/10/teraaa-chega-a-83-em-escalator-e-fica-perto-de-verificar-o-nivel.html",
     "imagem": "https://img.youtube.com/vi/xkBIaHQ9Gmo/maxresdefault.jpg",
     "tags": [
@@ -560,6 +563,7 @@
     "categoria": "Competição",
     "autor": "yuridakbrada",
     "data": "2026-10-19",
+    "hora": "00:03",
     "url": "notícias/2026/10/khasem-apresenta-recorde-mundial-em-ton-618-com-spam-de-mais-de-50-cps.html",
     "imagem": "https://img.youtube.com/vi/tUNzhV8idCo/maxresdefault.jpg",
     "tags": [
@@ -575,6 +579,7 @@
     "categoria": "Competição",
     "autor": "yuridakbrada",
     "data": "2026-10-19",
+    "hora": "00:04",
     "url": "notícias/2026/10/overgd-completa-re-um-dos-desafios-mais-dificeis-de-sua-trajetoria-no-geometry-dash.html",
     "imagem": "https://img.youtube.com/vi/FdEqxA0PEYs/maxresdefault.jpg",
     "tags": [
@@ -590,6 +595,7 @@
     "categoria": "Competição",
     "autor": "yuridakbrada",
     "data": "2026-10-21",
+    "hora": "00:00",
     "url": "notícias/2026/10/drama-gd-questiona-a-dificuldade-de-cuber-em-grief.html",
     "imagem": "https://i.ytimg.com/vi/QaW89w4DaUY/hqdefault.jpg",
     "tags": [
@@ -604,6 +610,7 @@
     "categoria": "Competição",
     "autor": "yuridakbrada",
     "data": "2026-10-21",
+    "hora": "00:01",
     "url": "notícias/2026/10/kelancraft-jogador-mirim-verifica-the-four-seasons-e-estima-dificuldade-de-top-650.html",
     "imagem": "https://i.ytimg.com/vi/YOgpYskqxD8/maxresdefault.jpg",
     "tags": [
@@ -619,6 +626,7 @@
     "categoria": "Comunidade",
     "autor": "yuridakbrada",
     "data": "2026-10-21",
+    "hora": "00:02",
     "url": "notícias/2026/10/video-alerta-para-possivel-hack-que-facilitaria-timings-no-geometry-dash.html",
     "imagem": "https://i.ytimg.com/vi/jpT_bKuNWFs/maxresdefault.jpg",
     "tags": [
@@ -633,6 +641,7 @@
     "categoria": "Comunidade",
     "autor": "yuridakbrada",
     "data": "2026-10-21",
+    "hora": "00:03",
     "url": "notícias/2026/10/funnygame-da-indicios-de-possivel-retorno-ao-geometry-dash.html",
     "imagem": "https://i.ytimg.com/vi/_zxw_GJH1SU/maxresdefault.jpg",
     "tags": [
@@ -647,6 +656,7 @@
     "categoria": "Ferramentas",
     "autor": "yuridakbrada",
     "data": "2026-10-21",
+    "hora": "00:04",
     "url": "notícias/2026/10/bismuth-promete-melhorar-o-desempenho-de-geometry-dash-com-otimizacao-pela-gpu.html",
     "imagem": "https://preview.redd.it/yall-heard-about-the-new-optimisation-mod-v0-gpdpb6is1vwh1.png?auto=webp&s=975854512c4fe640719fed7c896b897956873363",
     "tags": [
