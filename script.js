@@ -566,3 +566,52 @@ if ("serviceWorker" in navigator) {
       });
   });
 }
+
+const dropdowns = document.querySelectorAll(".dropdown");
+
+dropdowns.forEach(dropdown => {
+    const button = dropdown.querySelector(".dropdown-button");
+    const menu = dropdown.querySelector(".dropdown-menu");
+
+    button.addEventListener("click", (event) => {
+        event.stopPropagation();
+
+        const isOpen = button.getAttribute("aria-expanded") === "true";
+
+        // Fecha todos os dropdowns
+        dropdowns.forEach(item => {
+            item.querySelector(".dropdown-button")
+                .setAttribute("aria-expanded", "false");
+
+            item.querySelector(".dropdown-menu").hidden = true;
+        });
+
+        // Abre o menu clicado, se estava fechado
+        if (!isOpen) {
+            button.setAttribute("aria-expanded", "true");
+            menu.hidden = false;
+        }
+    });
+});
+
+// Fecha ao clicar fora
+document.addEventListener("click", () => {
+    dropdowns.forEach(dropdown => {
+        dropdown.querySelector(".dropdown-button")
+            .setAttribute("aria-expanded", "false");
+
+        dropdown.querySelector(".dropdown-menu").hidden = true;
+    });
+});
+
+// Fecha com ESC
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        dropdowns.forEach(dropdown => {
+            dropdown.querySelector(".dropdown-button")
+                .setAttribute("aria-expanded", "false");
+
+            dropdown.querySelector(".dropdown-menu").hidden = true;
+        });
+    }
+});
