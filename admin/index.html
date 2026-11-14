@@ -346,10 +346,10 @@
   // COLOQUE AQUI SUA CHAVE PUBLISHABLE ATUAL DO SUPABASE.
   const SUPABASE_KEY = "sb_publishable_SrMCJ_GqWOLufD-q0nZ-QA_2OswCZ47";
 
-  const supabase = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
+  const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL, 
+    SUPABASE_KEY)
+  ;
 
   const loginPanel = document.getElementById("login-panel");
   const dashboard = document.getElementById("dashboard");
