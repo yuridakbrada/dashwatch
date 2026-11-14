@@ -1,90 +1,582 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111111">
   <title>Painel administrativo | DashWatch</title>
+
+  <link rel="shortcut icon" href="../assets/dashwatch_favicon.png">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
+      padding: 30px 16px;
       background: #111;
-      color: #fff;
+      color: #eee;
       font-family: Arial, sans-serif;
     }
-    main {
-      width: min(90%, 390px);
-      padding: 32px;
-      background: #1d1d1d;
-      border-radius: 14px;
-      text-align: center;
-    }
-    h1 { color: #e32630; }
-    button {
+
+    .container {
       width: 100%;
-      padding: 14px;
-      margin-top: 12px;
-      border: 0;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 15px;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    header {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 20px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #c71920;
+    }
+
+    h1 {
+      font-size: 25px;
+      margin-top: 30px;
+    }
+
+    h2 {
+      font-size: 19px;
+      margin-top: 30px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 10px;
+    }
+
+    p {
+      color: #aaa;
+      line-height: 1.5;
+    }
+
+    .panel {
+      background: #1b1b1b;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 18px 0 7px;
+      font-size: 14px;
       font-weight: bold;
     }
-    #google { background: white; color: #222; }
-    #github { background: #333; color: white; }
-    #status { color: #bbb; font-size: 14px; }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      background: #101010;
+      border: 1px solid #444;
+      border-radius: 6px;
+      color: #eee;
+      font: inherit;
+      outline: none;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #c71920;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      border: 0;
+      border-radius: 6px;
+      padding: 12px 17px;
+      background: #c71920;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background: #e02a32;
+    }
+
+    button:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+
+    .secondary {
+      background: #333;
+      margin-right: 7px;
+    }
+
+    .secondary:hover {
+      background: #484848;
+    }
+
+    .login-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .login-buttons button {
+      flex: 1;
+      min-width: 150px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .status {
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 15px;
+      background: #292929;
+      overflow-wrap: anywhere;
+    }
+
+    .status.error {
+      border: 1px solid #c71920;
+      color: #ff7777;
+    }
+
+    .status.success {
+      border: 1px solid #23864b;
+      color: #76dfa0;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: #888;
+      margin-top: 6px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .block {
+      background: #151515;
+      border: 1px solid #383838;
+      padding: 15px;
+      border-radius: 7px;
+      margin-top: 15px;
+    }
+
+    .block textarea {
+      min-height: 90px;
+    }
+
+    .block button {
+      margin-top: 10px;
+    }
+
+    #publish-button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 16px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 12px;
+      }
+
+      .panel {
+        padding: 16px;
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <main>
-    <h1>DashWatch</h1>
-    <h2>Painel administrativo</h2>
-    <p>Entre com sua conta autorizada.</p>
+<div class="container">
 
-    <button id="google">Entrar com Google</button>
-    <button id="github">Entrar com GitHub</button>
+  <header>
+    <div class="logo">DASH<span>WATCH</span></div>
+    <p>Painel administrativo</p>
+  </header>
 
-    <p id="status">Aguardando autenticação...</p>
-  </main>
+  <section id="login-panel" class="panel">
+    <h1>Acessar painel</h1>
+    <p>Entre com sua conta para administrar as notícias.</p>
 
-  <script type="module">
-    import { createClient } from
-      "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+    <div class="login-buttons">
+      <button id="google-login">Entrar com Google</button>
+      <button id="github-login" class="secondary">Entrar com GitHub</button>
+    </div>
 
-    const supabase = createClient(
-      "https://llbcmxraepkqbaqixlmy.supabase.co",
-      "sb_publishable_SrMCJ_GqWOLufD-q0nZ-QA_2OswCZ47"
+    <div id="login-status" class="status hidden"></div>
+  </section>
+
+  <section id="dashboard" class="hidden">
+
+    <div class="panel">
+      <p>Autenticado como:</p>
+      <strong id="user-email"></strong>
+      <button id="logout" class="secondary" style="float:right">
+        Sair
+      </button>
+    </div>
+
+    <form id="news-form" class="panel">
+
+      <h1>Publicar notícia</h1>
+      <p>Preencha as informações abaixo para publicar no DashWatch.</p>
+
+      <h2>Informações principais</h2>
+
+      <label for="title">Título</label>
+      <input id="title" required maxlength="180"
+        placeholder="Título da notícia">
+
+      <label for="description">Descrição / subtítulo</label>
+      <textarea id="description" required maxlength="500"
+        placeholder="Resumo da notícia"></textarea>
+
+      <label for="category">Categoria</label>
+      <select id="category" required>
+        <option value="">Selecione uma categoria</option>
+        <option>Geral</option>
+        <option>Competição</option>
+        <option>Níveis</option>
+        <option>Comunidade</option>
+        <option>Atualizações</option>
+        <option>Ferramentas</option>
+      </select>
+
+      <div class="row">
+        <div>
+          <label for="date">Data</label>
+          <input id="date" type="date" required>
+        </div>
+
+        <div>
+          <label for="time">Horário</label>
+          <input id="time" type="time" required>
+        </div>
+      </div>
+
+      <h2>Imagem de capa</h2>
+
+      <label for="cover">URL da imagem</label>
+      <input id="cover" type="url"
+        placeholder="https://exemplo.com/imagem.jpg">
+
+      <label for="cover-caption">Legenda</label>
+      <input id="cover-caption"
+        placeholder="Descrição da imagem">
+
+      <h2>Corpo da notícia</h2>
+      <p class="hint">
+        Adicione os blocos na ordem em que devem aparecer no artigo.
+      </p>
+
+      <div id="blocks"></div>
+
+      <div style="margin-top:15px">
+        <button type="button" class="secondary" id="add-paragraph">
+          + Parágrafo
+        </button>
+
+        <button type="button" class="secondary" id="add-heading">
+          + Título
+        </button>
+
+        <button type="button" class="secondary" id="add-quote">
+          + Citação
+        </button>
+
+        <button type="button" class="secondary" id="add-image">
+          + Imagem
+        </button>
+      </div>
+
+      <h2>Fontes</h2>
+
+      <label for="sources">Fontes da notícia</label>
+      <textarea id="sources"
+        placeholder="Uma fonte por linha. Para links, use: Nome | https://exemplo.com"></textarea>
+
+      <h2>Tags</h2>
+
+      <label for="tags">Tags separadas por vírgula</label>
+      <input id="tags"
+        placeholder="Geometry Dash, jogador, nível">
+
+      <button type="submit" id="publish-button">
+        Publicar notícia
+      </button>
+
+      <div id="publish-status" class="status hidden"></div>
+
+    </form>
+  </section>
+
+</div>
+
+<script>
+  const SUPABASE_URL =
+    "https://llbcmxraepkqbaqixlmy.supabase.co";
+
+  // COLOQUE AQUI SUA CHAVE PUBLISHABLE ATUAL DO SUPABASE.
+  const SUPABASE_KEY = "sb_publishable_SrMCJ_GqWOLufD-q0nZ-QA_2OswCZ47";
+
+  const supabase = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+  const loginPanel = document.getElementById("login-panel");
+  const dashboard = document.getElementById("dashboard");
+  const loginStatus = document.getElementById("login-status");
+  const publishStatus = document.getElementById("publish-status");
+  const blocksContainer = document.getElementById("blocks");
+
+  function showStatus(element, message, type = "") {
+    element.textContent = message;
+    element.className = "status " + type;
+  }
+
+  async function updateInterface() {
+    const { data, error } = await supabase.auth.getUser();
+
+    if (error || !data.user) {
+      loginPanel.classList.remove("hidden");
+      dashboard.classList.add("hidden");
+      return;
+    }
+
+    loginPanel.classList.add("hidden");
+    dashboard.classList.remove("hidden");
+
+    document.getElementById("user-email").textContent =
+      data.user.email || "Usuário autenticado";
+  }
+
+  async function login(provider) {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider,
+      options: {
+        redirectTo: window.location.origin + "/admin/"
+      }
+    });
+
+    if (error) {
+      showStatus(loginStatus, error.message, "error");
+    }
+  }
+
+  document.getElementById("google-login").onclick =
+    () => login("google");
+
+  document.getElementById("github-login").onclick =
+    () => login("github");
+
+  document.getElementById("logout").onclick = async () => {
+    await supabase.auth.signOut();
+    await updateInterface();
+  };
+
+  function addBlock(type, label, placeholder) {
+    const block = document.createElement("div");
+    block.className = "block";
+    block.dataset.type = type;
+
+    const heading = document.createElement("strong");
+    heading.textContent = label;
+
+    const textarea = document.createElement("textarea");
+    textarea.placeholder = placeholder;
+    textarea.required = true;
+
+    block.appendChild(heading);
+    block.appendChild(textarea);
+
+    if (type === "imagem") {
+      const caption = document.createElement("input");
+      caption.placeholder = "Legenda da imagem";
+      caption.style.marginTop = "10px";
+      block.appendChild(caption);
+    }
+
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "secondary";
+    remove.textContent = "Remover bloco";
+    remove.onclick = () => block.remove();
+
+    block.appendChild(remove);
+    blocksContainer.appendChild(block);
+  }
+
+  document.getElementById("add-paragraph").onclick =
+    () => addBlock("paragrafo", "Parágrafo", "Escreva o parágrafo...");
+
+  document.getElementById("add-heading").onclick =
+    () => addBlock("titulo", "Título de seção", "Título...");
+
+  document.getElementById("add-quote").onclick =
+    () => addBlock("citacao", "Citação", "Escreva a citação...");
+
+  document.getElementById("add-image").onclick =
+    () => addBlock("imagem", "Imagem", "Cole a URL HTTPS da imagem...");
+
+  function getSources() {
+    return document.getElementById("sources").value
+      .split("\n")
+      .map(line => line.trim())
+      .filter(Boolean)
+      .map(line => {
+        const separator = line.indexOf("|");
+
+        if (separator === -1) return line;
+
+        return {
+          nome: line.slice(0, separator).trim(),
+          url: line.slice(separator + 1).trim()
+        };
+      });
+  }
+
+  function getBlocks() {
+    return Array.from(blocksContainer.children).map(block => {
+      const fields = block.querySelectorAll("textarea, input");
+
+      const result = {
+        tipo: block.dataset.type,
+        texto: fields[0].value.trim()
+      };
+
+      if (block.dataset.type === "imagem") {
+        result.url = fields[0].value.trim();
+        result.legenda = fields[1].value.trim();
+        delete result.texto;
+      }
+
+      return result;
+    });
+  }
+
+  document.getElementById("news-form").addEventListener(
+    "submit",
+    async event => {
+      event.preventDefault();
+
+      const button = document.getElementById("publish-button");
+      button.disabled = true;
+      button.textContent = "Publicando...";
+
+      try {
+        const { data: sessionData, error: sessionError } =
+          await supabase.auth.getSession();
+
+        if (sessionError || !sessionData.session) {
+          throw new Error("Sua sessão expirou. Entre novamente.");
+        }
+
+        const article = {
+          titulo: document.getElementById("title").value.trim(),
+          descricao: document.getElementById("description").value.trim(),
+          categoria: document.getElementById("category").value,
+          data: document.getElementById("date").value,
+          hora: document.getElementById("time").value,
+          imagem: document.getElementById("cover").value.trim(),
+          legenda: document.getElementById("cover-caption").value.trim(),
+          corpo: getBlocks(),
+          fontes: getSources(),
+          tags: document.getElementById("tags").value
+            .split(",")
+            .map(tag => tag.trim())
+            .filter(Boolean)
+        };
+
+        const response = await fetch(
+          SUPABASE_URL + "/functions/v1/publicar-noticia",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": "Bearer " + sessionData.session.access_token,
+              "apikey": SUPABASE_KEY
+            },
+            body: JSON.stringify(article)
+          }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.erro || "Não foi possível publicar.");
+        }
+
+        showStatus(
+          publishStatus,
+          "Notícia publicada! Arquivo: " + result.url,
+          "success"
+        );
+
+        document.getElementById("news-form").reset();
+        blocksContainer.innerHTML = "";
+        setDateTime();
+
+      } catch (error) {
+        showStatus(
+          publishStatus,
+          error.message || "Erro inesperado ao publicar.",
+          "error"
+        );
+      } finally {
+        button.disabled = false;
+        button.textContent = "Publicar notícia";
+      }
+    }
+  );
+
+  function setDateTime() {
+    const now = new Date();
+    const local = new Date(
+      now.getTime() - now.getTimezoneOffset() * 60000
     );
 
-    const status = document.getElementById("status");
+    document.getElementById("date").value =
+      local.toISOString().slice(0, 10);
 
-    async function login(provider) {
-      status.textContent = "Redirecionando...";
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider,
-        options: {
-          redirectTo: "https://dashwatch.news/admin/"
-        }
-      });
+    document.getElementById("time").value =
+      local.toISOString().slice(11, 16);
+  }
 
-      if (error) status.textContent = error.message;
-    }
+  supabase.auth.onAuthStateChange(() => {
+    updateInterface();
+  });
 
-    document.getElementById("google").onclick =
-      () => login("google");
+  setDateTime();
+  updateInterface();
+</script>
 
-    document.getElementById("github").onclick =
-      () => login("github");
-
-    const { data } = await supabase.auth.getUser();
-
-    if (data.user) {
-      status.textContent = "Autenticado: " + data.user.email;
-    }
-  </script>
 </body>
 </html>
