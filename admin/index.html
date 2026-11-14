@@ -59,12 +59,6 @@
   object-fit: contain;
 }
 
-.logo {
-  font-size: 28px;
-  font-weight: 900;
-  letter-spacing: 1px;
-}
-
     h1 {
       font-size: 25px;
       margin-top: 30px;
@@ -385,7 +379,7 @@
   }
 
   async function updateInterface() {
-    const { data, error } = await supabase.auth.getUser();
+      const { data, error } = await supabaseClient.auth.getUser();
 
     if (error || !data.user) {
       loginPanel.classList.remove("hidden");
@@ -401,7 +395,7 @@
   }
 
   async function login(provider) {
-    const { error } = await supabase.auth.signInWithOAuth({
+    const { error } = await supabaseClient.auth.signInWithOAuth({
       provider,
       options: {
         redirectTo: window.location.origin + "/admin/"
@@ -420,7 +414,7 @@
     () => login("github");
 
   document.getElementById("logout").onclick = async () => {
-    await supabase.auth.signOut();
+    await supabaseClient.auth.signOut();
     await updateInterface();
   };
 
@@ -592,7 +586,7 @@
       local.toISOString().slice(11, 16);
   }
 
-  supabase.auth.onAuthStateChange(() => {
+  supabaseClient.auth.onAuthStateChange(() => {
     updateInterface();
   });
 
