@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel administrativo | DashWatch</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    main {
+      width: min(90%, 390px);
+      padding: 32px;
+      background: #1d1d1d;
+      border-radius: 14px;
+      text-align: center;
+    }
+    h1 { color: #e32630; }
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 12px;
+      border: 0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    #google { background: white; color: #222; }
+    #github { background: #333; color: white; }
+    #status { color: #bbb; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>DashWatch</h1>
+    <h2>Painel administrativo</h2>
+    <p>Entre com sua conta autorizada.</p>
+
+    <button id="google">Entrar com Google</button>
+    <button id="github">Entrar com GitHub</button>
+
+    <p id="status">Aguardando autenticação...</p>
+  </main>
+
+  <script type="module">
+    import { createClient } from
+      "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+    const supabase = createClient(
+      "https://llbcmxraepkqbaqixlmy.supabase.co",
+      "sb_publishable_SrMCJ_GqWOLufD-q0nZ-QA_2OswCZ47"
+    );
+
+    const status = document.getElementById("status");
+
+    async function login(provider) {
+      status.textContent = "Redirecionando...";
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider,
+        options: {
+          redirectTo: "https://dashwatch.news/admin/"
+        }
+      });
+
+      if (error) status.textContent = error.message;
+    }
+
+    document.getElementById("google").onclick =
+      () => login("google");
+
+    document.getElementById("github").onclick =
+      () => login("github");
+
+    const { data } = await supabase.auth.getUser();
+
+    if (data.user) {
+      status.textContent = "Autenticado: " + data.user.email;
+    }
+  </script>
+</body>
+</html>
