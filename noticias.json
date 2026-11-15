@@ -1,5 +1,23 @@
 [
   {
+    "titulo": "Waltty verifica IT MEANS EVERYTHING",
+    "descricao": "O jogador concluiu o Extreme Demon após dois anos e meio de dedicação, sem utilizar Click Between Frames (CBF), e divulgou os números completos de sua jornada.",
+    "categoria": "Competição",
+    "autor": "yuridakbrada",
+    "data": "2026-11-14",
+    "hora": "21:45",
+    "url": "notícias/2026/11/waltty-verifica-it-means-everything.html",
+    "imagem": "https://img.youtube.com/vi/_QV11PEwiIo/maxresdefault.jpg",
+    "tags": [
+      "Geometry Dash",
+      "Waltty",
+      "IT MEANS EVERYTHING",
+      "Top 10",
+      "CBF",
+      "2 anos"
+    ]
+  },
+  {
     "titulo": "Xtra8nuggies alcança 41% em Angelicide e registra novo recorde de progresso",
     "descricao": "Jogador chega aos 41% no futuro Top 1, estabelecendo o maior progresso registrado até o momento no nível.",
     "categoria": "Competição",
@@ -408,7 +426,7 @@
     ]
   },
   {
-  "titulo": "Trick alcança 48% em GRIEF durante grind do novo Top 1",
+    "titulo": "Trick alcança 48% em GRIEF durante grind do novo Top 1",
     "descricao": "Jogador registra novo progresso no nível mais difícil da Demonlist, enquanto acumula runs avançadas em busca de uma possível completion.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -422,7 +440,7 @@
     ]
   },
   {
-  "titulo": "Jogadores disputam a primeira conclusão de GRIEF após novos recordes",
+    "titulo": "Jogadores disputam a primeira conclusão de GRIEF após novos recordes",
     "descricao": "Trick, wPopoff, Zoink e dewbbs registram progressos expressivos no nível que ocupa o topo da Demonlist, enquanto runs avançadas ampliam a disputa pela primeira vitória.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -437,7 +455,7 @@
     ]
   },
   {
-  "titulo": "Jogador completa Sonic Wave tocando piano simultaneamente durante transmissão ao vivo",
+    "titulo": "Jogador completa Sonic Wave tocando piano simultaneamente durante transmissão ao vivo",
     "descricao": "Criador levou cerca de 8 mil tentativas no desafio atual e transmitiu a conclusão diante de aproximadamente 300 espectadores simultâneos, segundo seu relato.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -453,7 +471,7 @@
     ]
   },
   {
-  "titulo": "2.209 chega com controles parentais, exportação de níveis e dezenas de novidades",
+    "titulo": "2.209 chega com controles parentais, exportação de níveis e dezenas de novidades",
     "descricao": "A atualização adiciona ferramentas ao editor, permite personalizar controles por nível e traz mudanças na classificação etária e na interface do jogo.",
     "categoria": "Atualizações",
     "autor": "yuridakbrada",
@@ -469,7 +487,7 @@
     ]
   },
   {
-  "titulo": "Liuytz completa ReRUST após meses de tentativas e desistências",
+    "titulo": "Liuytz completa ReRUST após meses de tentativas e desistências",
     "descricao": "Depois de alcançar 90% e abandonar o desafio diversas vezes, jogador finalmente conquista os 100% durante uma transmissão ao vivo na Twitch.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -483,7 +501,7 @@
     ]
   },
   {
-  "titulo": "Fluxz completa Slaughterhouse como novo hardest após progressão até 82%",
+    "titulo": "Fluxz completa Slaughterhouse como novo hardest após progressão até 82%",
     "descricao": "Fluxz completa Slaughterhouse e conquista mais um marco para a comunidade brasileira de Geometry Dash.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -498,7 +516,7 @@
     ]
   },
   {
-  "titulo": "Jogador completa Bloodbath após quase oito anos e mais de 120 mil tentativas combinadas",
+    "titulo": "Jogador completa Bloodbath após quase oito anos e mais de 120 mil tentativas combinadas",
     "descricao": "A conclusão do icônico Extreme Demon encerra uma jornada iniciada em novembro de 2018, marcada por longas pausas, bloqueios de progresso e mais de 70 horas de jogo.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -512,7 +530,7 @@
     ]
   },
   {
-  "titulo": "Hover completa VSC, Extreme Challenge criado por BO",
+    "titulo": "Hover completa VSC, Extreme Challenge criado por BO",
     "descricao": "O jogador alcança os 100% em um dos desafios mais difíceis do Geometry Dash, mas relata dores físicas após milhares de tentativas.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -528,7 +546,7 @@
     ]
   },
   {
-  "titulo": "TheOblivionGD completa Unnerfed Oblivion após 150 mil tentativas",
+    "titulo": "TheOblivionGD completa Unnerfed Oblivion após 150 mil tentativas",
     "descricao": "O jogador conclui a versão sem nerfs de Oblivion, considera o nível mais difícil que já enfrentou e anuncia uma pequena pausa para cuidar da vida pessoal.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -543,7 +561,7 @@
     ]
   },
   {
-  "titulo": "teraaa chega a 83% em ESCALATOR e fica perto de verificar o nível",
+    "titulo": "teraaa chega a 83% em ESCALATOR e fica perto de verificar o nível",
     "descricao": "teraaa sobe de 73% para 83% em apenas 15 minutos, mas lamenta ter perdido uma tentativa que poderia ter sido a verificação de ESCALATOR.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -558,7 +576,7 @@
     ]
   },
   {
-  "titulo": "Khasem apresenta recorde mundial em TON 618 com spam de mais de 50 CPS",
+    "titulo": "Khasem apresenta recorde mundial em TON 618 com spam de mais de 50 CPS",
     "descricao": "Jogador mostra uma sequência de spam considerada praticamente impossível, mas revela que fez um pequeno ajuste na dificuldade e pretende tentar a versão original no futuro.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -574,7 +592,7 @@
     ]
   },
   {
-  "titulo": "OverGD completa Re, um dos desafios mais difíceis de sua trajetória no Geometry Dash",
+    "titulo": "OverGD completa Re, um dos desafios mais difíceis de sua trajetória no Geometry Dash",
     "descricao": "Após mais de 328 mil tentativas, jogador conclui Re e relata uma jornada marcada pela dificuldade extrema, desgaste mental e apoio de amigos.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -590,7 +608,7 @@
     ]
   },
   {
-  "titulo": "Drama GD questiona a dificuldade de Cuber em GRIEF",
+    "titulo": "Drama GD questiona a dificuldade de Cuber em GRIEF",
     "descricao": "Jogador publicou uma gameplay da seção entre 35% e 51% do nível e argumentou que ela não seria tão difícil quanto parte da comunidade faz parecer.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -605,7 +623,7 @@
     ]
   },
   {
-  "titulo": "KelanCraft, jogador mirim, verifica The Four Seasons e estima dificuldade de Top 650",
+    "titulo": "KelanCraft, jogador mirim, verifica The Four Seasons e estima dificuldade de Top 650",
     "descricao": "Após 32 mil tentativas, o jovem jogador verificou seu próprio Extreme Demon e estima que o nível esteja entre os 650 mais difíceis do Geometry Dash.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -621,7 +639,7 @@
     ]
   },
   {
-  "titulo": "Vídeo alerta para possível hack que facilitaria timings no Geometry Dash",
+    "titulo": "Vídeo alerta para possível hack que facilitaria timings no Geometry Dash",
     "descricao": "Mod supostamente permitiria adicionar frames extras aos comandos do jogador, levantando preocupações sobre possíveis trapaças em níveis extremos e na classificação da Demonlist.",
     "categoria": "Comunidade",
     "autor": "yuridakbrada",
@@ -636,7 +654,7 @@
     ]
   },
   {
-  "titulo": "FunnyGame dá indícios de possível retorno ao Geometry Dash",
+    "titulo": "FunnyGame dá indícios de possível retorno ao Geometry Dash",
     "descricao": "Após um longo período sem novidades, o conhecido criador publicou a mensagem “almost done” em seu perfil, levantando especulações sobre um novo projeto.",
     "categoria": "Comunidade",
     "autor": "yuridakbrada",
@@ -651,7 +669,7 @@
     ]
   },
   {
-  "titulo": "Bismuth promete melhorar o desempenho de Geometry Dash com otimização pela GPU",
+    "titulo": "Bismuth promete melhorar o desempenho de Geometry Dash com otimização pela GPU",
     "descricao": "Mod está em fase beta e busca reduzir a carga de processamento do jogo, com potencial para melhorar a fluidez em níveis complexos sem depender tanto do LDM.",
     "categoria": "Ferramentas",
     "autor": "yuridakbrada",
@@ -666,7 +684,7 @@
     ]
   },
   {
-  "titulo": "Caminho secreto de The Human Limit é descoberto por jogadores",
+    "titulo": "Caminho secreto de The Human Limit é descoberto por jogadores",
     "descricao": "Falha na gameplay permite completar o nível através de uma Blue Orb.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -681,7 +699,7 @@
     ]
   },
   {
-  "titulo": "Possível projeto de Doggie com INJURY gera especulações na comunidade",
+    "titulo": "Possível projeto de Doggie com INJURY gera especulações na comunidade",
     "descricao": "Fã afirma ter previsto um possível envolvimento do jogador com o nível.",
     "categoria": "Comunidade",
     "autor": "yuridakbrada",
@@ -696,7 +714,7 @@
     ]
   },
   {
-  "titulo": "Comparação entre Aeternus e The Human Limit impressiona jogadores pela diferença de frame perfects",
+    "titulo": "Comparação entre Aeternus e The Human Limit impressiona jogadores pela diferença de frame perfects",
     "descricao": "Diferença na quantidade de frame perfects dos dois níveis gera discussão no Reddit.",
     "categoria": "Comunidade",
     "autor": "yuridakbrada",
@@ -712,7 +730,7 @@
     ]
   },
   {
-  "titulo": "GRIEF: wPopoff conquista o primeiro victor, Zoink garante o segundo lugar e Drama GD continua sua jornada",
+    "titulo": "GRIEF: wPopoff conquista o primeiro victor, Zoink garante o segundo lugar e Drama GD continua sua jornada",
     "descricao": "Após a verificação de Doggie, o nível que ocupa o topo da Demonlist já possui dois jogadores que conseguiram completar o desafio. Enquanto isso, Drama GD acumula centenas de milhares de tentativas e apresenta novos progressos.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -729,7 +747,7 @@
     ]
   },
   {
-  "titulo": "Vision alcança 65% em Unnerfed Silent Clubstep após mais de 1 milhão de tentativas",
+    "titulo": "Vision alcança 65% em Unnerfed Silent Clubstep após mais de 1 milhão de tentativas",
     "descricao": "Conhecido por ser o quinto victor da versão tradicional de Silent Clubstep, jogador continua enfrentando a versão sem os nerfs, acumulando mais de seis anos de dedicação e ultrapassando a marca de um milhão de tentativas.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -744,7 +762,7 @@
     ]
   },
   {
-  "titulo": "Striker alcança 39% em Penumbral e já possui o nível dividido em três runs",
+    "titulo": "Striker alcança 39% em Penumbral e já possui o nível dividido em três runs",
     "descricao": "Jogador apresenta uma sequência de progressos importantes no Extreme Demon, incluindo uma run de 28-87% e três partes que, juntas, cobrem praticamente toda a extensão do desafio.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -759,7 +777,7 @@
     ]
   },
   {
-  "titulo": "EditorBalls apresenta conclusão da versão antiga de INJURY, mas esclarece que não está verificando o nível",
+    "titulo": "EditorBalls apresenta conclusão da versão antiga de INJURY, mas esclarece que não está verificando o nível",
     "descricao": "Jogador alcança 66%, consegue realizar runs extensas e publica uma conclusão da versão anterior do projeto, que recebeu alterações antes da versão atualmente utilizada na verificação.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -774,7 +792,7 @@
     ]
   },
   {
-  "titulo": "Wangster e Vowtz apresentam progressos impressionantes em Slaughterhouse no Mobile",
+    "titulo": "Wangster e Vowtz apresentam progressos impressionantes em Slaughterhouse no Mobile",
     "descricao": "Wangster realiza um salto de Nine Circles e alcança 25-64%, enquanto Vowtz apresenta uma sequência de resultados que inclui uma run de 8-95% com apenas três mortes.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -790,7 +808,7 @@
     ]
   },
   {
-  "titulo": "Ascension to Heaven apresenta sua prévia final e impressiona jogadores com decoração cinematográfica",
+    "titulo": "Ascension to Heaven apresenta sua prévia final e impressiona jogadores com decoração cinematográfica",
     "descricao": "Após quase cinco anos de desenvolvimento, projeto de Blueskii revela seus capítulos finais e prepara o caminho para uma possível disputa pelo Top 1. Denni será o responsável pela verificação, enquanto jogadores como Cooper Mitchel e Vinny destacam a qualidade visual do nível.",
     "categoria": "Níveis",
     "autor": "yuridakbrada",
@@ -807,7 +825,7 @@
     ]
   },
   {
-  "titulo": "Comunidade de Geometry Dash transforma reação de Zoink em Exasperation em novo meme",
+    "titulo": "Comunidade de Geometry Dash transforma reação de Zoink em Exasperation em novo meme",
     "descricao": "Um trecho antigo do jogador reagindo aos frame counters do nível voltou a circular nas redes sociais.",
     "categoria": "Comunidade",
     "autor": "yuridakbrada",
@@ -823,7 +841,7 @@
     ]
   },
   {
-  "titulo": "Vídeo sobre Discord exibe copypasta de Geometry Dash e chama atenção da comunidade",
+    "titulo": "Vídeo sobre Discord exibe copypasta de Geometry Dash e chama atenção da comunidade",
     "descricao": "Texto transforma situações cotidianas em referências a níveis famosos do jogo e viraliza entre jogadores",
     "categoria": "Comunidade",
     "autor": "yuridakbrada",
@@ -838,7 +856,7 @@
     ]
   },
   {
-  "titulo": "BliYod completa COGNITOHAZARD como sua nova hardest após mais de 61 mil tentativas",
+    "titulo": "BliYod completa COGNITOHAZARD como sua nova hardest após mais de 61 mil tentativas",
     "descricao": "Jogador conclui o Extreme Demon após uma jornada de aproximadamente seis meses, marcada pelo aprendizado de habilidades inéditas e por um salto de dificuldade desde Cimmerian Shade.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -853,7 +871,7 @@
     ]
   },
   {
-  "titulo": "Grupo feminino de Geometry Dash chama atenção no Reddit e fãs demonstram preocupação com possível assédio",
+    "titulo": "Grupo feminino de Geometry Dash chama atenção no Reddit e fãs demonstram preocupação com possível assédio",
     "descricao": "Canal GDG reúne cinco jogadoras e recebe apoio de parte da comunidade, mas comentários também levantam dúvidas sobre como o grupo será tratado",
     "categoria": "Comunidade",
     "autor": "yuridakbrada",
@@ -868,7 +886,7 @@
     ]
   },
   {
-  "titulo": "Avó de jogador confecciona pelúcia personalizada de seu ícone de Geometry Dash e encanta comunidade",
+    "titulo": "Avó de jogador confecciona pelúcia personalizada de seu ícone de Geometry Dash e encanta comunidade",
     "descricao": "Criação artesanal reproduz o cubo utilizado pelo jogador no game; publicação recebe elogios e desperta interesse de outros fãs",
     "categoria": "Comunidade",
     "autor": "yuridakbrada",
@@ -883,7 +901,7 @@
     ]
   },
   {
-  "titulo": "MUCKS assume temporariamente o posto de Extreme Demon mais fácil da AREDL",
+    "titulo": "MUCKS assume temporariamente o posto de Extreme Demon mais fácil da AREDL",
     "descricao": "Após ser promovido de Insane Demon, nível aparece na última posição da lista e provoca surpresa entre jogadores; classificação também gera dúvidas sobre sua permanência na dificuldade",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -898,7 +916,7 @@
     ]
   },
   {
-  "titulo": "Zappiks alcança 96% em Hyther e morre durante a reta final da verificação",
+    "titulo": "Zappiks alcança 96% em Hyther e morre durante a reta final da verificação",
     "descricao": "Jogador chega perto de concluir seu próprio Extreme Demon, projetado para entrar no Top 100; apesar da frustração, afirma que continuará tentando",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -914,7 +932,7 @@
     ]
   },
   {
-  "titulo": "Anro reage aos Frame Counters de OG SARY NEVER CLEAR e se surpreende com a precisão exigida pelo nível",
+    "titulo": "Anro reage aos Frame Counters de OG SARY NEVER CLEAR e se surpreende com a precisão exigida pelo nível",
     "descricao": "Jogador que completou a versão original na física de Geometry Dash 2.2 analisa as janelas de execução e comenta trechos que foram mais difíceis do que pareciam",
     "categoria": "Comunidade",
     "autor": "yuridakbrada",
@@ -930,7 +948,7 @@
     ]
   },
   {
-  "titulo": "Zachi alcança 36-70 em Fairy Knife Hell e registra novo recorde de progresso",
+    "titulo": "Zachi alcança 36-70 em Fairy Knife Hell e registra novo recorde de progresso",
     "descricao": "Jogador conquista uma sequência de 34 pontos percentuais no Extreme Demon de EternaswipVMAX, atualmente em verificação aberta",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -946,7 +964,7 @@
     ]
   },
   {
-  "titulo": "Skricks apresenta 61-100 em The Human Limit utilizando caminho secreto",
+    "titulo": "Skricks apresenta 61-100 em The Human Limit utilizando caminho secreto",
     "descricao": "Jogador compartilha trecho que percorre os 39% finais do nível, mas esclarece que utilizou uma rota alternativa",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -962,7 +980,7 @@
     ]
   },
   {
-  "titulo": "Doggie completa Apocalyptic Trilogy e se prepara para verificar INJURY",
+    "titulo": "Doggie completa Apocalyptic Trilogy e se prepara para verificar INJURY",
     "descricao": "Após concluir mais um Extreme Demon de alto nível, jogador parte para um novo projeto de verificação criado por Greafer e NineDice",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -978,7 +996,7 @@
     ]
   },
   {
-  "titulo": "Borde se aproxima de concluir Nullscapes após salto direto de Shardscapes",
+    "titulo": "Borde se aproxima de concluir Nullscapes após salto direto de Shardscapes",
     "descricao": "Jogador chama atenção da comunidade ao tentar superar a sequência de desafios robóticos de Kiba, partindo diretamente de seu antecessor",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -994,7 +1012,7 @@
     ]
   },
   {
-  "titulo": "RobTop atualiza a aba de notícias do Geometry Dash após reclamações da comunidade",
+    "titulo": "RobTop atualiza a aba de notícias do Geometry Dash após reclamações da comunidade",
     "descricao": "Após ficar semanas sem receber novidades, a seção finalmente passou a exibir o novo Event Level e o Grave Gauntlet.",
     "categoria": "Atualizações",
     "autor": "yuridakbrada",
@@ -1009,7 +1027,7 @@
     ]
   },
   {
-  "titulo": "Zoink completa Forest of Spikes e fica mais próximo de retomar a verificação de Heliopolis",
+    "titulo": "Zoink completa Forest of Spikes e fica mais próximo de retomar a verificação de Heliopolis",
     "descricao": "Após concluir o segundo desafio de uma sequência de três, Zoink se prepara para voltar à verificação de Heliopolis.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -1024,7 +1042,7 @@
     ]
   },
   {
-  "titulo": "Jogadores descobrem quatro caminhos secretos em The Human Limit poucos dias após lançamento",
+    "titulo": "Jogadores descobrem quatro caminhos secretos em The Human Limit poucos dias após lançamento",
     "descricao": "O aguardado nível, que levou cerca de cinco anos em desenvolvimento, já teve diferentes atalhos encontrados pela comunidade, permitindo completar trechos sem enfrentar a rota original.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -1039,7 +1057,7 @@
     ]
   },
   {
-  "titulo": "ROZE alcança 52% em Aquamarine e abandona a verificação",
+    "titulo": "ROZE alcança 52% em Aquamarine e abandona a verificação",
     "descricao": "Jogador interrompeu o projeto após enfrentar problemas na mão e perder a motivação para continuar jogando Geometry Dash.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -1054,7 +1072,7 @@
     ]
   },
   {
-  "titulo": "Tweet da Infinite Demon List gera polêmica após comparar pausas em jogos à escravidão",
+    "titulo": "Tweet da Infinite Demon List gera polêmica após comparar pausas em jogos à escravidão",
     "descricao": "Publicação sobre a legalidade de pausar durante partidas de osu!mania e Geometry Dash recebeu críticas e virou motivo de piada entre jogadores.",
     "categoria": "Comunidade",
     "autor": "yuridakbrada",
@@ -1069,7 +1087,7 @@
     ]
   },
   {
-  "titulo": "Jogador completa Silent Clubstep após quatro anos de jornada",
+    "titulo": "Jogador completa Silent Clubstep após quatro anos de jornada",
     "descricao": "Depois de aproximadamente quatro anos tentando superar um dos níveis mais difíceis da história de Geometry Dash, jogador finalmente alcança 100% e encerra uma longa trajetória.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
@@ -1084,7 +1102,7 @@
     ]
   },
   {
-  "titulo": "A6 completa Thinking Space II",
+    "titulo": "A6 completa Thinking Space II",
     "descricao": "Jogador russo encerra uma jornada de aproximadamente 143 mil tentativas e conquista a conclusão de um dos níveis mais difíceis de Geometry Dash.",
     "categoria": "Competição",
     "autor": "yuridakbrada",
