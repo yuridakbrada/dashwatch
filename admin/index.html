@@ -509,7 +509,7 @@
 
       try {
         const { data: sessionData, error: sessionError } =
-          await supabase.auth.getSession();
+          await supabaseClient.auth.getSession();
 
         if (sessionError || !sessionData.session) {
           throw new Error("Sua sessão expirou. Entre novamente.");
