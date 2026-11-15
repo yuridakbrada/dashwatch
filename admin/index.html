@@ -330,6 +330,10 @@
         <button type="button" class="secondary" id="add-image">
           + Imagem
         </button>
+
+        <button type="button" class="secondary" id="add-media">
+          + Mídia (imagem/vídeo)
+        </button>
       </div>
 
       <h2>Fontes</h2>
@@ -426,16 +430,24 @@
     const heading = document.createElement("strong");
     heading.textContent = label;
 
-    const textarea = document.createElement("textarea");
-    textarea.placeholder = placeholder;
-    textarea.required = true;
+    const field = document.createElement(
+      type === "midia" ? "input" : "textarea"
+    );
 
+    if (type === "midia") {
+      field.type = "url";
+      field.placeholder = placeholder;
+    } else {
+      field.placeholder = placeholder;
+    }
+
+    field.required = true;
     block.appendChild(heading);
-    block.appendChild(textarea);
+    block.appendChild(field);
 
-    if (type === "imagem") {
+    if (type === "imagem" || type === "midia") {
       const caption = document.createElement("input");
-      caption.placeholder = "Legenda da imagem";
+      caption.placeholder = "Legenda (opcional)";
       caption.style.marginTop = "10px";
       block.appendChild(caption);
     }
@@ -461,6 +473,13 @@
 
   document.getElementById("add-image").onclick =
     () => addBlock("imagem", "Imagem", "Cole a URL HTTPS da imagem...");
+
+  document.getElementById("add-media").onclick =
+    () => addBlock(
+      "midia",
+      "Mídia",
+      "Cole um link do GitHub (blob), raw ou YouTube..."
+    );
 
   function getSources() {
     return document.getElementById("sources").value
@@ -488,7 +507,7 @@
         texto: fields[0].value.trim()
       };
 
-      if (block.dataset.type === "imagem") {
+      if (block.dataset.type === "imagem" || block.dataset.type === "midia") {
         result.url = fields[0].value.trim();
         result.legenda = fields[1].value.trim();
         delete result.texto;
