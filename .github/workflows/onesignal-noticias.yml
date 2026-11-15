@@ -1,26 +1,27 @@
-
 name: Notificar novas notícias
 
 on:
   workflow_dispatch:
 
-  push:
-    branches:
-      - main
-    paths:
-      - noticias.json
+  workflow_run:
+    workflows:
+      - pages build and deployment
+    types:
+      - completed
 
 permissions:
   contents: read
 
 jobs:
   enviar-notificacoes:
+    if: github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
 
     steps:
       - name: Baixar repositório
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
           fetch-depth: 0
 
       - name: Testar notificação para todos
@@ -69,15 +70,16 @@ jobs:
           NODE
 
       - name: Detectar notícias novas e notificar
-        if: github.event_name == 'push'
+        if: github.event_name == 'workflow_run'
         env:
-          BEFORE: ${{ github.event.before }}
           ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
           ONESIGNAL_APP_ID: c0e9507b-bb6b-410f-84c3-4b2d24dc207e
         run: |
           set -e
 
-          if [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+          BEFORE="$(git rev-parse HEAD^ 2>/dev/null || true)"
+
+          if [ -z "$BEFORE" ]; then
             echo "Primeiro commit: nenhuma notificação enviada."
             exit 0
           fi
