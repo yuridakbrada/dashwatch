@@ -39,7 +39,8 @@ async function carregarNoticias() {
         noticias = await resposta.json();
 
         atualizarUltimos(noticias);
-        atualizarUltimasNoticias(noticias);\n        atualizarDestaques(noticias);
+        atualizarUltimasNoticias(noticias);
+        atualizarDestaques(noticias);
 
         console.log(`${noticias.length} notícias carregadas.`);
     } catch (erro) {
