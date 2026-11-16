@@ -510,7 +510,8 @@
   }
   document.getElementById("cancel-edit").addEventListener("click", cancelEditing);
 
-\n  async function updateInterface() {
+
+  async function updateInterface() {
       const { data, error } = await supabaseClient.auth.getUser();
 
     if (error || !data.user) {
