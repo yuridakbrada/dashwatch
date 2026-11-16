@@ -644,7 +644,8 @@
         }
 
         const article = {
-          acao: editingURL ? "editar" : "publicar",\n          url: editingURL,\n          titulo: document.getElementById("title").value.trim(),
+          acao: editingURL ? "editar" : "publicar",
+          url: editingURL,\n          titulo: document.getElementById("title").value.trim(),
           descricao: document.getElementById("description").value.trim(),
           categoria: document.getElementById("category").value,
           data: document.getElementById("date").value,
@@ -684,9 +685,8 @@
           "success"
         );
 
-        document.getElementById("news-form").reset();
-        blocksContainer.innerHTML = "";
-        setDateTime();
+        cancelEditing();
+        loadNewsManagement();
 
       } catch (error) {
         showStatus(
