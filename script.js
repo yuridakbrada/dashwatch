@@ -24,6 +24,49 @@ function normalizar(texto) {
         .trim();
 }
 
+/* Detecta e prepara URLs de mídia da capa */
+function urlMidia(valorOriginal) {
+    try {
+        const url = new URL(String(valorOriginal ?? "").trim());
+
+        if (url.protocol !== "https:") return "";
+
+        if (url.hostname === "github.com") {
+            const partes = url.pathname.match(
+                /^\/([^/]+)\/([^/]+)\/blob\/([^/]+)\/(.+)$/
+            );
+
+            if (!partes) return "";
+
+            url.hostname = "raw.githubusercontent.com";
+            url.pathname =
+                `/${partes[1]}/${partes[2]}/${partes[3]}/${partes[4]}`;
+        }
+
+        return url.href;
+    } catch {
+        return "";
+    }
+}
+
+function ehVideo(url) {
+    try {
+        return /\.(mp4|webm|ogg)$/i.test(new URL(url).pathname);
+    } catch {
+        return false;
+    }
+}
+
+function escaparHTML(valor) {
+    return String(valor ?? "").replace(/[&<>"']/g, caractere => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+    })[caractere]);
+}
+
 
 /* Carrega o catálogo inteiro */
 
@@ -72,12 +115,26 @@ function atualizarUltimasNoticias(listaNoticias) {
         linkImagem.className = "news-thumb";
         linkImagem.href = noticia.url;
 
-        const imagem = document.createElement("img");
-        imagem.src = noticia.imagem || "";
-        imagem.alt = noticia.titulo || "Notícia";
-        imagem.loading = "lazy";
+        const mediaURL = urlMidia(noticia.imagem);
 
-        linkImagem.appendChild(imagem);
+        if (mediaURL && ehVideo(mediaURL)) {
+            const video = document.createElement("video");
+            video.src = mediaURL;
+            video.muted = true;
+            video.loop = true;
+            video.autoplay = true;
+            video.playsInline = true;
+            video.preload = "metadata";
+            video.setAttribute("aria-label", noticia.titulo || "Vídeo da notícia");
+            linkImagem.appendChild(video);
+        } else if (mediaURL) {
+            const imagem = document.createElement("img");
+            imagem.src = mediaURL;
+            imagem.alt = noticia.titulo || "Notícia";
+            imagem.loading = "lazy";
+            linkImagem.appendChild(imagem);
+        }
+
         artigo.appendChild(linkImagem);
 
         const conteudo = document.createElement("div");
@@ -278,8 +335,11 @@ function renderizarResultados(resultados) {
 
     searchResults.innerHTML = resultados.map(noticia => {
 
-        const imagem = noticia.imagem
-            ? `<img src="${noticia.imagem}" alt="">`
+        const mediaURL = urlMidia(noticia.imagem);
+        const imagem = mediaURL
+            ? ehVideo(mediaURL)
+                ? `<video src="${escaparHTML(mediaURL)}" muted autoplay loop playsinline preload="metadata"></video>`
+                : `<img src="${escaparHTML(mediaURL)}" alt="" loading="lazy">`
             : `<div></div>`;
 
 
