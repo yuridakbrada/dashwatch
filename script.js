@@ -129,10 +129,16 @@ function atualizarDestaques(listaNoticias) {
     const area = document.getElementById("destaque");
     if (!area) return;
     const ordenadas = [...listaNoticias].sort((a,b) => `${b.data||""} ${b.hora||""}`.localeCompare(`${a.data||""} ${a.hora||""}`));
-    const selecionadas = [1,2,3].map(pos => ordenadas.find(n => Number(n.destaque) === pos));
-    const usadas = new Set(selecionadas.filter(Boolean).map(n => n.url));
-    const noticiasEscolhidas = selecionadas.map(n => n || ordenadas.find(item => !usadas.has(item.url))).filter(Boolean);
-    noticiasEscolhidas.forEach(n => usadas.add(n.url));
+    const usadas = new Set();
+    const noticiasEscolhidas = [];
+    [1, 2, 3].forEach(posicao => {
+        const marcada = ordenadas.find(n => Number(n.destaque) === posicao && !usadas.has(n.url));
+        const escolhida = marcada || ordenadas.find(n => !usadas.has(n.url));
+        if (escolhida) {
+            noticiasEscolhidas.push(escolhida);
+            usadas.add(escolhida.url);
+        }
+    });
     area.replaceChildren();
     const card = (n, principal) => {
         const el = document.createElement("article"); el.className = principal ? "hero-story" : "secondary-story";
