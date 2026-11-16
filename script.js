@@ -154,7 +154,8 @@ function atualizarDestaques(listaNoticias) {
     }
 }
 
-\n/* Abre e fecha a pesquisa */
+
+/* Abre e fecha a pesquisa */
 
 function fecharPesquisa() {
     searchPanel.classList.remove("active");
