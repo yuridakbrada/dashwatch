@@ -728,7 +728,23 @@
   });
 
   setDateTime();
-  updateInterface();
+async function updateInterface() {
+  const { data, error } = await supabaseClient.auth.getUser();
+
+  if (error || !data.user) {
+    loginPanel.classList.remove("hidden");
+    dashboard.classList.add("hidden");
+    return;
+  }
+
+  loginPanel.classList.add("hidden");
+  dashboard.classList.remove("hidden");
+
+  document.getElementById("user-email").textContent =
+    data.user.email || "Usuário autenticado";
+
+  await loadNewsManagement();
+}
 </script>
 
 </body>
