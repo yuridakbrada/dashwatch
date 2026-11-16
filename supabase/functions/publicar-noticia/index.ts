@@ -227,7 +227,7 @@ function validArticleInput(article: any): string | null {
       !/^\d{4}-\d{2}-\d{2}$/.test(String(article.data))) {
     return "Preencha título, descrição, categoria e data corretamente.";
   }
-  if (article.imagem && !safeURL(article.imagem) && !/^\.\.\/\.\.\/\.\.\/assets\/[a-zA-Z0-9_.-]+(?:\/[a-zA-Z0-9_.-]+)*$/g.test(String(article.imagem))) return "A imagem precisa ter um endereço HTTPS válido ou apontar para a pasta assets.";
+  if (article.imagem && !safeURL(article.imagem) && !isArticleAsset(article.imagem)) return "A imagem precisa ter um endereço HTTPS válido ou apontar para a pasta assets.";
   return null;
 }
 
