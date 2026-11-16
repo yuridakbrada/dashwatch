@@ -37,6 +37,21 @@ function safeURL(value: unknown): string {
   } catch { return ""; }
 }
 
+function isArticleAsset(value: unknown): boolean {
+  return /^\.\.\/\.\.\/\.\.\/assets\/[a-zA-Z0-9_.-]+(?:\/[a-zA-Z0-9_.-]+)*$/.test(String(value ?? "").trim());
+}
+
+function safeArticleAsset(value: unknown): string {
+  const raw = String(value ?? "").trim();
+  return isArticleAsset(raw) ? raw : safeURL(raw);
+}
+
+function catalogImage(value: unknown): string {
+  const raw = String(value ?? "").trim();
+  if (isArticleAsset(raw)) return raw.slice(9);
+  return safeURL(raw);
+}
+
 function slugify(value: string): string {
   return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
     .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
