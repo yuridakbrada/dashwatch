@@ -128,17 +128,9 @@ function atualizarUltimasNoticias(listaNoticias) {
 function atualizarDestaques(listaNoticias) {
     const area = document.getElementById("destaque");
     if (!area) return;
-    const ordenadas = [...listaNoticias].sort((a,b) => `${b.data||""} ${b.hora||""}`.localeCompare(`${a.data||""} ${a.hora||""}`));
-    const usadas = new Set();
-    const noticiasEscolhidas = [];
-    [1, 2, 3].forEach(posicao => {
-        const marcada = ordenadas.find(n => Number(n.destaque) === posicao && !usadas.has(n.url));
-        const escolhida = marcada || ordenadas.find(n => !usadas.has(n.url));
-        if (escolhida) {
-            noticiasEscolhidas.push(escolhida);
-            usadas.add(escolhida.url);
-        }
-    });
+    const noticiasEscolhidas = [1, 2, 3]
+        .map(posicao => listaNoticias.find(n => Number(n.destaque) === posicao))
+        .filter(Boolean);
     area.replaceChildren();
     const card = (n, principal) => {
         const el = document.createElement("article"); el.className = principal ? "hero-story" : "secondary-story";
