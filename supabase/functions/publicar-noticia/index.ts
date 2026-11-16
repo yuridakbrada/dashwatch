@@ -150,7 +150,7 @@ function renderBlock(block: any): string {
     if (youtubeId) return \`<div class="image-wrapper"><div class="image"><iframe src="https://www.youtube-nocookie.com/embed/\${youtubeId}" title="\${caption || "Vídeo do YouTube"}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>\${caption ? \`<div class="caption">\${caption}</div>\` : ""}</div>\`;
     const url = type === "imagem" ? safeArticleAsset(original) : normalizeMediaURL(original);
     if (!url) return "";
-    const path = new URL(url).pathname.toLowerCase();
+    const path = url.startsWith("https://") ? new URL(url).pathname.toLowerCase() : url.split("?")[0].toLowerCase();
     const videoTypes: Record<string, string> = { ".mp4": "video/mp4", ".webm": "video/webm", ".ogg": "video/ogg" };
     const ext = Object.keys(videoTypes).find(e => path.endsWith(e));
     if (ext) return \`<div class="image-wrapper"><div class="image"><video controls playsinline preload="metadata"><source src="\${escapeHTML(url)}" type="\${videoTypes[ext]}">Seu navegador não suporta vídeo HTML5.</video></div>\${caption ? \`<div class="caption">\${caption}</div>\` : ""}</div>\`;
@@ -178,7 +178,7 @@ function buildArticle(article: any): string {
   const category = escapeHTML(article.categoria);
   const coverOriginal = safeArticleAsset(article.imagem);
   const coverURL = coverOriginal ? normalizeMediaURL(coverOriginal) || coverOriginal : "";
-  const coverPath = coverURL ? new URL(coverURL).pathname.toLowerCase() : "";
+  const coverPath = coverURL ? (coverURL.startsWith("https://") ? new URL(coverURL).pathname.toLowerCase() : coverURL.split("?")[0].toLowerCase()) : "";
   const isVideo = /\.(mp4|webm|ogg)$/.test(coverPath);
   const caption = escapeHTML(article.legenda ?? "");
   const author = "yuridakbrada";
@@ -281,7 +281,7 @@ Deno.serve(async (req: Request) => {
         autor: "yuridakbrada",
         data: article.data,
         hora: String(article.hora ?? ""),
-        imagem: safeURL(article.imagem),
+        imagem: catalogImage(article.imagem),
         tags: Array.isArray(article.tags) ? article.tags : [],
       };
       const html = buildArticle(article);
