@@ -345,6 +345,10 @@
         <button type="button" class="secondary" id="add-image">
           + Imagem
         </button>
+
+        <button type="button" class="secondary" id="add-media">
+          + Vídeo / YouTube
+        </button>
       </div>
 
       <h2>Fontes</h2>
@@ -589,6 +593,9 @@
 
   document.getElementById("add-image").onclick =
     () => addBlock("imagem", "Imagem", "Cole a URL HTTPS da imagem...");
+
+  document.getElementById("add-media").onclick =
+    () => addBlock("midia", "Vídeo / mídia", "Cole um link do YouTube ou URL raw do GitHub...");
 
   function getSources() {
     return document.getElementById("sources").value
