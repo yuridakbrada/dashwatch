@@ -40,6 +40,7 @@ async function carregarNoticias() {
 
         atualizarUltimos(noticias);
         atualizarUltimasNoticias(noticias);
+        atualizarDestaques(noticias);
 
         console.log(`${noticias.length} notícias carregadas.`);
     } catch (erro) {
@@ -120,6 +121,43 @@ function atualizarUltimasNoticias(listaNoticias) {
         artigo.appendChild(conteudo);
         lista.appendChild(artigo);
     });
+}
+
+
+
+function atualizarDestaques(listaNoticias) {
+    const area = document.getElementById("destaque");
+    if (!area) return;
+    const ordenadas = [...listaNoticias].sort((a,b) => `${b.data||""} ${b.hora||""}`.localeCompare(`${a.data||""} ${a.hora||""}`));
+    const usadas = new Set();
+    const noticiasEscolhidas = [];
+    [1, 2, 3].forEach(posicao => {
+        const marcada = ordenadas.find(n => Number(n.destaque) === posicao && !usadas.has(n.url));
+        const escolhida = marcada || ordenadas.find(n => !usadas.has(n.url));
+        if (escolhida) {
+            noticiasEscolhidas.push(escolhida);
+            usadas.add(escolhida.url);
+        }
+    });
+    area.replaceChildren();
+    const card = (n, principal) => {
+        const el = document.createElement("article"); el.className = principal ? "hero-story" : "secondary-story";
+        const imgLink = document.createElement("a"); imgLink.className = "story-image"; imgLink.href = n.url || "#";
+        const img = document.createElement("img"); img.src = n.imagem || ""; img.alt = n.titulo || ""; img.loading = "lazy"; imgLink.appendChild(img);
+        const content = document.createElement("div"); content.className = "story-content";
+        const category = document.createElement("span"); category.className = "category"; category.textContent = (n.categoria || "GERAL").toUpperCase();
+        const heading = document.createElement(principal ? "h2" : "h3");
+        const title = document.createElement("a"); title.href = n.url || "#"; title.textContent = n.titulo || "Sem título"; heading.appendChild(title);
+        const desc = document.createElement("p"); desc.textContent = n.descricao || "";
+        const meta = document.createElement("div"); meta.className = "story-meta"; meta.textContent = n.data ? formatarData(n.data) : "";
+        content.append(category, heading, desc, meta); el.append(imgLink, content); return el;
+    };
+    if (noticiasEscolhidas[0]) area.appendChild(card(noticiasEscolhidas[0], true));
+    if (noticiasEscolhidas.length > 1) {
+        const secondary = document.createElement("div"); secondary.className = "secondary-stories";
+        noticiasEscolhidas.slice(1,3).forEach(n => secondary.appendChild(card(n, false)));
+        area.appendChild(secondary);
+    }
 }
 
 

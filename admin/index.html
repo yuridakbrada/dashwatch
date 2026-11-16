@@ -198,6 +198,15 @@
       min-height: 90px;
     }
 
+    .management-item { display:flex; gap:12px; align-items:center; justify-content:space-between; padding:13px 0; border-bottom:1px solid #333; }
+    .management-item:last-child { border-bottom:0; }
+    .management-copy { min-width:0; flex:1; }
+    .management-copy strong { display:block; overflow-wrap:anywhere; }
+    .management-actions { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    .management-actions select { min-width:155px; }
+    .management-actions button { white-space:nowrap; }
+    @media (max-width:600px) { .management-item { align-items:flex-start; flex-direction:column; } .management-actions { width:100%; } }
+
     .block button {
       margin-top: 10px;
     }
@@ -259,9 +268,15 @@
       </button>
     </div>
 
+    <section id="manage-panel" class="panel">
+      <h2>Gerenciar notícias</h2>
+      <p>Edite publicações e escolha até três notícias para a área de destaque.</p>
+      <div id="manage-status" class="status hidden"></div>
+      <div id="news-management-list"><p>Carregando notícias...</p></div>
+    </section>
     <form id="news-form" class="panel">
 
-      <h1>Publicar notícia</h1>
+      <h1 id="form-heading">Publicar notícia</h1>
       <p>Preencha as informações abaixo para publicar no DashWatch.</p>
 
       <h2>Informações principais</h2>
@@ -330,6 +345,10 @@
         <button type="button" class="secondary" id="add-image">
           + Imagem
         </button>
+
+        <button type="button" class="secondary" id="add-media">
+          + Vídeo / YouTube
+        </button>
       </div>
 
       <h2>Fontes</h2>
@@ -344,9 +363,10 @@
       <input id="tags"
         placeholder="Geometry Dash, jogador, nível">
 
-      <button type="submit" id="publish-button">
-        Publicar notícia
-      </button>
+      <div class="row" style="margin-top:25px">
+        <button type="submit" id="publish-button">Publicar notícia</button>
+        <button type="button" class="secondary hidden" id="cancel-edit">Cancelar edição</button>
+      </div>
 
       <div id="publish-status" class="status hidden"></div>
 
@@ -372,13 +392,125 @@
   const loginStatus = document.getElementById("login-status");
   const publishStatus = document.getElementById("publish-status");
   const blocksContainer = document.getElementById("blocks");
+  const managementList = document.getElementById("news-management-list");
+  const managementStatus = document.getElementById("manage-status");
+  let editingURL = null;
+  let cachedNews = [];
 
   function showStatus(element, message, type = "") {
     element.textContent = message;
     element.className = "status " + type;
   }
 
-  async function updateInterface() {
+
+  async function callPublisher(payload) {
+    const { data, error } = await supabaseClient.auth.getSession();
+    if (error || !data.session) throw new Error("Sua sessão expirou. Entre novamente.");
+    const response = await fetch(SUPABASE_URL + "/functions/v1/publicar-noticia", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Authorization": "Bearer " + data.session.access_token, "apikey": SUPABASE_KEY },
+      body: JSON.stringify(payload)
+    });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.erro || "A operação não foi concluída.");
+    return result;
+  }
+
+  async function loadNewsManagement() {
+    try {
+      const result = await callPublisher({ acao: "listar" });
+      cachedNews = Array.isArray(result.noticias) ? result.noticias : [];
+      renderNewsManagement();
+    } catch (error) {
+      managementList.textContent = "Não foi possível carregar as notícias: " + error.message;
+    }
+  }
+
+  function renderNewsManagement() {
+    managementList.replaceChildren();
+    if (!cachedNews.length) { managementList.textContent = "Nenhuma notícia encontrada."; return; }
+    cachedNews.forEach(news => {
+      const row = document.createElement("div"); row.className = "management-item";
+      const copy = document.createElement("div"); copy.className = "management-copy";
+      const title = document.createElement("strong"); title.textContent = news.titulo || "Sem título";
+      const meta = document.createElement("small"); meta.textContent = (news.data || "") + " · " + (news.categoria || "Geral");
+      copy.append(title, meta);
+      const actions = document.createElement("div"); actions.className = "management-actions";
+      const edit = document.createElement("button"); edit.type = "button"; edit.className = "secondary"; edit.textContent = "Editar";
+      edit.onclick = () => loadArticleForEditing(news);
+      const featured = document.createElement("select");
+      featured.setAttribute("aria-label", "Posição no destaque para " + (news.titulo || ""));
+      featured.innerHTML = '<option value="0">Sem destaque</option><option value="1">Destaque principal</option><option value="2">Destaque secundário 1</option><option value="3">Destaque secundário 2</option>';
+      featured.value = String(Number(news.destaque) || 0);
+      featured.onchange = async () => {
+        const selected = Number(featured.value); featured.disabled = true;
+        try {
+          await callPublisher({ acao: "destaque", url: news.url, destaque: selected });
+          cachedNews.forEach(item => { if (selected && Number(item.destaque) === selected) item.destaque = 0; });
+          news.destaque = selected; renderNewsManagement();
+          showStatus(managementStatus, "Destaques atualizados.", "success");
+        } catch (error) {
+          showStatus(managementStatus, error.message, "error");
+          featured.disabled = false; featured.value = String(Number(news.destaque) || 0);
+        }
+      };
+      actions.append(edit, featured); row.append(copy, actions); managementList.appendChild(row);
+    });
+  }
+
+  async function loadArticleForEditing(news) {
+    try {
+      const response = await fetch("../" + news.url);
+      if (!response.ok) throw new Error("Não foi possível abrir o artigo (" + response.status + ").");
+      const doc = new DOMParser().parseFromString(await response.text(), "text/html");
+      const article = doc.querySelector("main article");
+      if (!article) throw new Error("O formato deste artigo não é compatível com a edição.");
+      editingURL = news.url;
+      const set = (id, value) => { document.getElementById(id).value = value || ""; };
+      set("title", article.querySelector("h1")?.textContent.trim() || news.titulo);
+      set("description", article.querySelector(".subtitle")?.textContent.trim() || news.descricao);
+      set("category", article.querySelector(".category")?.textContent.trim() || news.categoria);
+      set("date", news.data); set("time", news.hora);
+      const cover = article.querySelector(":scope > .image-wrapper");
+      const coverMedia = cover?.querySelector("img, video source");
+      set("cover", coverMedia?.getAttribute("src") || "");
+      set("cover-caption", cover?.querySelector(".caption")?.textContent.trim() || "");
+      blocksContainer.replaceChildren();
+      article.querySelectorAll(".body > *").forEach(node => {
+        if (node.matches("h2")) addBlock("titulo", "Título de seção", node.textContent.trim());
+        else if (node.matches("p")) addBlock("paragrafo", "Parágrafo", node.textContent.trim());
+        else if (node.matches("blockquote")) addBlock("citacao", "Citação", node.textContent.trim());
+        else if (node.matches(".image-wrapper")) {
+          const media = node.querySelector("img, video source, iframe");
+          const url = media?.getAttribute("src") || "";
+          const caption = node.querySelector(".caption")?.textContent.trim() || "";
+          const type = media?.tagName === "IFRAME" || media?.tagName === "VIDEO" ? "midia" : "imagem";
+          addBlock(type, type === "midia" ? "Vídeo / mídia" : "Imagem", url);
+          const fields = blocksContainer.lastElementChild.querySelectorAll("textarea, input");
+          fields[0].value = url; if (fields[1]) fields[1].value = caption;
+        }
+      });
+      const sourceLinks = Array.from(article.querySelectorAll(".source a")).map(link => link.textContent.trim() + " | " + link.href);
+      const sourceText = article.querySelector(".source")?.innerText || "";
+      set("sources", sourceLinks.length ? sourceLinks.join("\n") : sourceText.replace(/^Fontes:\s*/i, "").trim());
+      set("tags", Array.isArray(news.tags) ? news.tags.join(", ") : "");
+      document.getElementById("form-heading").textContent = "Editar notícia";
+      document.getElementById("publish-button").textContent = "Salvar alterações";
+      document.getElementById("cancel-edit").classList.remove("hidden");
+      showStatus(publishStatus, "Editando: " + news.titulo, "success");
+      document.getElementById("news-form").scrollIntoView({ behavior: "smooth" });
+    } catch (error) { showStatus(managementStatus, error.message, "error"); }
+  }
+
+  function cancelEditing() {
+    editingURL = null; document.getElementById("news-form").reset(); blocksContainer.replaceChildren();
+    document.getElementById("form-heading").textContent = "Publicar notícia";
+    document.getElementById("publish-button").textContent = "Publicar notícia";
+    document.getElementById("cancel-edit").classList.add("hidden"); setDateTime();
+  }
+  document.getElementById("cancel-edit").addEventListener("click", cancelEditing);
+
+\n  async function updateInterface() {
       const { data, error } = await supabaseClient.auth.getUser();
 
     if (error || !data.user) {
@@ -433,9 +565,9 @@
     block.appendChild(heading);
     block.appendChild(textarea);
 
-    if (type === "imagem") {
+    if (type === "imagem" || type === "midia") {
       const caption = document.createElement("input");
-      caption.placeholder = "Legenda da imagem";
+      caption.placeholder = type === "midia" ? "Legenda do vídeo" : "Legenda da imagem";
       caption.style.marginTop = "10px";
       block.appendChild(caption);
     }
@@ -461,6 +593,9 @@
 
   document.getElementById("add-image").onclick =
     () => addBlock("imagem", "Imagem", "Cole a URL HTTPS da imagem...");
+
+  document.getElementById("add-media").onclick =
+    () => addBlock("midia", "Vídeo / mídia", "Cole um link do YouTube ou URL raw do GitHub...");
 
   function getSources() {
     return document.getElementById("sources").value
@@ -488,7 +623,7 @@
         texto: fields[0].value.trim()
       };
 
-      if (block.dataset.type === "imagem") {
+      if (block.dataset.type === "imagem" || block.dataset.type === "midia") {
         result.url = fields[0].value.trim();
         result.legenda = fields[1].value.trim();
         delete result.texto;
@@ -505,7 +640,7 @@
 
       const button = document.getElementById("publish-button");
       button.disabled = true;
-      button.textContent = "Publicando...";
+      button.textContent = editingURL ? "Salvando..." : "Publicando...";
 
       try {
         const { data: sessionData, error: sessionError } =
@@ -516,6 +651,8 @@
         }
 
         const article = {
+          acao: editingURL ? "editar" : "publicar",
+          url: editingURL,
           titulo: document.getElementById("title").value.trim(),
           descricao: document.getElementById("description").value.trim(),
           categoria: document.getElementById("category").value,
@@ -552,13 +689,12 @@
 
         showStatus(
           publishStatus,
-          "Notícia publicada! Arquivo: " + result.url,
+          (editingURL ? "Notícia atualizada! " : "Notícia publicada! ") + "Arquivo: " + result.url,
           "success"
         );
 
-        document.getElementById("news-form").reset();
-        blocksContainer.innerHTML = "";
-        setDateTime();
+        cancelEditing();
+        loadNewsManagement();
 
       } catch (error) {
         showStatus(
@@ -568,7 +704,7 @@
         );
       } finally {
         button.disabled = false;
-        button.textContent = "Publicar notícia";
+        button.textContent = editingURL ? "Salvar alterações" : "Publicar notícia";
       }
     }
   );
