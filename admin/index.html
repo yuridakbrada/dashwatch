@@ -563,7 +563,7 @@
 
     if (type === "imagem" || type === "midia") {
       const caption = document.createElement("input");
-      caption.placeholder = "Legenda da imagem";
+      caption.placeholder = type === "midia" ? "Legenda do vídeo" : "Legenda da imagem";
       caption.style.marginTop = "10px";
       block.appendChild(caption);
     }
