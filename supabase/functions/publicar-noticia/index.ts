@@ -148,7 +148,7 @@ function renderBlock(block: any): string {
     const original = String(block?.url ?? "");
     const youtubeId = type === "midia" ? getYouTubeId(original) : "";
     if (youtubeId) return \`<div class="image-wrapper"><div class="image"><iframe src="https://www.youtube-nocookie.com/embed/\${youtubeId}" title="\${caption || "Vídeo do YouTube"}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>\${caption ? \`<div class="caption">\${caption}</div>\` : ""}</div>\`;
-    const url = type === "imagem" ? safeURL(original) : normalizeMediaURL(original);
+    const url = type === "imagem" ? safeArticleAsset(original) : normalizeMediaURL(original);
     if (!url) return "";
     const path = new URL(url).pathname.toLowerCase();
     const videoTypes: Record<string, string> = { ".mp4": "video/mp4", ".webm": "video/webm", ".ogg": "video/ogg" };
@@ -176,7 +176,7 @@ function buildArticle(article: any): string {
   const title = escapeHTML(article.titulo);
   const description = escapeHTML(article.descricao);
   const category = escapeHTML(article.categoria);
-  const coverOriginal = safeURL(article.imagem);
+  const coverOriginal = safeArticleAsset(article.imagem);
   const coverURL = coverOriginal ? normalizeMediaURL(coverOriginal) || coverOriginal : "";
   const coverPath = coverURL ? new URL(coverURL).pathname.toLowerCase() : "";
   const isVideo = /\.(mp4|webm|ogg)$/.test(coverPath);
@@ -212,7 +212,7 @@ function validArticleInput(article: any): string | null {
       !/^\d{4}-\d{2}-\d{2}$/.test(String(article.data))) {
     return "Preencha título, descrição, categoria e data corretamente.";
   }
-  if (article.imagem && !safeURL(article.imagem)) return "A imagem precisa ter um endereço HTTPS válido.";
+  if (article.imagem && !safeURL(article.imagem) && !/^\.\.\/\.\.\/\.\.\/assets\/[a-zA-Z0-9_./-]+$/.test(String(article.imagem))) return "A imagem precisa ter um endereço HTTPS válido ou apontar para a pasta assets.";
   return null;
 }
 
@@ -306,7 +306,7 @@ Deno.serve(async (req: Request) => {
     const entry = {
       titulo: article.titulo.trim(), descricao: article.descricao.trim(), categoria: article.categoria.trim(),
       autor: "yuridakbrada", data: article.data, hora: String(article.hora ?? ""), url: articlePath,
-      imagem: safeURL(article.imagem), tags: Array.isArray(article.tags) ? article.tags : [],
+      imagem: catalogImage(article.imagem), tags: Array.isArray(article.tags) ? article.tags : [],
     };
     await saveGitHubFile(articlePath, buildArticle(article), \`Publica notícia: \${article.titulo}\`);
     news.unshift(entry);
