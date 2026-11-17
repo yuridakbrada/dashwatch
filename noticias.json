@@ -229,7 +229,8 @@
       "Slaughterhouse",
       "Mobile",
       "Recorde"
-    ]
+    ],
+    "destaque": 3
   },
   {
     "titulo": "Zoink e wPopoff completam Green Bullet com menos de cinco minutos de diferença",
@@ -246,8 +247,7 @@
       "wPopoff",
       "Green Bullet",
       "Victors"
-    ],
-    "destaque": 3
+    ]
   },
   {
     "titulo": "klooner completa The Hallucination e Silent Clubstep em intervalo de uma hora",
