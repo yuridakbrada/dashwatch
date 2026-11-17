@@ -13,7 +13,8 @@
       "Zoink",
       "Heliopolis",
       "Retorno"
-    ]
+    ],
+    "destaque": 1
   },
   {
     "titulo": "Bacon conquista Aeternus em apenas cinco runs após 158 mil tentativas",
@@ -29,8 +30,7 @@
       "Bacon",
       "Aeternus",
       "5 runs"
-    ],
-    "destaque": 1
+    ]
   },
   {
     "titulo": "Zoink conversa com MindCap sobre o futuro de Heliopolis após concluir Green Bullet",
