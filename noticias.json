@@ -13,7 +13,8 @@
       "Bacon",
       "Aeternus",
       "5 runs"
-    ]
+    ],
+    "destaque": 1
   },
   {
     "titulo": "Zoink conversa com MindCap sobre o futuro de Heliopolis após concluir Green Bullet",
@@ -212,8 +213,7 @@
       "Slaughterhouse",
       "Mobile",
       "Recorde"
-    ],
-    "destaque": 1
+    ]
   },
   {
     "titulo": "Zoink e wPopoff completam Green Bullet com menos de cinco minutos de diferença",
