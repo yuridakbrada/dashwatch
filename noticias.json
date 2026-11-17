@@ -32,7 +32,8 @@
       "wPopoff",
       "Green Bullet",
       "Victors"
-    ]
+    ],
+    "destaque": 2
   },
   {
     "titulo": "klooner completa The Hallucination e Silent Clubstep em intervalo de uma hora",
@@ -48,8 +49,7 @@
       "klooner",
       "The Hallucination",
       "Silent Clubstep"
-    ],
-    "destaque": 2
+    ]
   },
   {
     "titulo": "Tweets antigos de Donald Trump passam a redirecionar para vídeos de Geometry Dash",
