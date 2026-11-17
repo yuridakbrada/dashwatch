@@ -49,7 +49,8 @@
       "klooner",
       "The Hallucination",
       "Silent Clubstep"
-    ]
+    ],
+    "destaque": 3
   },
   {
     "titulo": "Tweets antigos de Donald Trump passam a redirecionar para vídeos de Geometry Dash",
@@ -1180,7 +1181,6 @@
       "Geometry Dash",
       "A6",
       "Thinking Space II"
-    ],
-    "destaque": 3
+    ]
   }
 ]
