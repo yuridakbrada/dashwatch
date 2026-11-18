@@ -8,6 +8,7 @@ on:
     paths:
       - noticias.json
       - scripts/generate-sitemap.js
+      - scripts/generate-canonicals.js
 
 permissions:
   contents: write
@@ -19,18 +20,21 @@ jobs:
       - name: Baixar repositório
         uses: actions/checkout@v4
 
+      - name: Gerar URLs canônicas nas páginas
+        run: node scripts/generate-canonicals.js
+
       - name: Gerar sitemap.xml
         run: node scripts/generate-sitemap.js
 
       - name: Publicar sitemap atualizado
         run: |
-          if git diff --quiet -- sitemap.xml; then
+          if git diff --quiet; then
             echo "O sitemap já está atualizado."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml
+          git add -A
           git commit -m "Atualiza sitemap automaticamente"
           git push
