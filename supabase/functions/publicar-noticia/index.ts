@@ -264,7 +264,7 @@ Deno.serve(async (req: Request) => {
     if (action === "destaque") {
       const path = validArticlePath(article.url);
       const position = Number(article.destaque);
-      if (!path || !Number.isInteger(position) || position < 0 || position > 3) {
+      if (!path || !Number.isInteger(position) || position < 0 || position > 6) {
         return jsonResponse({ erro: "Notícia ou posição de destaque inválida." }, 400, headers);
       }
       const news = await readNews();
