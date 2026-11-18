@@ -17,7 +17,7 @@ const xmlEscape = (value) => String(value)
 
 const latestDate = news
   .map((item) => item.data)
-  .filter((date) => /^\\d{4}-\\d{2}-\\d{2}$/.test(date || ""))
+  .filter((date) => /^\d{4}-\d{2}-\d{2}$/.test(date || ""))
   .sort()
   .at(-1);
 
@@ -28,7 +28,7 @@ entries.push([
   `    <loc>${SITE}</loc>`,
   ...(latestDate ? [`    <lastmod>${latestDate}</lastmod>`] : []),
   "  </url>",
-].join("\\n"));
+].join("\n"));
 
 for (const item of news) {
   if (typeof item.url !== "string" || !item.url.startsWith("notícias/")) {
@@ -43,7 +43,7 @@ for (const item of news) {
 
   const lines = ["  <url>", `    <loc>${xmlEscape(url)}</loc>`];
 
-  if (/^\\d{4}-\\d{2}-\\d{2}$/.test(item.data || "")) {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(item.data || "")) {
     lines.push(`    <lastmod>${item.data}</lastmod>`);
   }
 
@@ -63,7 +63,7 @@ for (const item of news) {
   }
 
   lines.push("  </url>");
-  entries.push(lines.join("\\n"));
+  entries.push(lines.join("\n"));
 }
 
 const sitemap = [
@@ -72,7 +72,7 @@ const sitemap = [
   ...entries,
   "</urlset>",
   "",
-].join("\\n");
+].join("\n");
 
 fs.writeFileSync("sitemap.xml", sitemap, "utf8");
 console.log(`sitemap.xml atualizado: página inicial + ${news.length} notícias.`);
