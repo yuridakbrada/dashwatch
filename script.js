@@ -61,7 +61,7 @@ function atualizarUltimasNoticias(listaNoticias) {
             const dataB = `${b.data || ""} ${b.hora || ""}`;
             return dataB.localeCompare(dataA);
         })
-        .slice(0, 3);
+        .slice(0, 10);
 
     lista.replaceChildren();
 
@@ -411,6 +411,7 @@ function atualizarUltimos(listaNoticias) {
 
     return dataB.localeCompare(dataA);
 })
+        .slice(0, 3);
 
     // Limpa os links anteriores
     faixa.replaceChildren();
