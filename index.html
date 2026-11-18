@@ -76,29 +76,12 @@ OneSignalDeferred.push(async function(OneSignal) {
 <div class="header-actions">
 
     <div class="search-control">
-        <button
-            id="search-toggle"
-            aria-label="Pesquisar"
-            title="Pesquisar"
-            type="button"
-        >🔍</button>
-
-<div class="search-panel" id="search-panel">
-  <div class="search-inner">
-    <div class="search-box">
-      <span class="search-icon">🔍</span>
-      <input
-        type="search"
-        id="search-input"
-        placeholder="Pesquisar notícias..."
-        autocomplete="off"
-      >
-      <button id="search-close" aria-label="Fechar pesquisa">×</button>
+        <div class="search-box">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input type="search" id="search-input" placeholder="Pesquisar notícias..." aria-label="Pesquisar notícias" autocomplete="off">
+        </div>
+        <div class="search-results" id="search-results" role="list" aria-live="polite"></div>
     </div>
-
-    <div class="search-results" id="search-results"></div>
-  </div>
-</div>
 
     <button
         id="theme-toggle"
@@ -127,7 +110,6 @@ OneSignalDeferred.push(async function(OneSignal) {
 
 </div>
 
-<div class="search-results" id="search-results"></div>
 
 
         </div>
