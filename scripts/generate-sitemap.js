@@ -1,3 +1,4 @@
+// Mantém o sitemap sincronizado com as URLs canônicas geradas pelo workflow.
 const fs = require("node:fs");
 
 const SITE = "https://dashwatch.news/";
