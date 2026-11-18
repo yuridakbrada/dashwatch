@@ -402,7 +402,7 @@
 
     <section id="manage-panel" class="panel">
       <h2>Gerenciar notícias</h2>
-      <p>Edite publicações e escolha até três notícias para a área de destaque.</p>
+      <p>Edite publicações e escolha até seis notícias para a área de destaque: uma principal e cinco secundárias.</p>
       <div id="manage-status" class="status hidden"></div>
       <div id="news-management-list"><p>Carregando notícias...</p></div>
     </section>
@@ -572,7 +572,7 @@
       edit.onclick = () => loadArticleForEditing(news);
       const featured = document.createElement("select");
       featured.setAttribute("aria-label", "Posição no destaque para " + (news.titulo || ""));
-      featured.innerHTML = '<option value="0">Sem destaque</option><option value="1">Destaque principal</option><option value="2">Destaque secundário 1</option><option value="3">Destaque secundário 2</option>';
+      featured.innerHTML = '<option value="0">Sem destaque</option><option value="1">Destaque principal</option><option value="2">Destaque secundário 1</option><option value="3">Destaque secundário 2</option><option value="4">Destaque secundário 3</option><option value="5">Destaque secundário 4</option><option value="6">Destaque secundário 5</option>';
       featured.value = String(Number(news.destaque) || 0);
       featured.onchange = async () => {
         const selected = Number(featured.value); featured.disabled = true;
