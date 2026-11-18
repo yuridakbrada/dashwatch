@@ -360,7 +360,7 @@ function applyTheme(theme) {
     document.body.classList.toggle("dark-mode", isDark);
 
     if (themeToggle) {
-        themeToggle.textContent = isDark ? "☀️" : "🌙";
+        themeToggle.innerHTML = '<img class="header-svg-icon theme-svg-icon" src="' + (isDark ? "assets/sol.svg" : "assets/lua.svg") + '" alt="" aria-hidden="true">';
         themeToggle.setAttribute(
             "aria-label",
             isDark
