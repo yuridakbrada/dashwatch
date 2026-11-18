@@ -1221,60 +1221,6 @@ body.dark-mode .main-nav a:hover {
 
 
 
-/* =========================================
-   PESQUISA FLUTUANTE
-========================================= */
-
-.search-panel {
-  display: none;
-  position: fixed;
-  top: 105px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(760px, calc(100% - 32px));
-  max-height: calc(100dvh - 125px);
-  overflow-y: auto;
-  box-sizing: border-box;
-  z-index: 1000;
-  padding: 14px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--background);
-  box-shadow: 0 12px 40px rgb(0 0 0 / 18%);
-}
-
-.search-panel.active {
-  display: block;
-}
-
-.search-panel .search-inner {
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-}
-
-.search-panel .search-box {
-  width: 100%;
-  min-width: 0;
-}
-
-.search-panel #search-input {
-  width: 100%;
-  min-width: 0;
-}
-
-.search-panel .search-results {
-  display: none;
-  margin-top: 12px;
-  border-top: 1px solid var(--border);
-}
-
-.search-panel .search-results.active {
-  display: block;
-}
-
 #search-input::-webkit-search-cancel-button {
   -webkit-appearance: none;
   appearance: none;
@@ -1388,18 +1334,6 @@ body.dark-mode .main-nav a:hover {
   .footer-bottom {
     gap: 8px;
     flex-wrap: wrap;
-  }
-
-  /* Pesquisa sobre o conteúdo, sem alargar o ecrã */
-  .search-panel {
-    top: 82px;
-    left: 12px;
-    right: 12px;
-    transform: none;
-    width: auto;
-    max-width: none;
-    max-height: calc(100dvh - 96px);
-    padding: 10px;
   }
 
   .search-result {
