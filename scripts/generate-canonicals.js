@@ -16,10 +16,10 @@ function setCanonical(filePath, canonicalUrl) {
   let html = fs.readFileSync(filePath, "utf8");
   const tag = `<link rel="canonical" href="${canonicalUrl}">`;
 
-  if (/<link\\s+rel=["']canonical["'][^>]*>/i.test(html)) {
-    html = html.replace(/<link\\s+rel=["']canonical["'][^>]*>/i, tag);
+  if (/<link\s+rel=["\']canonical["\'][^>]*>/i.test(html)) {
+    html = html.replace(/<link\s+rel=["\']canonical["\'][^>]*>/i, tag);
   } else if (/<head[^>]*>/i.test(html)) {
-    html = html.replace(/<head[^>]*>/i, (head) => `${head}\\n    ${tag}`);
+    html = html.replace(/<head[^>]*>/i, (head) => `${head}\n    ${tag}`);
   } else {
     throw new Error(`Não foi possível localizar a tag <head> em ${filePath}`);
   }
