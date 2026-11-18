@@ -77,7 +77,7 @@ OneSignalDeferred.push(async function(OneSignal) {
 
     <div class="search-control">
         <div class="search-box">
-            <span class="search-icon" aria-hidden="true">⌕</span>
+            <img class="header-svg-icon search-svg-icon" src="assets/pesquisa.svg" alt="" aria-hidden="true">
             <input type="search" id="search-input" placeholder="Pesquisar notícias..." aria-label="Pesquisar notícias" autocomplete="off">
         </div>
         <div class="search-results" id="search-results" role="list" aria-live="polite"></div>
@@ -88,25 +88,22 @@ OneSignalDeferred.push(async function(OneSignal) {
         aria-label="Alternar tema"
         title="Alternar tema"
         type="button"
-    >🌙</button>
+    ><img class="header-svg-icon theme-svg-icon" src="assets/lua.svg" alt="" aria-hidden="true"></button>
 
     <button
         id="ativar-notificacoes"
         type="button"
         aria-label="Ativar notificações"
         title="Ativar notificações"
-    >🔔</button>
+    ><img class="header-svg-icon" src="assets/sino.svg" alt="" aria-hidden="true"></button>
 
-    <button 
-        id="theme-toggle"
-        type="button"
-        aria-label="Apoia-se"
+    <a
+        id="apoia-se"
+        class="header-support-link"
+        href="https://apoia.se/dashwatch"
+        aria-label="Apoie o DashWatch"
         title="Apoia-se"
-    >
-    <a 
-    href="https://apoia.se/dashwatch"
     >💵</a>
-    </button>
 
 </div>
 
