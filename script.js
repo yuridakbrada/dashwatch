@@ -128,7 +128,7 @@ function atualizarUltimasNoticias(listaNoticias) {
 function atualizarDestaques(listaNoticias) {
     const area = document.getElementById("destaque");
     if (!area) return;
-    const noticiasEscolhidas = [1, 2, 3]
+    const noticiasEscolhidas = [1, 2, 3, 4, 5, 6]
         .map(posicao => listaNoticias.find(n => Number(n.destaque) === posicao))
         .filter(Boolean);
     area.replaceChildren();
@@ -147,7 +147,7 @@ function atualizarDestaques(listaNoticias) {
     if (noticiasEscolhidas[0]) area.appendChild(card(noticiasEscolhidas[0], true));
     if (noticiasEscolhidas.length > 1) {
         const secondary = document.createElement("div"); secondary.className = "secondary-stories";
-        noticiasEscolhidas.slice(1,3).forEach(n => secondary.appendChild(card(n, false)));
+        noticiasEscolhidas.slice(1,6).forEach(n => secondary.appendChild(card(n, false)));
         area.appendChild(secondary);
     }
 }
