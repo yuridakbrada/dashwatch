@@ -1,11 +1,12 @@
 
-const CACHE_NAME = "dashwatch-v1";
+const CACHE_NAME = "dashwatch-v2";
 
 const FILES_TO_CACHE = [
   "/",
   "/index.html",
   "/style.css",
   "/script.js",
+  "/assets/seta.svg",
   "/noticias.json",
   "/manifest.json"
 ];
