@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "dashwatch-v2";
+const CACHE_NAME = "dashwatch-v3";
 
 const FILES_TO_CACHE = [
   "/",
