@@ -566,7 +566,6 @@ document.addEventListener("keydown", event => {
 
 // =========================================
 // TUTORIAL DE TRADUÇÃO DO NAVEGADOR
-// =========================================
 (function iniciarAjudaDeTraducao() {
     const idioma = (navigator.language || navigator.userLanguage || "pt-BR").toLowerCase();
     const jaDispensou = localStorage.getItem("dashwatch-translation-dismissed") === "1";
@@ -574,20 +573,15 @@ document.addEventListener("keydown", event => {
     // O portal já está em português: não há motivo para exibir o aviso.
     if (idioma.startsWith("pt") || jaDispensou) return;
 
-    let nomeIdioma = idioma;
-    try {
-        nomeIdioma = new Intl.DisplayNames(["pt-BR"], { type: "language" }).of(idioma) || idioma;
-    } catch (_) {}
-
     const aviso = document.createElement("section");
     aviso.className = "dw-translate-prompt";
-    aviso.setAttribute("aria-label", "Ajuda para traduzir o DashWatch");
+    aviso.setAttribute("aria-label", "Translation help for DashWatch");
     aviso.innerHTML = `
-        <h2>🌐 Percebemos o seu idioma!</h2>
-        <p>Seu navegador está configurado em <strong>${nomeIdioma}</strong>. Deseja aprender a traduzir automaticamente o DashWatch?</p>
+        <h2>🌐 We noticed your browser language!</h2>
+        <p>Your browser is set to <strong>${idioma}</strong>. Would you like to learn how to automatically translate DashWatch into English?</p>
         <div class="dw-translate-actions">
-            <button class="dw-primary" type="button" data-translate-start>Ativar tradução</button>
-            <button type="button" data-translate-dismiss>Continuar em português</button>
+            <button class="dw-primary" type="button" data-translate-start>Enable translation</button>
+            <button type="button" data-translate-dismiss>Continue in Portuguese</button>
         </div>
     `;
     document.body.appendChild(aviso);
@@ -609,16 +603,16 @@ document.addEventListener("keydown", event => {
         overlay.className = "dw-translate-overlay";
         overlay.innerHTML = `
             <section class="dw-translate-dialog" role="dialog" aria-modal="true" aria-labelledby="dw-translate-title">
-                <div class="dw-translate-kicker">DashWatch · Tradução</div>
-                <h2 id="dw-translate-title">Qual navegador você utiliza?</h2>
-                <p>Escolha seu navegador para ver as instruções de tradução automática.</p>
+                <div class="dw-translate-kicker">DashWatch · Translation</div>
+                <h2 id="dw-translate-title">Which browser do you use?</h2>
+                <p>Choose your browser to see how to translate DashWatch into English.</p>
                 <div class="dw-browser-choices">
                     <button class="dw-browser-choice" type="button" data-browser="chromium">Chromium</button>
                     <button class="dw-browser-choice" type="button" data-browser="edge">Edge</button>
                     <button class="dw-browser-choice" type="button" data-browser="firefox">Firefox</button>
                 </div>
                 <div class="dw-translate-actions">
-                    <button type="button" data-translate-close>Fechar</button>
+                    <button type="button" data-translate-close>Close</button>
                 </div>
             </section>
         `;
@@ -637,32 +631,32 @@ document.addEventListener("keydown", event => {
     function mostrarTutorial(overlay, navegador) {
         const tutoriais = {
             chromium: {
-                nome: "Chromium (Chrome e similares)",
+                nome: "Chromium (Chrome and other Chromium-based browsers)",
                 passos: [
-                    "Abra o menu de três pontos do navegador.",
-                    "Selecione “Traduzir…” ou “Traduzir para português”. Em alguns navegadores, a opção também aparece ao clicar com o botão direito na página.",
-                    "Escolha português como idioma de destino.",
-                    "Se aparecer a opção, marque para sempre traduzir páginas em " + nomeIdioma + "."
+                    "Open the browser's three-dot menu.",
+                    "Select “Translate” or “Translate to English”. You may also be able to right-click the page and choose the translation option.",
+                    "Choose English as the target language.",
+                    "If available, select the option to always translate pages written in this language."
                 ],
-                nota: "A disponibilidade e o nome da opção variam entre Chrome, Chromium, Brave e outros navegadores baseados em Chromium."
+                nota: "The wording and availability of these options may vary between Chrome, Chromium, Brave and other Chromium-based browsers."
             },
             edge: {
                 nome: "Microsoft Edge",
                 passos: [
-                    "Procure o ícone de tradução na barra de endereços quando a página estiver aberta.",
-                    "Clique nele e escolha português como idioma de destino.",
-                    "Se desejar, abra as opções de tradução e escolha traduzir sempre páginas neste idioma."
+                    "Look for the translation icon in the address bar while the page is open.",
+                    "Click it and choose English as the translation language.",
+                    "If you want, open the translation options and choose to always translate pages in this language."
                 ],
-                nota: "Se o ícone não aparecer, abra Configurações → Idiomas e ative a oferta de tradução de páginas que não estejam em um idioma que você lê."
+                nota: "If the icon does not appear, open Settings → Languages and enable the option to offer translation for pages in languages you don't understand."
             },
             firefox: {
                 nome: "Mozilla Firefox",
                 passos: [
-                    "Clique no ícone de tradução na barra de endereços, quando ele aparecer.",
-                    "Escolha o idioma de origem e português como idioma de destino.",
-                    "Clique em “Traduzir” para exibir a página no idioma escolhido."
+                    "Click the translation icon in the address bar, if it appears.",
+                    "Choose the source language and English as the target language.",
+                    "Click “Translate” to display the page in English."
                 ],
-                nota: "O tradutor integrado depende da versão do Firefox e dos idiomas disponíveis. Se o ícone não aparecer, atualize o navegador e confira se a tradução de páginas está disponível."
+                nota: "Firefox's built-in translation depends on your browser version and the languages available. If the icon does not appear, update Firefox and check whether page translation is available."
             }
         };
 
@@ -671,13 +665,13 @@ document.addEventListener("keydown", event => {
 
         const passos = tutorial.passos.map(passo => "<li>" + passo + "</li>").join("");
         overlay.querySelector(".dw-translate-dialog").innerHTML = `
-            <div class="dw-translate-kicker">DashWatch · Tradução</div>
+            <div class="dw-translate-kicker">DashWatch · Translation</div>
             <h2>${tutorial.nome}</h2>
             <ol class="dw-translate-steps">${passos}</ol>
             <div class="dw-translate-note">${tutorial.nota}</div>
             <div class="dw-translate-actions">
-                <button type="button" data-translate-back>Voltar</button>
-                <button class="dw-primary" type="button" data-translate-done>Entendi</button>
+                <button type="button" data-translate-back>Back</button>
+                <button class="dw-primary" type="button" data-translate-done>Got it</button>
             </div>
         `;
 
