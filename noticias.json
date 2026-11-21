@@ -13,7 +13,8 @@
       "Drama GD",
       "Silent Hell Demon",
       "Top 250"
-    ]
+    ],
+    "destaque": 5
   },
   {
     "titulo": "Cataclysm se torna o segundo Extreme Demon a alcançar 10 mil registros aceitos na AREDL",
@@ -126,8 +127,7 @@
       "Geometry Dash",
       "Ant_Gam3R",
       "Acheron"
-    ],
-    "destaque": 5
+    ]
   },
   {
     "titulo": "DemonGacha sofre ataque DDoS e jogadores comentam o caso",
