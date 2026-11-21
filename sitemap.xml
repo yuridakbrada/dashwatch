@@ -2,7 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://dashwatch.news/</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://dashwatch.news/not%C3%ADcias/2026/11/drama-gd-verifica-silent-hell-demon.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <image:image>
+      <image:loc>https://i.ytimg.com/vi/zcE5ZyUPqvA/hqdefault.jpg</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://dashwatch.news/not%C3%ADcias/2026/11/cataclysm-se-torna-o-segundo-extreme-demon-a-alcancar-10-mil-registros-aceitos-na-aredl.html</loc>
